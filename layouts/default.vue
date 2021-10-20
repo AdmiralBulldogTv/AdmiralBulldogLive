@@ -111,11 +111,16 @@ export default {
           title: 'Subscribe',
           to: '/subscribe'
         },
+         {
+          icon: 'mdi-chart-bubble',
+          title: 'About',
+          to: '/about'
+        },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'AdmiralBulldog'
+      title: 'Welcome to AdmiralBulldogs Website'
     }
   }
 }
