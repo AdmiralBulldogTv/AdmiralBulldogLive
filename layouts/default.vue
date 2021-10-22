@@ -1,10 +1,6 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
-      v-model="drawer"
-      :mini-variant="miniVariant"
-      app
-    >
+    <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" app>
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -50,7 +46,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped"  app>
+    <v-app-bar :clipped-left="clipped" app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
@@ -60,11 +56,14 @@
       <v-spacer />
     </v-app-bar>
     <v-main fluid>
-     
-        <Nuxt />
-     
+      <Nuxt />
     </v-main>
-    <v-navigation-drawer class="drawer" v-model="rightDrawer" :right="right"  fixed>
+    <v-navigation-drawer
+      class="drawer"
+      v-model="rightDrawer"
+      :right="right"
+      fixed
+    >
       <v-list>
         <v-list-item @click.native="right = !right">
           <v-list-item-action>
@@ -86,7 +85,7 @@ export default {
     return {
       clipped: false,
       drawer: false,
-      fixed: false,
+      fixed: true,
       items: [
         {
           icon: "mdi-apps",
@@ -114,8 +113,8 @@ export default {
           to: "/about",
         },
       ],
-      miniVariant: false,
-      right: true,
+      miniVariant: true,
+      right: false,
       rightDrawer: false,
       title: "Welcome to AdmiralBulldogs Website",
     };
@@ -124,7 +123,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .drawer{
-    height:0px;
-  }
+.drawer {
+  height: 0px;
+}
 </style>

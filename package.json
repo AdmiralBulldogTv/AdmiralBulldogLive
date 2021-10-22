@@ -19,7 +19,8 @@
     "nuxt": "^2.15.7",
     "prettier": "^2.4.1",
     "vue-lazytube": "^1.0.2",
-    "vuetify": "^2.5.5"
+    "vuetify": "^2.5.5",
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.1",
