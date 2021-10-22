@@ -1,13 +1,11 @@
 <template>
-  <v-card flat>
+<v-container fluid>
+  <v-card flat >
     <v-card-text>
       <v-row class="mb-4" align="center">
         <v-avatar class="mr-4"><img  src="https://cdn.discordapp.com/emojis/814619869017407538.png?size=96" alt="admiralC"> </v-avatar>
-        <strong class="text-h3">Admiralbulldog FAQ</strong>
+        <strong class="text-h3">Admiralbulldog FAQ</strong> (Can also just be a link to the external subreddit FAQ)
         <v-spacer></v-spacer>
-        <v-btn icon>
-          <v-icon>mdi-account</v-icon>
-        </v-btn>
       </v-row>
       <p>
           AdmiralBulldog a Swedish professional DotA 2 player, and one of the most popular streamers.
@@ -56,4 +54,5 @@
     and so on
     </v-card-text>
   </v-card>
+  </v-container>
 </template>

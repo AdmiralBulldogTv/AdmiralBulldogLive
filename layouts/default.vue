@@ -13,13 +13,41 @@
           :key="i"
           :to="item.to"
           router
-          exact
+          shaped
         >
           <v-list-item-action>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item
+          router
+          shaped
+          href="https://www.designbyhumans.com/shop/AdmiralBulldog/"
+          target="_blank"
+        >
+          <v-list-item-action>
+            <v-icon>mdi-repeat</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title />Store
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item
+          router
+          shaped
+          href="http://www.twitch.tv/subs/admiralbulldog"
+          target="_blank"
+        >
+          <v-list-item-action>
+            <v-icon>mdi-repeat</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title />Subscribe
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -34,7 +62,7 @@
       <v-spacer />
     </v-app-bar>
     <v-main>
-      <v-container>
+      <v-container fluid>
         <Nuxt />
       </v-container>
     </v-main>
@@ -59,7 +87,7 @@ export default {
   data() {
     return {
       clipped: true,
-      drawer: false,
+      drawer: true,
       fixed: false,
       items: [
         {
@@ -81,16 +109,6 @@ export default {
           icon: "mdi-chart-bubble",
           title: "FAQ",
           to: "/faq",
-        },
-        {
-          icon: "mdi-chart-bubble",
-          title: "Store",
-          to: "/store",
-        },
-        {
-          icon: "mdi-chart-bubble",
-          title: "Subscribe",
-          to: "/subscribe",
         },
         {
           icon: "mdi-chart-bubble",
