@@ -1,32 +1,59 @@
 <template>
-     <v-card flat>
-            <v-card-text>
-              <v-row
-                class="mb-4"
-                align="center"
-              >
-                <v-avatar
-                  color="grey"
-                  class="mr-4"
-                ></v-avatar>
-                <strong class="text-h6">Title {{ n }}</strong>
-                <v-spacer></v-spacer>
-                <v-btn icon>
-                  <v-icon>mdi-account</v-icon>
-                </v-btn>
-              </v-row>
+  <v-card flat>
+    <v-card-text>
+      <v-row class="mb-4" align="center">
+        <v-avatar class="mr-4"><img  src="https://cdn.discordapp.com/emojis/814619869017407538.png?size=96" alt="admiralC"> </v-avatar>
+        <strong class="text-h3">Admiralbulldog FAQ</strong>
+        <v-spacer></v-spacer>
+        <v-btn icon>
+          <v-icon>mdi-account</v-icon>
+        </v-btn>
+      </v-row>
+      <p>
+          AdmiralBulldog a Swedish professional DotA 2 player, and one of the most popular streamers.
+          <ul>
+            <li><b>Name:</b> Henrik Ahnberg</li>
+            <li><b>Birth:</b> December 19, 1990</li>
+            <li><b>Job:</b> Full Time Livestreaming</li>
+            <li><b>Country:</b> Sweden</li>
+          </ul>
+      </p>
+      
+      <h2>Benefits of Subscribing</h2>
+      <h3><b>Everyone who subs gets:</b></h3>
+      <p>
+       <ul>
+            <li>Participate in weekly giveaways on discord worth around 50-150 usd</li>
+            <li>Exclusive access to the Krappa Kleb and to the subscriber-only discord.</li>
+            <li>Access to the subscriber games at the end of the stream.</li>
+            <li>Slow mode immunity and ability to talk in subscriber mode.</li>
+            <li>Priority access to fun commands in chat.</li>
+            <li> My love and approval.</li>
+          </ul>
+      </p>
 
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+     <h3><b>In addition, SUPER subscribers (9.99$) get:</b></h3>
+      <p>
+       <ul>
+            <li>Exclusive SUPER sub emote.</li>
+            <li>Ability to participate in the monthly AMA on discord.</li>
+            <li>1.5X increased winners luck on the weekly discord giveaway.</li>
+          </ul>
+      </p>
 
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </v-card-text>
-          </v-card>
+      <h3><b>Finally, MEGA subscribers (24.99$) gets all above and:</b></h3>
+      <p>
+       <ul>
+            <li> Exlusive MEGA sub emote.</li>
+            <li> 2X increased winners luck on the weekly discord giveaway.</li>
+            <li>Same high priority as mods have when it comes to joining Dota2, Quiplash, custom games or similar games.</li>
+            <ul>
+                <li>Per month, if you are around a lot you can expect to play 1-3 dota games and a decent amount of non-dota games (like custom games, jackbox, etc)</li>
+            </ul>
+            <li>Added to my steam friend list.</li>
+          </ul>
+      </p>
+    and so on
+    </v-card-text>
+  </v-card>
 </template>

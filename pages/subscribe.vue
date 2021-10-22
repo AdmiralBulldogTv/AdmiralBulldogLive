@@ -1,11 +1,50 @@
 <template>
-<v-container fluid>
-   <v-card class=" py-4 d-flex justify-center">
-    <v-row align="center"  class="full-height d-flex" justify="center" style="width:100%">
-      <iframe  style="width:98%; height:85vh" frameBorder="0" src='http://www.twitch.tv/subs/admiralbulldog'>
-        <p>Your browser does not support iframes.</p>
-      </iframe>
+  <div class="pa-md-4 mx-lg-auto">
+    <v-row justify="center" align="center">
+      <v-col cols="12" sm="8" md="6" justify-space-between>
+        <v-card
+          v-for="n in 1"
+          :key="n"
+          class="d-flex align-center justify-center"
+          height="5vh"
+          tile
+        >
+          <v-card-subtitle class="d-flex align-start flex-column"
+            ><h4>Click here to subscribe Admiralbulldog now!</h4>
+          </v-card-subtitle>
+          <v-card
+            v-for="n in 1"
+            :key="n"
+            class="d-flex align-end flex-column"
+            outlined
+            tile
+          >
+          </v-card>
+        </v-card>
+        <v-card
+          v-for="n in 1"
+          :key="n"
+          class="d-flex align-center justify-center"
+          tile
+          height="15vh"
+        >
+          <v-card
+            v-for="n in 1"
+            :key="n"
+            class="d-flex align-end flex-column"
+            outlined
+            tile
+          >
+            <Nuxtlink
+              ><v-btn
+                color="green"
+                href="http://www.twitch.tv/subs/admiralbulldog"
+                >Subscribe now!</v-btn
+              >
+            </Nuxtlink>
+          </v-card>
+        </v-card>
+      </v-col>
     </v-row>
-   </v-card>
-  </v-container>
+  </div>
 </template>

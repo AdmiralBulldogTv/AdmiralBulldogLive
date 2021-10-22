@@ -1,8 +1,8 @@
-import test from 'ava'
-import { mount } from '@vue/test-utils'
-import NuxtLogo from '~/components/Calender.vue'
+import test from "ava";
+import { mount } from "@vue/test-utils";
+import NuxtLogo from "~/components/Calender.vue";
 
-test('is a Vue instance', (t) => {
-  const wrapper = mount(NuxtLogo)
-  t.truthy(wrapper.vm)
-})
+test("is a Vue instance", (t) => {
+  const wrapper = mount(NuxtLogo);
+  t.truthy(wrapper.vm);
+});
