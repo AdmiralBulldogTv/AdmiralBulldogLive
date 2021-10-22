@@ -3,8 +3,6 @@
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
-      :clipped="clipped"
-      fixed
       app
     >
       <v-list>
@@ -52,7 +50,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar :clipped-left="clipped"  app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
@@ -61,12 +59,12 @@
       <v-toolbar-title v-text="title" />
       <v-spacer />
     </v-app-bar>
-    <v-main>
-      <v-container fluid>
+    <v-main fluid>
+     
         <Nuxt />
-      </v-container>
+     
     </v-main>
-    <v-navigation-drawer v-model="rightDrawer" :right="right" temporary fixed>
+    <v-navigation-drawer class="drawer" v-model="rightDrawer" :right="right"  fixed>
       <v-list>
         <v-list-item @click.native="right = !right">
           <v-list-item-action>
@@ -86,8 +84,8 @@
 export default {
   data() {
     return {
-      clipped: true,
-      drawer: true,
+      clipped: false,
+      drawer: false,
       fixed: false,
       items: [
         {
@@ -124,3 +122,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+  .drawer{
+    height:0px;
+  }
+</style>
