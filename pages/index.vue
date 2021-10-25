@@ -1,25 +1,26 @@
 <template>
   <v-container fluid>
-        <v-row>
-    <v-col> </v-col>
-    <v-col cols="12" sm="8" md="6" justify-space-between>
-      <v-card-title class="headline"> General Information/News </v-card-title>
-      <v-card elevation="5" outlined justify="center" align="center">
-        <v-card-text>
-          <p>
-            Sample Description about the Website, whats it is doing and what not
-          </p>
-          <p>Perhaps any news?</p>
-          <p>
-            Perhaps a schedule? Something like upcoming events (Mediashare,
-            Point rewards, Movie Night, Setup Reviews etc.)
-          </p>
-          <p>Latest AMA could be uploaded here or to a dedicated site</p>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <v-col> </v-col>
-  </v-row>
+    <v-row>
+      <v-col> </v-col>
+      <v-col cols="12" sm="8" md="6" justify-space-between>
+        <v-card-title class="headline"> General Information/News </v-card-title>
+        <v-card elevation="5" outlined justify="center" align="center">
+          <v-card-text>
+            <p>
+              Sample Description about the Website, whats it is doing and what
+              not
+            </p>
+            <p>Perhaps any news?</p>
+            <p>
+              Perhaps a schedule? Something like upcoming events (Mediashare,
+              Point rewards, Movie Night, Setup Reviews etc.)
+            </p>
+            <p>Latest AMA could be uploaded here or to a dedicated site</p>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col> </v-col>
+    </v-row>
     <v-row justify="center" align="center">
       <v-col cols="12" sm="8" md="6" justify-space-between>
         <v-card-title class="headline" justify="center" align="center">
@@ -49,7 +50,6 @@
           </v-card-text>
         </v-card>
       </v-col>
-      </v-row>
-  
+    </v-row>
   </v-container>
 </template>

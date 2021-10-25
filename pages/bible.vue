@@ -1,6 +1,6 @@
 <template>
 <v-container fluid
-    <div class="book">
+    <div class="book">        
         <div class="cover"> <img src="https://i.redd.it/msfn7qozjye51.png" alt=""></img><h1>The God Gamer Bible</h1></div>
         <div class="page"><h1>Arch is racist</h1></div>
     
@@ -33,22 +33,22 @@
     perspective: 1000px;
 }
 
-.book:hover .cover{
+.book:active .cover{
     transform: rotateX(10deg) rotateY(-180deg);
 }
 
-.book:hover .page{
+.book:active .page{
     transform: rotateX(10deg) rotateY(-180deg);
     z-index: 2;
 }
 
 .cover{
-    z-index: 1;
+    z-index: 0;
     transition:all 3s;
 }
 
 .back_cover {
-    z-index: -2;
+    z-index: -3;
 }
 
 .cover,
@@ -73,7 +73,8 @@
     border-radius: 2px 20px 20px 2px;
     transform-origin: center left;
     transform: rotateX(10deg);
-    z-index: -1;
+    transform: display inline;
+    z-index: -2;
      
 }
 
@@ -89,29 +90,20 @@
     transition-duration: 3s;
 }
 
-.page:nth-child(5){
+.book:active .page:nth-child(2) {
+    transition-duration: 4s;
+}
+
+.book:active .page:nth-child(3) {
     transition-duration: 3s;
 }
 
-.page:nth-child(6){
+.book:active .page:nth-child(2) {
+    transition-duration: 4s;
+}
+
+.book:active .page:nth-child(3) {
     transition-duration: 3s;
-}
-
-.book:hover .page:nth-child(2) {
-    transition-duration: 5.6s;
-}
-
-.book:hover .page:nth-child(3) {
-    transition-duration: 5.6s;
-}
-.book:hover .page:nth-child(4) {
-    transition-duration: 5.6s;
-}
-.book:hover .page:nth-child(5) {
-    transition-duration: 5.6s;
-}
-.book:hover .page:nth-child(6) {
-    transition-duration: 5.6s;
 }
 
 .cover img {

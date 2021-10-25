@@ -112,6 +112,11 @@ export default {
           title: "Bible",
           to: "/bible",
         },
+        {
+          icon: "mdi-chart-bubble",
+          title: "Bible v2",
+          to: "/bibleCopy",
+        },
       ],
       miniVariant: true,
       right: false,
