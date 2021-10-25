@@ -5,6 +5,7 @@
         <div class="page"><h1>Arch is racist</h1></div>
     
         <div class="last_page">
+            <h1>God Gamer commandments</h1>
            <ul>
                <li>thou shall not lie</li>
                 <li>thou shall not doubt the god gamer</li>
