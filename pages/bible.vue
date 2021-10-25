@@ -2,12 +2,8 @@
 <v-container fluid
     <div class="book">
         <div class="cover"> <img src="https://i.redd.it/msfn7qozjye51.png" alt=""></img><h1>The God Gamer Bible</h1></div>
-        <div class="page">Arch is racist</div>
-        <div class="page"></div>
-        <div class="page"></div>
-        <div class="page"></div>
-        <div class="page"></div>
-        <div class="page"></div>
+        <div class="page"><h1>Arch is racist</h1></div>
+    
         <div class="last_page">
            <ul>
                <li>thou shall not lie</li>
