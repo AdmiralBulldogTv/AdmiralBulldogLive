@@ -70,7 +70,7 @@
     width:55vh;
     background:white;
     position: absolute;
-    border-radius: 2px 10px 10px 2px;
+    border-radius: 2px 20px 20px 2px;
     transform-origin: center left;
     transform: rotateX(10deg);
     z-index: -1;
