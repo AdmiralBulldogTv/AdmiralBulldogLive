@@ -110,8 +110,8 @@ export default {
         },
         {
           icon: "mdi-chart-bubble",
-          title: "About",
-          to: "/about",
+          title: "Bible",
+          to: "/bible",
         },
       ],
       miniVariant: false,

@@ -4782,6 +4782,13 @@ flatten@^1.0.2:
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.3.tgz#c1283ac9f27b368abc1e36d1ff7b04501a30356b"
   integrity sha512-dVsPA/UwQ8+2uoFe5GHtiBMu48dWLTdsuEd7CKGlZlD78r1TTWBvDuFaFGKCo/ZfEr95Uk56vZoX86OsHkUeIg==
 
+flipbook-vue@^0.10.4:
+  version "0.10.4"
+  resolved "https://registry.yarnpkg.com/flipbook-vue/-/flipbook-vue-0.10.4.tgz#16dc65b42405adc745af72dd393e81b7e6bef1f1"
+  integrity sha512-nLHtn5W4+M8dKBrSwhjcX/jq1lDUTjWNbu7BQlA6swecHjmHWq4nE7J8ayFk4FmfgSn1BH8T3ft9ImvwIJH29A==
+  dependencies:
+    rematrix "^0.4.1"
+
 flush-write-stream@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.1.1.tgz#8dd7d873a1babc207d94ead0c2e0e44276ebf2e8"
@@ -9161,6 +9168,11 @@ remark-squeeze-paragraphs@^4.0.0:
   integrity sha512-8qRqmL9F4nuLPIgl92XUuxI3pFxize+F1H0e/W3llTk0UsjJaj01+RrirkMw7P21RKe4X6goQhYRSvNWX+70Rw==
   dependencies:
     mdast-squeeze-paragraphs "^4.0.0"
+
+rematrix@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/rematrix/-/rematrix-0.4.1.tgz#496d40b48c79dd3820bc40352b8d7bec44b32887"
+  integrity sha512-nH4OjL09zw4yhdBClK4B93kRWbHu+std7ZV6ljS2Zsgy2YrPcayL67axKLfMxoFool8mPyVY614m8SFE7sJQLw==
 
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
