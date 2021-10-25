@@ -3,22 +3,25 @@
     <v-row>
       <v-col></v-col>
       <v-col>
-        <div class="custom" v-on:click="setWidth">
-        <span class="book" id="book">         
-         <div class="cover" id="cover">  </div>
-         <Flipbook
-            class="flipbook"
-            :gloss="0"
-            :pages="pages"
-            :perspective="1000"
-            v-slot="flipbook"
-            :canZoomin="false"
-            ref="flipbook"
-            >
-             
-          </Flipbook>
-         <div class="back_cover"></div>
-          </span> 
+        <div class="custom" @click="setWidth()">
+          <span class="book" id="book">
+            <div class="cover" id="cover">
+              <Flipbook
+                class="flipbook"
+                :gloss="0.001"
+                :nPolygons="7"
+                :pages="pages"
+                :ambient="10"
+                :perspective="perspective"
+                :clickToZoom="false"
+                v-slot="flipbook"
+                :canZoomin="false"
+                ref="flipbook"
+              >
+              </Flipbook>
+            </div>
+            <div class="back_cover"></div>
+          </span>
         </div>
       </v-col>
       <v-col></v-col>
@@ -27,33 +30,22 @@
 </template>
 
 <script>
-
- function setWidth() {
-    var two = document.getElementById("book");
-    var one = document.querySelector('.bounding-box')
-     document.getElementById("book").width = one;
-  }
-
 import Flipbook from "flipbook-vue";
 export default {
- methods: {
-     setWidth: function (event) {
-         setTimeout(function(){ 
-        var two = document.getElementById("cover").offsetWidth;
-         var one = document.querySelector('.bounding-box').offsetWidth;
-         document.getElementById("cover").style.width = one+20+"px";
-         ocument.getElementById("cover").style.height = 8005+"px";            
-         }, 999);
-         
-        
-        }
-     },
+  methods: {
+    setWidth: function (event) {
+      setTimeout(function () {
+        document.getElementsByClassName("bounding-box").style.boxShadow = "2px 2px 2px white";
+      }, 999);
+    },
+  },
   components: {
     Flipbook,
   },
   data: () => {
     return {
       pageNum: null,
+      perspective: 700,
       pages: [
         null,
         "https://cdn.discordapp.com/attachments/902130515916783646/902273693982556160/unknown.png",
@@ -78,60 +70,47 @@ body {
 .flipbook {
   width: 50vw;
   height: calc(85vh - 50px - 40px);
+  
 }
-.flipbook .bounding-box {
-  box-shadow: 0 0 40px #000;
+.flipbook .bounding-box{
+  box-shadow: 2px 2px 2px 15px red !important;
 }
 
-.custom {
+.book .cover .flipbook .bounding-box{
+  box-shadow: 2px 2px 2px 15px red !important;
+}
+
+.book {
+  
+  perspective: 700px !important;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.cover {
+  z-index: 0;
+  transition: all 1.5s;
+  perspective: 1200px;
   
 }
 
-.click-to-flip:active .cover
-{ 
-    
-    height: calc(85vh - 50px - 15px);
-    width:51vw;
-}
-
-.book{
-    height:100vh;
-    width:100%;
-    display:flex;
-    align-items: center;
-    cursor: pointer;
-    justify-content: center;
-}
-
-.cover{
-    z-index: 0;
-    transition:all 1.5s;
-     
-}
-
 .back_cover {
-    z-index: -3;
+  z-index: -3;
 }
 
 .cover,
-.back_cover{
-    height: calc(85vh - 50px - 40px);
-    width: 25vw;
-    background: rgb(27, 133, 27);
-    border-radius: 2px 2px 2px 2px;
-    position: absolute;
-    box-shadow: 1px 1px 5px gray;
-    transform: rotateX(10deg);
-    transform-origin: center left;
+.back_cover {
+  padding-top: 20px;
+  height: 100vh;
+  width: 50vw;
+  background: rgb(0, 0, 0);
+  border-radius: 2px 2px 2px 2px;
+  position: absolute;
+  transform: rotateX(10deg);
+  transform-origin: center left;
 }
-
-
-.cover img {
-    width:150px;
-    display:block;
-    border-radius: 50%;
-    margin: 20px auto;
-    position: relative;
-}
-
 </style>
