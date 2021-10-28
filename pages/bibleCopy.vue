@@ -44,12 +44,13 @@ export default {
   },
   data: () => {
     return {
+
       pageNum: null,
       perspective: 700,
       pages: [
         null,
-        "https://cdn.discordapp.com/attachments/902130515916783646/902273693982556160/unknown.png",
-        "https://media.istockphoto.com/photos/the-book-of-genesis-01-picture-id115866619?k=20&m=115866619&s=612x612&w=0&h=al9xBHQZOCujcYesfC9SkMRREgBUxXfLKcWuopwFkWg=",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903231294505369660/unknown.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903238330622279760/unknown.png",
         "https://i.redd.it/msfn7qozjye51.png",
         "https://sm.ign.com/t/ign_ap/screenshot/default/69006_vtyq.1200.jpg",
         "https://dmarket.com/blog/dota2-ranks/62106_hu00f58b95d5cc19d972e728ce635b22ce_303640_675x0_resize_q75_lanczos.jpg",
