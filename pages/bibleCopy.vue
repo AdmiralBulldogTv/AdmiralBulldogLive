@@ -50,11 +50,11 @@ export default {
       pages: [
         null,
         "https://cdn.discordapp.com/attachments/594922024946892831/903231294505369660/unknown.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903241427788644412/blank_1.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/903238330622279760/unknown.png",
-        "https://i.redd.it/msfn7qozjye51.png",
-        "https://sm.ign.com/t/ign_ap/screenshot/default/69006_vtyq.1200.jpg",
-        "https://dmarket.com/blog/dota2-ranks/62106_hu00f58b95d5cc19d972e728ce635b22ce_303640_675x0_resize_q75_lanczos.jpg",
-        "https://dmarket.com/blog/dota2-ranks/62106_hu00f58b95d5cc19d972e728ce635b22ce_303640_675x0_resize_q75_lanczos.jpg",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903241427788644412/blank_1.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903241428375846932/blank_2.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903242033471291402/backcover.png",
       ],
     };
   },
