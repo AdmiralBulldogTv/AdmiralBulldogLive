@@ -50,10 +50,10 @@ export default {
       pages: [
         null,
         "https://cdn.discordapp.com/attachments/594922024946892831/903231294505369660/unknown.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/903241427788644412/blank_1.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/903238330622279760/unknown.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/903241427788644412/blank_1.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/903241428375846932/blank_2.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903316745144639538/blank_1.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903316750949572658/page_text_1.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903316745144639538/blank_1.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903316748932087858/blank_2.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/903242033471291402/backcover.png",
       ],
     };
