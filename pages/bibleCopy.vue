@@ -50,7 +50,7 @@ export default {
       pages: [
         null,
         "https://cdn.discordapp.com/attachments/594922024946892831/903231294505369660/unknown.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/903316745144639538/blank_1.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/904833289586618428/unknown.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/903720781207461911/page_text_1.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/903316745144639538/blank_1.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/903720781366853632/page_text_1_2.png",        
