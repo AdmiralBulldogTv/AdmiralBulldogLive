@@ -12,7 +12,7 @@
                 class="flipbook"
                 :gloss="0.001"
                 :pages="pages"
-                :ambient="0.2"                
+                :ambient="0.2"              
                 :clickToZoom="false"
                 v-slot="flipbook"
                 ref="flipbook"
