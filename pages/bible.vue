@@ -49,14 +49,14 @@ export default {
 
       pages: [
         null,
-        "https://cdn.discordapp.com/attachments/594922024946892831/903231294505369660/unknown.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/903316745144639538/blank_1.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/904834751066673273/test_angel.png",
-        "https://media.discordapp.net/attachments/594922024946892831/904833289586618428/unknown.png?width=449&height=676",
-        "https://cdn.discordapp.com/attachments/594922024946892831/903720781366853632/page_text_1_2.png",        
-        "https://cdn.discordapp.com/attachments/594922024946892831/903316745144639538/blank_1.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/903316748932087858/blank_2.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/903242033471291402/backcover.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718173900562472/FRONT_COVER_CHNG.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718180498186261/LEFT_PAGE.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718182880550912/RIGHT_PAGE_1.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718180498186261/LEFT_PAGE.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718183518093353/RIGHT_PAGE_2.png",        
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718180498186261/LEFT_PAGE.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718181353832468/RIGHT_PAGE.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718163091845141/BACK_COVER.png",
       ],
     };
   },
