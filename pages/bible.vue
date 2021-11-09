@@ -49,14 +49,14 @@ export default {
 
       pages: [
         null,
-        "https://imgur.com/ZeK0wfz",
-        "https://imgur.com/z9YahDr",
-        "https://imgur.com/8mpJ6LW",
-        "https://imgur.com/z9YahDr",
-        "https://imgur.com/N9QBWw1",        
-        "https://imgur.com/z9YahDr",
-        "https://imgur.com/zkgomnC",
-        "https://imgur.com/KE8k6QO",
+        "https://i.imgur.com/ZeK0wfz.png",
+        "https://i.imgur.com/z9YahDr.png",
+        "https://i.imgur.com/8mpJ6LW.png",
+        "https://i.imgur.com/z9YahDr.png",
+        "https://i.imgur.com/N9QBWw1.png",        
+        "https://i.imgur.com/z9YahDr.png",
+        "https://i.imgur.com/zkgomnC.png",
+        "https://i.imgur.com/KE8k6QO.png",
       ],
     };
   },
