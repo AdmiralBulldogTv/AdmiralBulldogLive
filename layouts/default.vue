@@ -84,8 +84,8 @@ export default {
   data() {
     return {
       clipped: false,
-      drawer: false,
-      fixed: true,
+      drawer: true,
+      fixed: false,
       items: [
         {
           icon: "mdi-apps",
@@ -112,13 +112,8 @@ export default {
           title: "Bible",
           to: "/bible",
         },
-        {
-          icon: "mdi-chart-bubble",
-          title: "Bible v2",
-          to: "/bibleCopy",
-        },
       ],
-      miniVariant: true,
+      miniVariant: false,
       right: false,
       rightDrawer: false,
       title: "Welcome to AdmiralBulldogs Website",

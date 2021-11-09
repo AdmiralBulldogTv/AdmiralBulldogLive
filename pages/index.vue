@@ -37,14 +37,16 @@
         <v-card-title class="headline" justify="center" align="center">
           Latest YouTube Video
         </v-card-title>
-        <v-card elevation="7" outlined justify="center" align="center">
+        <v-card elevation="7" outlined justify="center" align="center" id="ID_Youtube">
           <v-card-text>
-            <iframe
-              width="600"
-              height="500"
+            <iframe  v-for="(item, i) in videos"
+              :key="i"
+              :to="4"
+              width="300"
+              height="200"
               allowfullscreen
               frameborder="0"
-              src="https://www.youtube.com/embed/watch?v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=1"
+              :src="item.src"
             >
             </iframe>
           </v-card-text>
@@ -53,3 +55,28 @@
     </v-row>
   </v-container>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+export default Vue.extend({
+  data() {
+    el: '#ID_Youtube'
+    return {
+      videos: [
+        {
+          src:"https://www.youtube.com/embed/watch?v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=1"
+        },
+        {
+          src:"https://www.youtube.com/embed/watch?v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=2"
+        },
+        {
+          src:"https://www.youtube.com/embed/watch?v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=3"
+        },
+        {
+          src:"https://www.youtube.com/embed/watch?v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=4"
+        },
+      ]
+    }
+  }
+})
+</script>

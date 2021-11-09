@@ -1,11 +1,13 @@
 <template>
   <v-carousel hide-delimiters>
-    <v-carousel-item fluid>
+    <v-carousel-item >
       <a
+        width:100%
+        height:100%
         class="twitter-timeline"
         href="https://twitter.com/AdmiralBulldog"
         data-tweet-limit="1"
-        data-theme="light"
+        data-theme="dark"
       ></a>
       <script
         async

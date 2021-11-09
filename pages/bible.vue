@@ -1,122 +1,114 @@
 <template>
-<v-container fluid
-    <div class="book">        
-        <div class="cover"> <img src="https://i.redd.it/msfn7qozjye51.png" alt=""></img><h1>The God Gamer Bible</h1></div>
-        <div class="page"><h1>Arch is racist</h1></div>
-    
-        <div class="last_page">
-            <h1>God Gamer commandments</h1>
-           <ul>
-               <li>thou shall not lie</li>
-                <li>thou shall not doubt the god gamer</li>
-           </ul>
+  <v-container fluid>
+    <v-row>
+      <v-col></v-col>
+      <v-col>
+        <div class="custom" @click="setWidth()">
+          <span class="book" id="book">
+            
+            <div class="cover" id="cover">
+              <client-only>
+              <Flipbook
+                class="flipbook"
+                :gloss="0.001"
+                :pages="pages"
+                :ambient="0.2"                
+                :clickToZoom="false"
+                v-slot="flipbook"
+                ref="flipbook"
+              >
+               <button @click="flipbook.flipLeft">Previous Page</button>
+                <button @click="flipbook.flipRight">Next Page</button>
+              </Flipbook>
+              </client-only>
+            </div>
+            <div class="back_cover">ALLO</div>
+          </span>
         </div>
-        <div class="back_cover"></div>
-    </div> 
-</v-container>
+      </v-col>
+      <v-col></v-col>
+    </v-row>
+  </v-container>
 </template>
 
-<style lang="scss" scoped >
+<script>
+import Flipbook from "flipbook-vue";
+export default {
+  methods: {
+    setWidth: function (event) {
+      setTimeout(function () {
+        document.getElementsByClassName("bounding-box").style.boxShadow = "2px 2px 2px white";
+      }, 999);
+    },
+  },
+  components: {
+    Flipbook,
+  },
+  data: () => {
+    return {
 
-*{
-    margin:0px;
-    padding:0px;
-    font-family: sans-serif;    
+      pages: [
+        null,
+        "https://cdn.discordapp.com/attachments/594922024946892831/903231294505369660/unknown.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903316745144639538/blank_1.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/904834751066673273/test_angel.png",
+        "https://media.discordapp.net/attachments/594922024946892831/904833289586618428/unknown.png?width=449&height=676",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903720781366853632/page_text_1_2.png",        
+        "https://cdn.discordapp.com/attachments/594922024946892831/903316745144639538/blank_1.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903316748932087858/blank_2.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/903242033471291402/backcover.png",
+      ],
+    };
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+html,
+body {
+  margin: 5;
+  padding: 5;
 }
 
-.book{
-    height:100vh;
-    display:flex;
-    align-items: center;
-    cursor: pointer;
-    justify-content: center;
-    perspective: 1000px;
+.flipbook {  
+  width: 50vw;
+  height: calc(85vh - 50px - 40px);
+  
+}
+.flipbook .bounding-box{
+  box-shadow: 2px 2px 2px 15px red !important;
 }
 
-.book:active .cover{
-    transform: rotateX(10deg) rotateY(-180deg);
+
+
+.book {
+  perspective: 700px !important;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.book:active .page{
-    transform: rotateX(10deg) rotateY(-180deg);
-    z-index: 2;
-}
-
-.cover{
-    z-index: 0;
-    transition:all 3s;
+.cover {
+  transition: all 1.5s;
+  perspective: 700px;
 }
 
 .back_cover {
-    z-index: -3;
+  z-index: -3;
+  opacity: 0;
+  background: rgb(0, 0, 0);
 }
 
 .cover,
-.back_cover{
-    height:55vh;
-    width:55vh;
-    background: #323232;
-    border-radius: 2px 20px 20px 2px;
-    position: absolute;
-    box-shadow: 1px 1px 5px gray;
-    transform: rotateX(10deg);
-    transform-origin: center left;
-}
-
-.page,
-.last_page {
-    color:black;
-     height:55vh;
-    width:55vh;
-    background:white;
-    position: absolute;
-    border-radius: 2px 20px 20px 2px;
-    transform-origin: center left;
-    transform: rotateX(10deg);
-    transform: display inline;
-    z-index: -2;
-     
-}
-
-.page:nth-child(2){
-    transition-duration: 3s;
-}
-
-.page:nth-child(3){
-    transition-duration: 3s;
-}
-
-.page:nth-child(4){
-    transition-duration: 3s;
-}
-
-.book:active .page:nth-child(2) {
-    transition-duration: 4s;
-}
-
-.book:active .page:nth-child(3) {
-    transition-duration: 3s;
-}
-
-.book:active .page:nth-child(2) {
-    transition-duration: 4s;
-}
-
-.book:active .page:nth-child(3) {
-    transition-duration: 3s;
-}
-
-.cover img {
-    width:150px;
-    display:block;
-    border-radius: 50%;
-    margin: 20px auto;
-    position: relative;
-}
-
-.cover h1 {
-    text-align:center;
-    font-size: 32px;
-    color:black;
+.back_cover {
+  padding-top: 20px;
+  height: 100vh;
+  width: 50vw;
+  border-radius: 2px 2px 2px 2px;
+  position: absolute;
+  transform: rotateX(10deg);
+  transform-origin: center left;
 }
 </style>
