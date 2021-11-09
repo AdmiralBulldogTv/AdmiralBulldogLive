@@ -49,14 +49,14 @@ export default {
 
       pages: [
         null,
-        "https://i.imgur.com/ZeK0wfz.png",
-        "https://i.imgur.com/z9YahDr.png",
-        "https://i.imgur.com/8mpJ6LW.png",
-        "https://i.imgur.com/z9YahDr.png",
-        "https://i.imgur.com/N9QBWw1.png",        
-        "https://i.imgur.com/z9YahDr.png",
-        "https://i.imgur.com/zkgomnC.png",
-        "https://i.imgur.com/KE8k6QO.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718173900562472/FRONT_COVER_CHNG.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718180498186261/LEFT_PAGE.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718182880550912/RIGHT_PAGE_1.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718180498186261/LEFT_PAGE.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718183518093353/RIGHT_PAGE_2.png",        
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718180498186261/LEFT_PAGE.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718181353832468/RIGHT_PAGE.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907718163091845141/BACK_COVER.png",
       ],
     };
   },
