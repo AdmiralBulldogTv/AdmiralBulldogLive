@@ -22,7 +22,7 @@
                   <button @click="flipbook.flipLeft">Previous Page</button>
                   <button @click="flipbook.flipRight">Next Page</button>
                   <div>
-                   | {{ flipbook.ambient}} |
+                   | {{ flipbook.nPolygons}} |
                   </div>
                 </Flipbook>
             </div>
