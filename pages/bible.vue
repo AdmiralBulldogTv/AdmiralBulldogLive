@@ -1,14 +1,13 @@
 <template>
   <client-only>
-  <v-container fluid>
-    <v-row>
-      <v-col></v-col>
-      <v-col>
-        <div class="custom" @click="setWidth()">
-          <span class="book" id="book">
-            <div class="cover" id="cover">
-               <Flipbook
-                  
+    <v-container fluid>
+      <v-row>
+        <v-col></v-col>
+        <v-col>
+          <div class="custom" @click="setWidth()">
+            <span class="book" id="book">
+              <div class="cover" id="cover">
+                <Flipbook
                   id="ID_Flipbook"
                   class="flipbook"
                   :gloss="0.001"
@@ -21,19 +20,17 @@
                 >
                   <button @click="flipbook.flipLeft">Previous Page</button>
                   <button @click="flipbook.flipRight">Next Page</button>
-                  <div>
-                   | {{ flipbook.nPolygons}} |
-                  </div>
+                  <div>| {{ flipbook.nPolygons }} |</div>
                 </Flipbook>
-            </div>
-             
-            <div class="back_cover"></div>
-          </span>
-        </div>
-      </v-col>
-      <v-col></v-col>
-    </v-row>
-  </v-container>
+              </div>
+
+              <div class="back_cover"></div>
+            </span>
+          </div>
+        </v-col>
+        <v-col></v-col>
+      </v-row>
+    </v-container>
   </client-only>
 </template>
 
@@ -43,7 +40,7 @@ export default {
   methods: {
     setWidth: function (event) {
       setTimeout(function () {
-       // document.getElementsByClassName("bounding-box").style.boxShadow  = "2px 2px 2px white";
+        // document.getElementsByClassName("bounding-box").style.boxShadow  = "2px 2px 2px white";
       }, 999);
     },
   },
