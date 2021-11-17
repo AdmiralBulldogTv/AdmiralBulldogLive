@@ -40,7 +40,17 @@
           </v-card-text>
         </v-card>
       </v-col>
-    </v-row>        
+    </v-row>     
+    <v-row>
+      <v-col v-for="(items, i) in socials"
+        :key="i"
+        :to="5"
+        > <v-card style="height:11rem"><v-row> <v-col></v-col><v-col><v-icon size="125" color="#0b6636" class="icons">{{items.icon}}</v-icon></v-col><v-col></v-col>
+        
+        </v-row>
+        </v-card>
+      </v-col>
+    </v-row>   
   </v-container>
 
   
@@ -66,6 +76,28 @@ export default Vue.extend({
           src: "https://www.youtube.com/embed/watch?v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=4",
         },
       ],
+       socials: [
+        {
+          name: "Facebook",
+          url: "https://www.facebook.com/AdmiralBulldog",
+          icon: "mdi-facebook",
+        },
+          {
+          name: "Instagram",
+          url: "https://www.instagram.com/theadmiralbulldog",
+          icon: "mdi-instagram",
+        },
+          {
+          name: "Reddit",
+          url: "https://www.reddit.com/AdmiralBulldog",
+          icon: "mdi-reddit",
+        },
+          {
+          name: "Discord",
+          url: "https://discord.com/invite/wnPsCUm",
+          icon: "mdi-discord",
+        },
+      ],
     };
   },
 });
@@ -77,6 +109,13 @@ export default Vue.extend({
     margin:2%;
   }
  .videobox:hover {
-    box-shadow: 0px 0px 15px 5px rgba(58,255,34,0.55);
+    box-shadow: 0px 0px 15px 5px #0b6636;
  }
+
+ .icons
+ {
+   position: relative;
+   align-items: center;
+ }
+
 </style>

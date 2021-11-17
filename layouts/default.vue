@@ -24,7 +24,7 @@
           target="_blank"
         >
           <v-list-item-action>
-            <v-icon>mdi-repeat</v-icon>
+            <v-icon>mdi-cart</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title />Store
@@ -38,7 +38,7 @@
           target="_blank"
         >
           <v-list-item-action>
-            <v-icon>mdi-repeat</v-icon>
+            <v-icon>mdi-twitch</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title />Subscribe
@@ -88,27 +88,27 @@ export default {
       fixed: false,
       items: [
         {
-          icon: "mdi-apps",
+          icon: "mdi-home",
           title: "News",
           to: "/",
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "mdi-video",
           title: "Vods",
           to: "/vods",
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "mdi-chat",
           title: "Chat Bot",
           to: "/chatbot",
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "mdi-frequently-asked-questions",
           title: "FAQ",
           to: "/faq",
         },
         {
-          icon: "mdi-chart-bubble",
+          icon: "mdi-book-cross",
           title: "Bible",
           to: "/bible",
         },
