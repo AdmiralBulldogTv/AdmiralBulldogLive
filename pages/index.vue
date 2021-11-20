@@ -62,10 +62,12 @@
         <v-card style="height: 11rem"
           ><v-row>
             <v-col></v-col
-            ><v-col
-              ><v-icon size="125" color="#0b6636" class="icons">{{
-                items.icon
-              }}</v-icon></v-col
+            ><v-col>
+              <a :href="items.url" target="_blank">
+                <v-icon size="125" color="#0b6636" class="icons">{{
+                  items.icon
+                }}</v-icon>
+              </a> </v-col
             ><v-col></v-col>
           </v-row>
         </v-card>
@@ -107,7 +109,7 @@ export default Vue.extend({
         },
         {
           name: "Reddit",
-          url: "https://www.reddit.com/AdmiralBulldog",
+          url: "https://www.reddit.com/r/AdmiralBulldog",
           icon: "mdi-reddit",
         },
         {
@@ -132,5 +134,10 @@ export default Vue.extend({
 .icons {
   position: relative;
   align-items: center;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
 }
 </style>

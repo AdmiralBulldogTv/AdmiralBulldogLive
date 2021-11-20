@@ -10,7 +10,7 @@
           shaped
         >
           <v-list-item-action>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon color="#0b6636">{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
@@ -24,10 +24,10 @@
           target="_blank"
         >
           <v-list-item-action>
-            <v-icon>mdi-cart</v-icon>
+            <v-icon color="#0b6636">mdi-cart</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title />Store
+            <v-list-item-title /> <span style="color: #839041">Store</span>
           </v-list-item-content>
         </v-list-item>
 
@@ -38,10 +38,10 @@
           target="_blank"
         >
           <v-list-item-action>
-            <v-icon>mdi-twitch</v-icon>
+            <v-icon color="#0b6636">mdi-twitch</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title />Subscribe
+            <v-list-item-title /><span style="color: #839041">Subscribe</span>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -49,10 +49,12 @@
     <v-app-bar :clipped-left="clipped" app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
+        <v-icon color="#0b6636"
+          >mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon
+        >
       </v-btn>
 
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer />
     </v-app-bar>
     <v-main fluid>
