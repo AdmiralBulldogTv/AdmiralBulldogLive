@@ -54,7 +54,7 @@ export default {
         "https://cdn.discordapp.com/attachments/594922024946892831/907718173900562472/FRONT_COVER_CHNG.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/911235300498493481/LEFT_PAGE_GOD.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/910626482823503923/PAGE_1.png",
-         "https://cdn.discordapp.com/attachments/594922024946892831/907729651047206912/LEFT_PAGE_2.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/907729651047206912/LEFT_PAGE_2.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/910626484782243840/PAGE_2.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/907729654729809920/LEFT_PAGE_3.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/910626488263520276/PAGE_3.png",

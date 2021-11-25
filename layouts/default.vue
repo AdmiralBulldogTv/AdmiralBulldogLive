@@ -53,8 +53,9 @@
           >mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon
         >
       </v-btn>
-
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <div v-for="bdog in bulldogTwitch" :key="bdog.streamID" id="title">
+        Welcome to AdmiralBulldogs Website --  is live? {{bdog.is_live}}
+        </div>
       <v-spacer />
     </v-app-bar>
     <v-main fluid>
@@ -85,6 +86,7 @@
 export default {
   data() {
     return {
+      bulldogTwitch: [],
       clipped: false,
       drawer: true,
       fixed: false,
@@ -93,6 +95,11 @@ export default {
           icon: "mdi-home",
           title: "News",
           to: "/",
+        },
+        {
+          icon: "mdi-video-account",
+          title: "Stream",
+          to: "/stream",
         },
         {
           icon: "mdi-video",
@@ -121,8 +128,48 @@ export default {
       title: "Welcome to AdmiralBulldogs Website",
     };
   },
+  methods: {
+    getBulldogStream: function () {
+      let fetchLink =
+        "https://api.twitch.tv/helix/search/channels?query=admiralbulldog";
+
+      //OAuth code - dfz3ofcbft40waeffhlico97eks25a
+      //OAuth Code2 - nlkookh5txhogq5bdgs9zshxmhs3ej
+      fetch(fetchLink, {
+        method: "get",
+        headers: new Headers({
+          Authorization: "Bearer nlkookh5txhogq5bdgs9zshxmhs3ej",
+          "Client-ID": "pe8j3m8aepe7wa1n4qvba6jvvatfzi",
+        }),
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+
+          let bulldogStream = [];
+          bulldogStream.push({
+            streamID: data.data[0].id,
+            display_name: data.data[0].display_name,
+            is_live: data.data[0].is_live,
+            thumbnail_url: data.data[0].thumbnail_url
+              .replace("{width}", "213")
+              .replace("{height}", "285"),
+            started_at: data.data[0].started_at,
+          });
+
+          this.bulldogTwitch = bulldogStream;
+        });
+    },
+  },
+  mounted() {
+    this.getBulldogStream();
+  },
 };
 </script>
+
+
 
 <style lang="scss" scoped>
 .drawer {
