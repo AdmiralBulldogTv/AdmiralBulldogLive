@@ -1,11 +1,18 @@
 <template>
   <v-container fluid>
-    <v-row>
-      <v-card  v-for="bdog in bulldogSchedule" :key="bdog.broadcaster_id" 
+    <v-row >
+      <span v-for="bdog in bulldogStream" :key="bdog.broadcaster_id" style="width:100%;"> 
+      <v-card v-if="bdog.segment_title && !bdog.vacation_start" style="background-color:#0b6636"
           elevation="4"
           justify="center"
-          align="center"> <span v-if="bdog.vacation"> No stream today :-( </span>
+          align="center">  {{bdog.segment_title}} today! 
       </v-card>
+       <v-card v-else style="background-color:#c81208"
+          elevation="4"
+          justify="center"
+          align="center">  No Stream Today. Budok is doing your mum! 
+      </v-card>
+      </span>
     </v-row>
     <v-row justify="center" align="center">
       <v-col cols="12" sm="8" md="6" justify-space-between>
@@ -66,16 +73,23 @@
     </v-row>
     <v-row>
       <v-col v-for="(items, i) in socials" :key="i" :to="5">
-        <v-card style="height: 11rem"
+        <v-card style="height: 10rem"
           ><v-row>
             <v-col></v-col
-            ><v-col>
+            ><v-col v-if="items.name!='Discord'">
               <a :href="items.url" target="_blank">
-                <v-icon size="125" color="#0b6636" class="icons">{{
+                <v-icon size="125" color="#0b6636"  class="icons">{{
                   items.icon
                 }}</v-icon>
-              </a> </v-col
-            ><v-col></v-col>
+              </a> </v-col>
+              <v-col v-else>
+            <a :href="items.url" target="_blank">
+                <v-icon size="125" color="#0b6636"  class="discord_icon">{{
+                  items.icon
+                }}</v-icon>
+              </a> 
+                </v-col>
+            <v-col></v-col>
           </v-row>
         </v-card>
       </v-col>
@@ -91,7 +105,7 @@ export default Vue.extend({
   data() {
     el: "#ID_Youtube";
     return {
-      bulldogSchedule: [],
+      bulldogStream: [],
       videos: [
         {
           src: "https://www.youtube.com/embed/watch?v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=1",
@@ -150,13 +164,25 @@ export default Vue.extend({
           console.log(data);
         
           let bulldogSchedule = [];
-          bulldogSchedule.push({
-            broadcaster_id: data.data.broadcaster_id,
-            broadcaster_name: data.data.broadcaster_name,     
-            vacation: data.data.vacation.start_time,     
+          if (data.data.vacation !== null)
+          {
+             bulldogSchedule.push({
+              broadcaster_id: data.data.broadcaster_id,
+              broadcaster_name: data.data.broadcaster_name,     
+              vacation_start : data.data.vacation.start_time, 
+              vacation_end : data.data.vacation.start_time,      
           });
-            console.log(bulldogSchedule);
-          this.bulldogSchedule = bulldogSchedule;
+          }
+          else
+          {
+             bulldogSchedule.push({
+              broadcaster_id: data.data.broadcaster_id,
+              broadcaster_name: data.data.broadcaster_name,   
+              segment_title : data.data.segments[0].title,    
+          });
+          }
+          console.log(bulldogSchedule.segment_title)
+          this.bulldogStream = bulldogSchedule;
         });
     },
    },
@@ -174,11 +200,21 @@ export default Vue.extend({
   box-shadow: 0px 0px 15px 5px #0b6636;
 }
 
-.icons {
+.icons .discord_icon {
   position: relative;
   align-items: center;
   margin-left:1rem;
   margin-top:0.5rem
+}
+
+.icons:hover {
+  box-shadow: 0px 0px 15px 5px #0b6636;
+  border-radius: 75px 75px 75px 75px;
+}
+
+.discord_icon:hover {
+   box-shadow: 0px 0px 15px 5px #0b6636;
+   border-radius: 15px 15px 15px 15px;
 }
 
 a {
