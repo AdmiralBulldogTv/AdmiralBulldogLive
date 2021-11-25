@@ -1,5 +1,12 @@
 <template>
   <v-container fluid>
+    <v-row>
+      <v-card  v-for="bdog in bulldogSchedule" :key="bdog.broadcaster_id" 
+          elevation="4"
+          justify="center"
+          align="center"> <span v-if="bdog.vacation"> No stream today :-( </span>
+      </v-card>
+    </v-row>
     <v-row justify="center" align="center">
       <v-col cols="12" sm="8" md="6" justify-space-between>
         <v-card-title class="headline" justify="center" align="center">
@@ -76,12 +83,15 @@
   </v-container>
 </template>
 
-<script lang="ts">
+
+
+<script>
 import Vue from "vue";
 export default Vue.extend({
   data() {
     el: "#ID_Youtube";
     return {
+      bulldogSchedule: [],
       videos: [
         {
           src: "https://www.youtube.com/embed/watch?v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=1",
@@ -120,6 +130,39 @@ export default Vue.extend({
       ],
     };
   },
+   methods: {
+    fetchSchedule: function () {
+      // 30816637 budok broadcaster_id
+      let fetchLink =
+        "https://api.twitch.tv/helix/schedule?broadcaster_id=30816637";
+
+      fetch(fetchLink, {
+        method: "get",
+        headers: new Headers({
+          Authorization: "Bearer nlkookh5txhogq5bdgs9zshxmhs3ej",
+          "Client-ID": "pe8j3m8aepe7wa1n4qvba6jvvatfzi",
+        }),
+      })
+        .then(function (response) {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+        
+          let bulldogSchedule = [];
+          bulldogSchedule.push({
+            broadcaster_id: data.data.broadcaster_id,
+            broadcaster_name: data.data.broadcaster_name,     
+            vacation: data.data.vacation.start_time,     
+          });
+            console.log(bulldogSchedule);
+          this.bulldogSchedule = bulldogSchedule;
+        });
+    },
+   },
+    mounted() {
+    this.fetchSchedule();
+  },
 });
 </script>
 
@@ -134,6 +177,8 @@ export default Vue.extend({
 .icons {
   position: relative;
   align-items: center;
+  margin-left:1rem;
+  margin-top:0.5rem
 }
 
 a {

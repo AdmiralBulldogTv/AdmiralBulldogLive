@@ -16,11 +16,10 @@
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </v-list-item>
-
         <v-list-item
           router
           shaped
-          href="https://www.designbyhumans.com/shop/AdmiralBulldog/"
+          href="https://www.designbyhumans.com/shop/AdmiralBulldog/new/"
           target="_blank"
         >
           <v-list-item-action>
@@ -53,9 +52,32 @@
           >mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon
         >
       </v-btn>
-      <div v-for="bdog in bulldogTwitch" :key="bdog.streamID" id="title">
-        Welcome to AdmiralBulldogs Website --  is live? {{bdog.is_live}}
-        </div>
+
+      <div style="width:100%;" v-for="bdog in bulldogTwitch" :key="bdog.streamID" id="title">
+        <span style="float:left;margin-top:13px">Welcome to {{ bdog.display_name }}'s Website </span>
+        <span style="float:right" v-if="bdog.is_live"
+          >{{ bdog.display_name }} is currently
+          <a href="https://www.twitch.tv/admiralbulldog" target="_blank"
+            >live</a
+          >
+            <v-avatar
+            color="grey"
+            tile
+          >
+            <img src="../static/emotes/BdOkayChamp.png" />
+          </v-avatar>
+        </span>
+        <span style="float:right" v-else
+          >{{ bdog.display_name }}'s stream is currently offline
+           <v-avatar
+            color="grey"
+            tile
+          >
+            <img src="../static/emotes/NotOkayChamp.png"/>
+          </v-avatar>
+          
+          </span>
+      </div>
       <v-spacer />
     </v-app-bar>
     <v-main fluid>
@@ -93,7 +115,7 @@ export default {
       items: [
         {
           icon: "mdi-home",
-          title: "News",
+          title: "Home",
           to: "/",
         },
         {
@@ -133,8 +155,6 @@ export default {
       let fetchLink =
         "https://api.twitch.tv/helix/search/channels?query=admiralbulldog";
 
-      //OAuth code - dfz3ofcbft40waeffhlico97eks25a
-      //OAuth Code2 - nlkookh5txhogq5bdgs9zshxmhs3ej
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
@@ -146,7 +166,7 @@ export default {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
+     //     console.log(data);
 
           let bulldogStream = [];
           bulldogStream.push({
@@ -168,8 +188,6 @@ export default {
   },
 };
 </script>
-
-
 
 <style lang="scss" scoped>
 .drawer {

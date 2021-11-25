@@ -1,32 +1,41 @@
 <template>
-<v-container-fluid >
-   <div d-flex flex-row style="height:100%" >
-    <v-card  class="d-flex justify-end  mb-6" style="height:100%"
-    outlined
-    tile >
-          <!-- <div v-for="bdog in bulldogTwitch" :key="bdog.streamID">
+  <v-container-fluid>
+    <div d-flex flex-row style="height: 100%">
+      <v-card
+        class="d-flex justify-end mb-6"
+        style="height: 100%"
+        outlined
+        tile
+      >
+        <!-- <div v-for="bdog in bulldogTwitch" :key="bdog.streamID">
             <img :src="bdog.thumbnail_url" alt="" />
           </div> -->
-           <iframe class="pa-2"  frameborder="0"
-            src="https://player.twitch.tv/?channel=admiralbulldog&parent=wintersuntestv1.vercel.app&muted=true"
-            height="100%"
-            width="100%"
-            allowfullscreen="true">
+        <iframe
+          class="pa-2"
+          frameborder="0"
+          src="https://player.twitch.tv/?channel=admiralbulldog&parent=wintersuntestv1.vercel.app&parent=localhost&muted=true"
+          height="100%"
+          width="100%"
+          allowfullscreen="true"
+        >
         </iframe>
-      
-        <iframe  frameborder="0" style="max-width:400px"   class="pa-2"  src="https://www.twitch.tv/embed/admiralbulldog/chat?parent=wintersuntestv1.vercel.app"
-        height="100%"
-        width="100%">
-        </iframe>     
-    </v-card>
-   </div> 
-   </v-container-fluid>
+
+        <iframe
+          frameborder="0"
+          style="max-width: 400px"
+          src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost"
+          height="100%"
+          width="100%"
+        >
+        </iframe>
+      </v-card>
+    </div>
+  </v-container-fluid>
 </template>
 
 <script>
 import Vue from "vue";
 export default Vue.extend({
-  name: "GetTopGames",
   data: function () {
     return { bulldogTwitch: [] };
   },
@@ -68,10 +77,10 @@ export default Vue.extend({
   },
 });
 </script>
-   
 
- <<style lang="scss" scoped>
-  body{
-      height:100%;
-  }
- </style>
+<
+<style lang="scss" scoped>
+body {
+  height: 100%;
+}
+</style>
