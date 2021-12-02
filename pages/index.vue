@@ -246,7 +246,10 @@ export default Vue.extend({
     currentDateTime() {
       return moment().format("DD.MM.YYYY HH:mm:ss");
     },
-    getStreamerStatus: function() {    
+    getStreamerStatus: function() {   
+      // wait for twitch api to respond   
+      if ( this.bulldogTwitch[0] !== undefined )
+      {  
         if (this.bulldogTwitch[0].is_live == true)
         {
             return true;
@@ -258,6 +261,7 @@ export default Vue.extend({
         else if (this.bulldogTwitch[0].is_live == false) {
           return null;
         } 
+      }
     }
   },
   mounted() {
