@@ -12,7 +12,7 @@
           frameBorder="0"
           src="https://admiralbulldog.streamervods.live/"
         >
-          <p>Your browser does not support iframes.</p>
+          <p>UHM</p>
         </iframe>
       </v-row>
     </v-card>

@@ -10,27 +10,27 @@
         <!-- <div v-for="bdog in bulldogTwitch" :key="bdog.streamID">
             <img :src="bdog.thumbnail_url" alt="" />
           </div> -->
-          <v-row>
-            <v-col>
-        <iframe
-          class="pa-2"
-          frameborder="0"
-          src="https://player.twitch.tv/?channel=admiralbulldog&parent=wintersuntestv1.vercel.app&parent=localhost&muted=true"
-          height="100%"
-          width="100%"
-          allowfullscreen="true"
-        >
-        </iframe>
-            </v-col>
-            <v-col style="max-width: 340px">
-        <iframe
-          frameborder="0"
-          src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost"
-          height="100%"
-          width="100%"
-        >
-        </iframe>
-            </v-col>
+        <v-row>
+          <v-col>
+            <iframe
+              class="pa-2"
+              frameborder="0"
+              src="https://player.twitch.tv/?channel=admiralbulldog&parent=wintersuntestv1.vercel.app&parent=localhost&muted=true"
+              height="100%"
+              width="100%"
+              allowfullscreen="true"
+            >
+            </iframe>
+          </v-col>
+          <v-col style="max-width: 340px">
+            <iframe
+              frameborder="0"
+              src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost"
+              height="100%"
+              width="100%"
+            >
+            </iframe>
+          </v-col>
         </v-row>
       </v-card>
     </div>

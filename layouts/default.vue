@@ -53,30 +53,30 @@
         >
       </v-btn>
 
-      <div style="width:100%;" v-for="bdog in bulldogTwitch" :key="bdog.streamID" id="title">
-        <span style="float:left;margin-top:13px">Welcome to {{ bdog.display_name }}'s Website </span>
-        <span style="float:right" v-if="bdog.is_live"
+      <div
+        style="width: 100%"
+        v-for="bdog in bulldogTwitch"
+        :key="bdog.streamID"
+        id="title"
+      >
+        <span style="float: left; margin-top: 13px"
+          >Welcome to {{ bdog.display_name }}'s Website
+        </span>
+        <span style="float: right" v-if="bdog.is_live"
           >{{ bdog.display_name }} is currently
           <a href="https://www.twitch.tv/admiralbulldog" target="_blank"
             >live</a
           >
-            <v-avatar
-            color="grey"
-            tile
-          >
+          <v-avatar color="grey" tile>
             <img src="../static/emotes/BdOkayChamp.png" />
           </v-avatar>
         </span>
-        <span style="float:right" v-else
+        <span style="float: right" v-else
           >{{ bdog.display_name }}'s stream is currently offline
-           <v-avatar
-            color="grey"
-            tile
-          >
-            <img src="../static/emotes/NotOkayChamp.png"/>
+          <v-avatar color="grey" tile>
+            <img src="../static/emotes/NotOkayChamp.png" />
           </v-avatar>
-          
-          </span>
+        </span>
       </div>
       <v-spacer />
     </v-app-bar>
@@ -166,7 +166,7 @@ export default {
           return response.json();
         })
         .then((data) => {
-     //     console.log(data);
+          //     console.log(data);
 
           let bulldogStream = [];
           bulldogStream.push({
