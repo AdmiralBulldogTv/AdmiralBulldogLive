@@ -1,3 +1,38 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Wintersun93 
+Wintersun93
+/
+Testwebsite
+Private
+1
+00
+Code
+Issues
+Pull requests
+8
+Actions
+Projects
+Security
+3
+Insights
+Settings
+We found potential security vulnerabilities in your dependencies.
+Only the owner of this repository can see this message.
+
+Testwebsite/pages/index.vue
+@Wintersun93
+Wintersun93 Fixed Error when loading the page
+Latest commit fcd7608 6 days ago
+ History
+ 1 contributor
+336 lines (321 sloc)  9.21 KB
+   
 <template>
   <v-container fluid>
     <v-row>
@@ -15,7 +50,7 @@
           justify="center"
           align="center"
         >
-          Next {{ bdog.segments[0].title }} in {{ timeLeft }} 
+          Next {{ bdog.segments[0].title }} <p> in {{ timeLeft }} </p>
         </v-card>
         <v-card
           v-else-if="getStreamerStatus() == false
@@ -25,7 +60,7 @@
           justify="center"
           align="center"
         >
-          No Stream Today. Bulldog will stream again in {{timeLeft}}. Watch there latest <a href="" >VOD</a> here
+        No Stream Today.  <p> Bulldog will stream again in {{timeLeft}}. Watch there latest <NuxtLink to="/vods">VOD</NuxtLink> here </p>
         </v-card>
       </span>
     </v-row>
@@ -179,7 +214,6 @@ export default Vue.extend({
       // 30816637 budok broadcaster_id
       let fetchLink =
         "https://api.twitch.tv/helix/schedule?broadcaster_id=30816637&first=2&utc_offset=120";
-
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
@@ -197,8 +231,10 @@ export default Vue.extend({
             bulldogSchedule.push({
               broadcaster_id: data.data.broadcaster_id,
               broadcaster_name: data.data.broadcaster_name,
+              segments: data.data.segments,
               vacation_start: data.data.vacation.start_time,
               vacation_end: data.data.vacation.start_time,
+              
             });
           } else {
             bulldogSchedule.push({
@@ -208,14 +244,12 @@ export default Vue.extend({
               vacation: data.data.vacation,
             });
           }
-
           this.bulldogStream = bulldogSchedule;
         });
     },
     fetchStream: function () {
       let fetchLink =
         "https://api.twitch.tv/helix/search/channels?query=admiralbulldog&first=1";
-
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
@@ -228,7 +262,6 @@ export default Vue.extend({
         })
         .then((data) => {
           console.log(data);
-
           let bulldogStream = [];
           bulldogStream.push({
             streamID: data.data[0].id,
@@ -239,7 +272,6 @@ export default Vue.extend({
               .replace("{height}", "285"),
             started_at: data.data[0].started_at,
           });
-
           this.bulldogTwitch = bulldogStream;
         });
     },
@@ -254,7 +286,7 @@ export default Vue.extend({
         {
             return true;
         }
-        else if(this.bulldogTwitch[0].is_live == false && this.bulldogStream.vacation === null )
+        else if(this.bulldogTwitch[0].is_live == false && this.bulldogStream.vacation !== null )
         {
             return false;
         }
@@ -274,7 +306,6 @@ export default Vue.extend({
       this.nextStream = moment(
       this.bulldogStream[0].segments[0].start_time
       ).format("DD.MM.YYYY HH:mm:ss");
-
       if (this.getStreamerStatus() == null)
       {
            this.timeLeft = moment
@@ -284,15 +315,14 @@ export default Vue.extend({
         else if (this.getStreamerStatus() == false)
         {
               this.nextStreamVac = moment(
-                this.bulldogTwitch[0].vacation_end
+               this.bulldogStream[0].vacation_end
               ).format("DD.MM.YYYY HH:mm:ss");
-              
+
              this.timeLeft = moment
             .utc(moment(this.nextStreamVac).diff(moment(this.currentTime)))
             .format("HH:mm:ss");
         }
     }, 1000);
-
    window.addEventListener('resize', () => {
     this.windowHeight = window.innerHeight
   })
@@ -311,26 +341,35 @@ export default Vue.extend({
 .videobox:hover {
   box-shadow: 0px 0px 15px 5px #0b6636;
 }
-
 .icons .discord_icon {
   position: relative;
   align-items: center;
   margin-left: 1rem;
   margin-top: 0.5rem;
 }
-
 .icons:hover {
   box-shadow: 0px 0px 15px 5px #0b6636;
   border-radius: 75px 75px 75px 75px;
 }
-
 .discord_icon:hover {
   box-shadow: 0px 0px 15px 5px #0b6636;
   border-radius: 15px 15px 15px 15px;
 }
-
 a {
   color: #ffffff;
   text-decoration: none;
 }
 </style>
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
