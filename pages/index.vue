@@ -1,38 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Wintersun93 
-Wintersun93
-/
-Testwebsite
-Private
-1
-00
-Code
-Issues
-Pull requests
-8
-Actions
-Projects
-Security
-3
-Insights
-Settings
-We found potential security vulnerabilities in your dependencies.
-Only the owner of this repository can see this message.
-
-Testwebsite/pages/index.vue
-@Wintersun93
-Wintersun93 Fixed Error when loading the page
-Latest commit fcd7608 6 days ago
- History
- 1 contributor
-336 lines (321 sloc)  9.21 KB
-   
 <template>
   <v-container fluid>
     <v-row>
@@ -43,14 +8,14 @@ Latest commit fcd7608 6 days ago
       >
         <!-- If no day off, same day before stream -->
         <v-card
-          v-if="getStreamerStatus() === null
+          v-if="getStreamerStatus() === null && timeLeft.split(':')[0] < 23 
           "
           style="background-color: #0b6636"
           elevation="4"
           justify="center"
           align="center"
         >
-          Next {{ bdog.segments[0].title }} <p> in {{ timeLeft }} </p>
+          Next {{ bdog.segments[0].title }} in <p> {{ timeLeft }} </p>
         </v-card>
         <v-card
           v-else-if="getStreamerStatus() == false
@@ -61,6 +26,17 @@ Latest commit fcd7608 6 days ago
           align="center"
         >
         No Stream Today.  <p> Bulldog will stream again in {{timeLeft}}. Watch there latest <NuxtLink to="/vods">VOD</NuxtLink> here </p>
+        </v-card>
+         <v-card
+          v-else
+          style="background-color: #0b6636"
+          elevation="4"
+          justify="center"
+          align="center"
+        >
+       Bulldog should be live any moment now  <v-avatar  tile>
+            <img src="../static/emotes/Prayge.png" />
+          </v-avatar>
         </v-card>
       </span>
     </v-row>
@@ -176,7 +152,7 @@ export default Vue.extend({
       bulldogStream: [],
       bulldogTwitch: [],
       streamStatus: null,
-      timeLeft: null,
+      timeLeft: "00:00:00",
       nextStreamVac: null,
       currentTime: null,
       nextStream: null,
@@ -278,6 +254,9 @@ export default Vue.extend({
     currentDateTime() {
       return moment().format("DD.MM.YYYY HH:mm:ss");
     },
+    streamStartTime() {
+      return moment("2021-12-10T08:00:00Z").format("DD.MM.YYYY HH:mm:ss");
+    },
     getStreamerStatus: function() {   
       // wait for twitch api to respond   
       if ( this.bulldogTwitch[0] !== undefined )
@@ -286,7 +265,7 @@ export default Vue.extend({
         {
             return true;
         }
-        else if(this.bulldogTwitch[0].is_live == false && this.bulldogStream.vacation !== null )
+        else if(this.bulldogTwitch[0].is_live == false && this.bulldogStream.vacation !== undefined )
         {
             return false;
         }
@@ -315,7 +294,7 @@ export default Vue.extend({
         else if (this.getStreamerStatus() == false)
         {
               this.nextStreamVac = moment(
-               this.bulldogStream[0].vacation_end
+               this.bulldogStream[0].segments[1].start_time
               ).format("DD.MM.YYYY HH:mm:ss");
 
              this.timeLeft = moment
@@ -360,16 +339,3 @@ a {
   text-decoration: none;
 }
 </style>
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
