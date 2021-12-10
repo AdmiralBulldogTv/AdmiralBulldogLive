@@ -6,10 +6,9 @@
         :key="bdog.broadcaster_id"
         style="width: 100%"
       >
-        <!-- If no day off, same day before stream -->
-        <v-card
-          v-if="getStreamerStatus() === null && timeLeft.split(':')[0] < 23 
-          "
+        <span v-if="getStreamerStatus() == true">   
+        </span>
+        <v-card  v-else-if="getStreamerStatus() === null && timeLeft.split(':')[0] < 22"
           style="background-color: #0b6636"
           elevation="4"
           justify="center"
@@ -17,24 +16,22 @@
         >
           Next {{ bdog.segments[0].title }} in <p> {{ timeLeft }} </p>
         </v-card>
-        <v-card
-          v-else-if="getStreamerStatus() == false
-          "
+        
+        <v-card v-else-if="getStreamerStatus() == false"
           style="background-color: #c81208"
           elevation="4"
           justify="center"
           align="center"
         >
         No Stream Today.  <p> Bulldog will stream again in {{timeLeft}}. Watch there latest <NuxtLink to="/vods">VOD</NuxtLink> here </p>
-        </v-card>
-         <v-card
-          v-else
+        </v-card>        
+         <v-card  v-else-if="getStreamerStatus() == null && timeLeft.split(':')[0] > 22"
           style="background-color: #0b6636"
           elevation="4"
           justify="center"
           align="center"
         >
-       Bulldog should be live any moment now  <v-avatar  tile>
+              Bulldog should be live any moment now  <v-avatar  tile>
             <img src="../static/emotes/Prayge.png" />
           </v-avatar>
         </v-card>
