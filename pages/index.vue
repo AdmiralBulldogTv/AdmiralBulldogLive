@@ -14,17 +14,8 @@
           justify="center"
           align="center"
         >
-          Next {{ bdog.segments[0].title }} in <p> {{ timeLeft }} </p>
+          Next {{ bdog.segments[0].title }} in  {{ timeLeft }} 
         </v-card>
-        
-        <v-card v-else-if="getStreamerStatus() == false"
-          style="background-color: #c81208"
-          elevation="4"
-          justify="center"
-          align="center"
-        >
-        No Stream Today.  <p> Bulldog will stream again in {{timeLeft}}. Watch there latest <NuxtLink to="/vods">VOD</NuxtLink> here </p>
-        </v-card>        
          <v-card  v-else-if="getStreamerStatus() == null && timeLeft.split(':')[0] > 22"
           style="background-color: #0b6636"
           elevation="4"
@@ -35,6 +26,15 @@
             <img src="../static/emotes/Prayge.png" />
           </v-avatar>
         </v-card>
+        <v-card v-else-if="getStreamerStatus() == false"
+          style="background-color: #c81208"
+          elevation="4"
+          justify="center"
+          align="center"
+        >
+        No Stream Today.  <p> Bulldog will stream again in {{timeLeft}}. Watch there latest <NuxtLink to="/vods">VOD</NuxtLink> here </p>
+        </v-card>        
+        
       </span>
     </v-row>
     <v-row justify="center" align="center">
@@ -205,6 +205,7 @@ export default Vue.extend({
               broadcaster_id: data.data.broadcaster_id,
               broadcaster_name: data.data.broadcaster_name,
               segments: data.data.segments,
+              vacation: data.data.vacation,
               vacation_start: data.data.vacation.start_time,
               vacation_end: data.data.vacation.start_time,
               
@@ -215,6 +216,8 @@ export default Vue.extend({
               broadcaster_name: data.data.broadcaster_name,
               segments: data.data.segments,
               vacation: data.data.vacation,
+              vacation_start: data.data.vacation.start_time,
+              vacation_end: data.data.vacation.start_time,
             });
           }
           this.bulldogStream = bulldogSchedule;
@@ -249,7 +252,7 @@ export default Vue.extend({
         });
     },
     currentDateTime() {
-      return moment().format("DD.MM.YYYY HH:mm:ss");
+      return moment();
     },
     streamStartTime() {
       return moment("2021-12-10T08:00:00Z").format("DD.MM.YYYY HH:mm:ss");
@@ -281,14 +284,16 @@ export default Vue.extend({
       this.currentTime = this.currentDateTime();
       this.nextStream = moment(
       this.bulldogStream[0].segments[0].start_time
-      ).format("DD.MM.YYYY HH:mm:ss");
-      if (this.getStreamerStatus() == null)
+      )
+
+   
+      if (this.getStreamerStatus() == null && this.nextStream !== "" && this.currentTime !== "") 
       {
            this.timeLeft = moment
           .utc(moment(this.nextStream).diff(moment(this.currentTime)))
           .format("HH:mm:ss");
       }
-        else if (this.getStreamerStatus() == false)
+        else if (this.getStreamerStatus() == false && this.nextStreamVac !== "" && this.currentTime !== "")
         {
               this.nextStreamVac = moment(
                this.bulldogStream[0].segments[1].start_time
@@ -298,7 +303,10 @@ export default Vue.extend({
             .utc(moment(this.nextStreamVac).diff(moment(this.currentTime)))
             .format("HH:mm:ss");
         }
+
+          console.log(this.getStreamerStatus(), this.timeLeft, this.nextStream, this.currentTime, );
     }, 1000);
+
    window.addEventListener('resize', () => {
     this.windowHeight = window.innerHeight
   })
