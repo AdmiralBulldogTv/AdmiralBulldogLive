@@ -53,28 +53,6 @@ export default Vue.extend({
       nextStreamVac: null,
       currentTime: null,
       nextStream: null,     
-      socials: [
-        {
-          name: "Facebook",
-          url: "https://www.facebook.com/AdmiralBulldog",
-          icon: "mdi-facebook",
-        },
-        {
-          name: "Instagram",
-          url: "https://www.instagram.com/theadmiralbulldog",
-          icon: "mdi-instagram",
-        },
-        {
-          name: "Reddit",
-          url: "https://www.reddit.com/r/AdmiralBulldog",
-          icon: "mdi-reddit",
-        },
-        {
-          name: "Discord",
-          url: "https://discord.com/invite/wnPsCUm",
-          icon: "mdi-discord",
-        },
-      ],
     };
   },
   methods: {
