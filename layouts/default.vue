@@ -62,7 +62,7 @@
         <span style="float: left; margin-top: 13px"
           >Welcome to {{ bdog.display_name }}'s Website
         </span>
-        <span style="float: right" v-if="bdog.is_live"
+        <span style="float: right" v-if="isStreamerLive"
           >{{ bdog.display_name }} is currently
           <a href="https://www.twitch.tv/admiralbulldog" target="_blank"
             >live</a
@@ -186,6 +186,22 @@ export default {
   mounted() {
     this.getBulldogStream();
   },
+  computed: {
+      isStreamerLive() {   
+      // wait for twitch api to respond   
+      console.log(this.bulldogTwitch[0]);
+      if ( this.bulldogTwitch[0] !== undefined )
+      {  
+        if (this.bulldogTwitch[0].is_live === true)
+        {
+            return true;
+        }
+        else {
+          return false;
+        } 
+      }
+    }
+  }, 
 };
 </script>
 

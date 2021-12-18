@@ -142,14 +142,13 @@ export default Vue.extend({
       this.bulldogStream[0].segments[0].start_time
       )
 
-   
-      if (this.getStreamerStatus == null && this.nextStream !== "" && this.currentTime !== "") 
+      if (this.getStreamerStatus === null && this.nextStream !== "" && this.currentTime !== "") 
       {
            this.timeLeft = moment
           .utc(moment(this.nextStream).diff(moment(this.currentTime)))
           .format("HH:mm:ss");
       }
-        else if (this.getStreamerStatus == false && this.nextStreamVac !== "" && this.currentTime !== "")
+        else if (this.getStreamerStatus === false && this.nextStreamVac !== "" && this.currentTime !== "")
         {
               this.nextStreamVac = moment(
                this.bulldogStream[0].segments[1].start_time
@@ -179,6 +178,6 @@ export default Vue.extend({
         } 
       }
     }
-  },
+  }, 
 });
 </script>
