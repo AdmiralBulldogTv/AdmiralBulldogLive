@@ -5,10 +5,11 @@
         :key="bdog.broadcaster_id"
         style="width: 100%"
       >
+        
         <span v-if="getStreamerStatus === true">   
-          &nbsp;
+          &nbsp; 
         </span>
-        <v-card  v-else-if="getStreamerStatus === null && timeLeft.split(':')[0] < 22"
+        <v-card  v-else-if="(getStreamerStatus === null) && (timeLeft.split(':')[0] < 22)"
           style="background-color: #0b6636"
           elevation="4"
           justify="center"
@@ -16,7 +17,7 @@
         >
           Next {{ bdog.segments[0].title }} in  {{ timeLeft }} 
         </v-card>
-         <v-card  v-else-if="getStreamerStatus === null && timeLeft.split(':')[0] > 22"
+         <v-card  v-else-if="(getStreamerStatus === null) && (timeLeft.split(':')[0] > 22)"
           style="background-color: #0b6636"
           elevation="4"
           justify="center"
@@ -71,28 +72,16 @@ export default Vue.extend({
           return response.json();
         })
         .then((data) => {
-          console.log(data);
-          let bulldogSchedule = [];
-          if (data.data.vacation !== null) {
+          console.log(data)
+          let bulldogSchedule = [];        
             bulldogSchedule.push({
               broadcaster_id: data.data.broadcaster_id,
               broadcaster_name: data.data.broadcaster_name,
               segments: data.data.segments,
-              vacation: data.data.vacation,
-              vacation_start: data.data.vacation.start_time,
-              vacation_end: data.data.vacation.start_time,
+              vacation_start: moment(data.data.vacation.start_time),
+              vacation_end: moment(data.data.vacation.end_time),
               
             });
-          } else {
-            bulldogSchedule.push({
-              broadcaster_id: data.data.broadcaster_id,
-              broadcaster_name: data.data.broadcaster_name,
-              segments: data.data.segments,
-              vacation: data.data.vacation,
-              vacation_start: data.data.vacation.start_time,
-              vacation_end: data.data.vacation.start_time,
-            });
-          }
           this.bulldogStream = bulldogSchedule;
         });
     },
@@ -110,7 +99,6 @@ export default Vue.extend({
           return response.json();
         })
         .then((data) => {
-          console.log(data);
           let bulldogStream = [];
           bulldogStream.push({
             streamID: data.data[0].id,
@@ -141,39 +129,40 @@ export default Vue.extend({
       this.nextStream = moment(
       this.bulldogStream[0].segments[0].start_time
       )
+      this.vacation_start = moment(this.bulldogStream[0].vacation_start)
 
-      if (this.getStreamerStatus === null && this.nextStream !== "" && this.currentTime !== "") 
+      if ((this.getStreamerStatus === null) && (this.nextStream !== "") && (this.currentTime !== "")) 
       {
            this.timeLeft = moment
           .utc(moment(this.nextStream).diff(moment(this.currentTime)))
           .format("HH:mm:ss");
       }
-        else if (this.getStreamerStatus === false && this.nextStreamVac !== "" && this.currentTime !== "")
+        else if (this.getStreamerStatus === false)
         {
-              this.nextStreamVac = moment(
+              this.nextStreamAfterVac = moment(
                this.bulldogStream[0].segments[1].start_time
-              ).format("DD.MM.YYYY HH:mm:ss");
-
+              )
              this.timeLeft = moment
-            .utc(moment(this.nextStreamVac).diff(moment(this.currentTime)))
+            .utc(this.nextStreamAfterVac.diff(this.currentTime))
             .format("HH:mm:ss");
         }       
     }, 1000);
   },
   computed: {
       getStreamerStatus() {   
+      console.log(this.currentTime, this.vacation_start, this.nextStreamAfterVac)
       // wait for twitch api to respond   
       if ( this.bulldogTwitch[0] !== undefined )
       {  
-        if (this.bulldogTwitch[0].is_live == true)
+        if (this.bulldogTwitch[0].is_live === true)
         {
             return true;
         }
-        else if(this.bulldogTwitch[0].is_live == false && this.bulldogStream.vacation !== undefined )
+        else if((this.bulldogTwitch[0].is_live === false) && (this.currentTime  > this.vacation_start))
         {
             return false;
         }
-        else if (this.bulldogTwitch[0].is_live == false) {
+        else if (this.bulldogTwitch[0].is_live === false) {
           return null;
         } 
       }
