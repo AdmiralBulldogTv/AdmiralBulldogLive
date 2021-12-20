@@ -33,7 +33,7 @@
           justify="center"
           align="center"
         >
-        No Stream Today.  <p> Bulldog will stream again in {{timeLeft}}. Watch there latest <NuxtLink to="/vods">VOD</NuxtLink> here </p>
+        No Stream Today.  <p> Bulldog will stream again in {{timeLeft}}. Watch the latest <NuxtLink to="/vods">VOD</NuxtLink> here </p>
         </v-card>        
         
       </span>
@@ -130,6 +130,7 @@ export default Vue.extend({
       this.bulldogStream[0].segments[0].start_time
       )
       this.vacation_start = moment(this.bulldogStream[0].vacation_start)
+      this.vacation_end   = moment(this.bulldogStream[0].vacation_end)
 
       if ((this.getStreamerStatus === null) && (this.nextStream !== "") && (this.currentTime !== "")) 
       {
@@ -150,7 +151,6 @@ export default Vue.extend({
   },
   computed: {
       getStreamerStatus() {   
-      console.log(this.currentTime, this.vacation_start, this.nextStreamAfterVac)
       // wait for twitch api to respond   
       if ( this.bulldogTwitch[0] !== undefined )
       {  
@@ -158,8 +158,9 @@ export default Vue.extend({
         {
             return true;
         }
-        else if((this.bulldogTwitch[0].is_live === false) && (this.currentTime  > this.vacation_start))
+        else if((this.bulldogTwitch[0].is_live === false) && (this.nextStream > this.vacation_start) && (this.nextStream < this.vacation_end) )
         {
+            // no no stream
             return false;
         }
         else if (this.bulldogTwitch[0].is_live === false) {
