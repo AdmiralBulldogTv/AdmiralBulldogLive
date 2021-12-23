@@ -1,23 +1,34 @@
 <template>
 <v-container fluid>
-  <v-card flat >
-    <v-card-text>
-      <v-row class="mb-4" align="center">
+  <v-row>
+    <v-col>
+        <v-card-text>
+      <div class="mb-4" align="left">
+        <v-row>
         <v-avatar class="mr-4"><img  src="https://cdn.discordapp.com/emojis/814619869017407538.png?size=96" alt="admiralC"> </v-avatar>
-        <strong class="text-h3">Admiralbulldog FAQ</strong> (Can also just be a link to the external subreddit FAQ)
+        <strong class="text-h3">Frequently asked questions</strong> 
+        </v-row>
         <v-spacer></v-spacer>
-      </v-row>
+      </div>
+    </v-card-text>
+  <v-card flat style="max-height: 36rem;overflow:auto;">
+  
+    <v-card-text>
       <p>
           AdmiralBulldog a Swedish professional DotA 2 player, and one of the most popular streamers.
+      </p>
+
           <ul>
             <li><b>Name:</b> Henrik Ahnberg</li>
             <li><b>Birth:</b> December 19, 1990</li>
             <li><b>Job:</b> Full Time Livestreaming</li>
             <li><b>Country:</b> Sweden</li>
           </ul>
-      </p>
-      
+     <br>
+      <hr>
+      <br>
       <h2>Benefits of Subscribing</h2>
+      <br>
       <h3><b>Everyone who subs gets:</b></h3>
       <p>
        <ul>
@@ -54,5 +65,30 @@
     and so on
     </v-card-text>
   </v-card>
-  </v-container>
+    </v-col>
+    
+  </v-row>
+  <Docs />
+</v-container>
 </template>
+
+
+<style lang="scss" scoped>
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0b6636;
+  border-radius: 10px;
+}
+
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <client-only  placeholder="Eleg">
+  <client-only placeholder="Eleg">
     <v-container fluid>
       <v-row>
         <v-col></v-col>

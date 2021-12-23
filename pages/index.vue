@@ -1,10 +1,18 @@
 <template>
   <v-container fluid>
-   <Banner />
+    <Banner />
     <v-row justify="center" align="center">
-        <LatestTweet />
-        <YouTube />
+      <LatestTweet />
+      <YouTube />
     </v-row>
-    <Socials />    
+    <Socials />
   </v-container>
 </template>
+
+<style lang="scss" scoped>
+@import "@/assets/variables.scss";
+
+html {
+  overflow: hidden; /* Hide scrollbars */
+}
+</style>

@@ -53,31 +53,32 @@
         >
       </v-btn>
 
-      <div
+      <v-row
         style="width: 100%"
         v-for="bdog in bulldogTwitch"
         :key="bdog.streamID"
         id="title"
       >
-        <span style="float: left; margin-top: 13px"
-          >Welcome to {{ bdog.display_name }}'s Website
-        </span>
-        <span style="float: right" v-if="isStreamerLive"
-          >{{ bdog.display_name }} is currently
+        <v-col align-start
+          >{{ bdog.display_name }}'s Kappa Club
+          <v-avatar tile> </v-avatar>
+        </v-col>
+        <v-col v-if="isStreamerLive" style="text-align: start"
+          >Currently
           <a href="https://www.twitch.tv/admiralbulldog" target="_blank"
             >live</a
           >
           <v-avatar color="grey" tile>
             <img src="../static/emotes/BdOkayChamp.png" />
           </v-avatar>
-        </span>
-        <span style="float: right" v-else
-          >{{ bdog.display_name }}'s stream is currently offline
-          <v-avatar color="grey" tile>
+        </v-col>
+        <v-col v-else style="text-align: end"
+          >Currently offline
+          <v-avatar tile>
             <img src="../static/emotes/NotOkayChamp.png" />
           </v-avatar>
-        </span>
-      </div>
+        </v-col>
+      </v-row>
       <v-spacer />
     </v-app-bar>
     <v-main fluid>
@@ -89,14 +90,6 @@
       :right="right"
       fixed
     >
-      <v-list>
-        <v-list-item @click.native="right = !right">
-          <v-list-item-action>
-            <v-icon light> mdi-repeat </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
-      </v-list>
     </v-navigation-drawer>
     <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
@@ -110,7 +103,7 @@ export default {
     return {
       bulldogTwitch: [],
       clipped: false,
-      drawer: true,
+      drawer: false,
       fixed: false,
       items: [
         {
@@ -139,15 +132,20 @@ export default {
           to: "/faq",
         },
         {
+          icon: "mdi-file-document",
+          title: "Spreadsheets",
+          to: "/spreadsheet",
+        },
+        {
           icon: "mdi-book-cross",
           title: "Bible",
           to: "/bible",
         },
       ],
-      miniVariant: false,
+      miniVariant: true,
       right: false,
       rightDrawer: false,
-      title: "Welcome to AdmiralBulldogs Website",
+      title: "AdmiralBulldog's Kappa Club",
     };
   },
   methods: {
@@ -187,26 +185,28 @@ export default {
     this.getBulldogStream();
   },
   computed: {
-      isStreamerLive() {   
-      // wait for twitch api to respond   
+    isStreamerLive() {
+      // wait for twitch api to respond
       console.log(this.bulldogTwitch[0]);
-      if ( this.bulldogTwitch[0] !== undefined )
-      {  
-        if (this.bulldogTwitch[0].is_live === true)
-        {
-            return true;
-        }
-        else {
+      if (this.bulldogTwitch[0] !== undefined) {
+        if (this.bulldogTwitch[0].is_live === true) {
+          return true;
+        } else {
           return false;
-        } 
+        }
       }
-    }
-  }, 
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/variables.scss";
 .drawer {
   height: 0px;
+}
+
+body {
+  overflow: hidden; /* Hide scrollbars */
 }
 </style>

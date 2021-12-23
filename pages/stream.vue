@@ -7,9 +7,6 @@
         outlined
         tile
       >
-        <!-- <div v-for="bdog in bulldogTwitch" :key="bdog.streamID">
-            <img :src="bdog.thumbnail_url" alt="" />
-          </div> -->
         <v-row>
           <v-col>
             <iframe
@@ -22,7 +19,7 @@
             >
             </iframe>
           </v-col>
-          <v-col style="max-width: 340px">
+          <v-col style="max-width: 400px">
             <iframe
               frameborder="0"
               src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost"

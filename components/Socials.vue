@@ -1,25 +1,25 @@
 <template>
-<v-row>
-      <v-col v-for="(items, i) in socials" :key="i" :to="5">
-        <v-card style="height: 10rem"
-          ><v-row>
-            <v-col></v-col
-            ><v-col>
-              <a :href="items.url" target="_blank">
-                <v-icon size="125" color="#0b6636" class="icons">{{
-                  items.icon
-                }}</v-icon>
-              </a>
-            </v-col>
-            <v-col></v-col>
-          </v-row>
-        </v-card>
-      </v-col>
-</v-row>
+  <v-row>
+    <v-col v-for="(items, i) in socials" :key="i" :to="5">
+      <v-card style="height: 9rem"
+        ><v-row>
+          <v-col></v-col
+          ><v-col>
+            <a :href="items.url" target="_blank">
+              <v-icon size="125" color="#0b6636" class="icons">{{
+                items.icon
+              }}</v-icon>
+            </a>
+          </v-col>
+          <v-col></v-col>
+        </v-row>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
-import Vue from 'vue'
+import Vue from "vue";
 export default Vue.extend({
   props: {},
   data() {
@@ -49,7 +49,6 @@ export default Vue.extend({
     };
   },
 });
-
 </script>
 
 <style scoped>

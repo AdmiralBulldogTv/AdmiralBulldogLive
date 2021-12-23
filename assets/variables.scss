@@ -2,3 +2,12 @@
 //
 // The variables you want to modify
 // $font-size-root: 20px;
+/* width */
+::-webkit-scrollbar {
+    width: 1px;
+    display:none;
+  }
+
+  html {
+    overflow: hidden; /* Hide scrollbars */
+  }
