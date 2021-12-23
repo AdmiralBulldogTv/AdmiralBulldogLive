@@ -19,11 +19,7 @@
     "nuxt": "^2.15.7",
     "prettier": "^2.4.1",
     "vue-lazytube": "^1.0.2",
-    "vue-match-heights": "^0.1.1",
     "vue-moment": "^4.1.0",
-    "vue-tweet": "^1.0.3",
-    "vue-youtube-embed": "^2.2.2",
-    "vuejs-twitter-feed": "^1.0.1",
     "vuetify": "^2.5.5",
     "yarn": "^1.22.17"
   },
