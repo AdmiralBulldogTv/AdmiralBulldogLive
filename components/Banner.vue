@@ -5,7 +5,9 @@
       :key="bdog.broadcaster_id"
       style="width: 100%"
     >
-      <span v-if="getStreamerStatus === true">  <v-avatar tile> </v-avatar> </span>
+      <span v-if="getStreamerStatus === true">
+        <v-avatar tile> </v-avatar>
+      </span>
       <v-card
         v-else-if="getStreamerStatus === null && timeLeft.split(':')[0] < 22"
         style="background-color: #0b6636"
@@ -13,8 +15,8 @@
         justify="center"
         align="center"
       >
-   <v-avatar tile> </v-avatar> Next {{ bdog.segments[0].title }}  in {{ timeLeft }}   <v-avatar tile> </v-avatar>
-       
+        <v-avatar tile> </v-avatar> Next {{ bdog.segments[0].title }} in
+        {{ timeLeft }} <v-avatar tile> </v-avatar>
       </v-card>
       <v-card
         v-else-if="getStreamerStatus === null && timeLeft.split(':')[0] > 22"
