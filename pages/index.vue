@@ -12,7 +12,4 @@
 <style lang="scss" scoped>
 @import "@/assets/variables.scss";
 
-html {
-  overflow: hidden; /* Hide scrollbars */
-}
 </style>

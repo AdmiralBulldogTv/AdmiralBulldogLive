@@ -1,18 +1,24 @@
 <template>
   <v-row>
     <v-col v-for="(items, i) in socials" :key="i" :to="5">
-      <v-card style="height: 9rem"
-        ><v-row>
-          <v-col></v-col
-          ><v-col>
+      <v-card style="height: 8rem"
+        >
+          <div class="icons"> 
+            <div>
             <a :href="items.url" target="_blank">
-              <v-icon size="125" color="#0b6636" class="icons">{{
+              <v-icon  size="100"  color="#0b6636" class="icon">{{
                 items.icon
               }}</v-icon>
-            </a>
-          </v-col>
-          <v-col></v-col>
-        </v-row>
+              </a>
+                </div>
+
+               <div class="text" >
+               {{
+                  items.name 
+                }}            
+            </div> 
+              </div >
+             
       </v-card>
     </v-col>
   </v-row>
@@ -52,13 +58,28 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.icons .discord_icon {
+.icons {
   position: relative;
-  align-items: center;
-  margin-left: 1rem;
-  margin-top: 0.5rem;
+  height:100%;
+  width:100%;
 }
-.icons:hover {
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.text
+{
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -15%);
+  white-space: nowrap;
+}
+
+.icon:hover {
   box-shadow: 0px 0px 15px 5px #0b6636;
   border-radius: 15px 15px 15px 15px;
 }

@@ -26,6 +26,7 @@
         min-height: 34rem;
         max-height: 100rem;
       "
+      class="fill-height"
       id="twitter"
     >
       <a

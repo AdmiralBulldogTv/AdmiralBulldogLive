@@ -25,8 +25,8 @@
               allowfullscreen
               frameborder="0"
               :src="
-                'https://www.youtube-nocookie.com/embed/watch?v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
-                i
+                'https://www.youtube-nocookie.com/embed/watch?autoplay=0&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
+                i 
               "
               class="videobox"
             >
@@ -45,7 +45,7 @@
             allowfullscreen
             frameborder="0"
             :src="
-              'https://www.youtube-nocookie.com/embed/watch?v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
+              'https://www.youtube-nocookie.com/embed/watch?autoplay=0&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
               i
             "
             class="videobox"
