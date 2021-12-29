@@ -1,20 +1,40 @@
 <template>
   <v-col cols="12" sm="8" md="6" justify-space-between>
     <v-card-title class="headline" justify="center" align="center">
-      Latest YouTube Videos
+      Latest YouTube Videos &nbsp;
     </v-card-title>
     <v-card
       elevation="4"
       justify="center"
       align="center"
       id="youtube"
-      style="min-height: 34rem"
+      style="min-height: 34rem; height:34rem"
     >
+    <v-row>
       <!-- falls auflösung > 1920p, dann 6-->
-      <v-card-text>
+          <span v-if="this.$vuetify.breakpoint.width < '1490'">
+          <span style="">
+            <iframe
+              v-for="(item, i) in 3"
+              v-if="i >= 1"
+              :key="i"
+              :to="4"
+              width="300"
+              height="200"
+              allowfullscreen
+              frameborder="0"
+              :src="
+                'https://www.youtube-nocookie.com/embed/watch?autoplay=1&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
+                i
+              "
+              class="videobox"
+            >
+            </iframe>
+          </span>
+        </span>
         <!-- latest four videos -->
-        <span v-if="this.$vuetify.breakpoint.width <= '1920'">
-          <span style="padding-top: 500px">
+        <span v-else-if="this.$vuetify.breakpoint.width <= '1920'">
+          <span style="">
             <iframe
               v-for="(item, i) in 5"
               v-if="i >= 1"
@@ -25,8 +45,8 @@
               allowfullscreen
               frameborder="0"
               :src="
-                'https://www.youtube-nocookie.com/embed/watch?autoplay=0&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
-                i 
+                'https://www.youtube-nocookie.com/embed/watch?autoplay=1&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
+                i
               "
               class="videobox"
             >
@@ -34,7 +54,7 @@
           </span>
         </span>
 
-        <span v-else style="marin-top: 5rem">
+        <span v-else>
           <iframe
             v-for="(item, i) in 7"
             v-if="i >= 1"
@@ -45,14 +65,14 @@
             allowfullscreen
             frameborder="0"
             :src="
-              'https://www.youtube-nocookie.com/embed/watch?autoplay=0&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
+              'https://www.youtube-nocookie.com/embed/watch?autoplay=1&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
               i
             "
             class="videobox"
           >
           </iframe>
         </span>
-      </v-card-text>
+    </v-row>
     </v-card>
   </v-col>
 </template>

@@ -10380,6 +10380,11 @@ tty-browserify@0.0.0:
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
   integrity sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY=
 
+twitter-widgets@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/twitter-widgets/-/twitter-widgets-2.0.0.tgz#a495ebed02072a9f1e211eb777619894abc0bc8d"
+  integrity sha512-WIWQaLkao67FDlyAcHUC4Hpfb1lr+eAfdEg93XBiET9xlmjhPiVBx4oYRwNLEevuy662x8M+1eySN6AuU0TiZg==
+
 type-check@~0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/type-check/-/type-check-0.3.2.tgz#5884cab512cf1d355e3fb784f30804b2b520db72"

@@ -18,6 +18,7 @@
     "moment": "^2.29.1",
     "nuxt": "^2.15.7",
     "prettier": "^2.4.1",
+    "twitter-widgets": "^2.0.0",
     "vue-lazytube": "^1.0.2",
     "vue-moment": "^4.1.0",
     "vuetify": "^2.5.5",

@@ -54,16 +54,16 @@
       </v-btn>
 
       <v-row
-        style="width:100vw"
+        style="width: 100vw"
         v-for="bdog in bulldogTwitch"
         :key="bdog.streamID"
         id="title"
       >
-        <v-col  align-self="center"
+        <v-col align-self="center" style="white-space: nowrap"
           >{{ bdog.display_name }}
           <v-avatar tile> </v-avatar>
         </v-col>
-        <v-col v-if="isStreamerLive" style="text-align: end"
+        <v-col v-if="isStreamerLive" style="text-align: end; white-space: auto"
           >Currently
           <a href="https://www.twitch.tv/admiralbulldog" target="_blank"
             >live</a
@@ -149,10 +149,10 @@ export default {
       title: "AdmiralBulldog's Kappa Club",
     };
   },
-  beforeDestroy () {
-    if (typeof window === 'undefined') return
+  beforeDestroy() {
+    if (typeof window === "undefined") return;
 
-    window.removeEventListener('resize', this.onResize, { passive: true })
+    window.removeEventListener("resize", this.onResize, { passive: true });
   },
   methods: {
     getBulldogStream: function () {
@@ -186,15 +186,15 @@ export default {
           this.bulldogTwitch = bulldogStream;
         });
     },
-     onResize () {
-        this.isMobile = window.innerWidth < 600
-      },
+    onResize() {
+      this.isMobile = window.innerWidth < 600;
+    },
   },
   mounted() {
     this.getBulldogStream();
-    this.onResize()
+    this.onResize();
 
-    window.addEventListener('resize', this.onResize, { passive: true })
+    window.addEventListener("resize", this.onResize, { passive: true });
   },
   computed: {
     isStreamerLive() {

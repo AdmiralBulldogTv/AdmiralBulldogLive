@@ -1,25 +1,20 @@
 <template>
   <v-row>
     <v-col v-for="(items, i) in docs" :key="i" :to="5">
-      <v-card style="height: 8rem"
-        >
-          <div class="icons"> 
-            <div>
+      <v-card style="height: 8rem">
+        <div class="icons">
+          <div>
             <a :href="items.url" target="_blank">
               <v-icon size="100" color="#0b6636" class="icon">{{
                 items.icon
               }}</v-icon>
-              </a>
-                </div>
+            </a>
+          </div>
 
-               <div class="text" >
-               {{
-                  items.name + " " +
-                  items.desc
-                }}            
-            </div> 
-              </div >
-             
+          <div class="text">
+            {{ items.name + " " + items.desc }}
+          </div>
+        </div>
       </v-card>
     </v-col>
   </v-row>
@@ -59,8 +54,8 @@ export default Vue.extend({
 <style scoped>
 .icons {
   position: relative;
-  height:100%;
-  width:100%;
+  height: 100%;
+  width: 100%;
 }
 
 .icon {
@@ -69,8 +64,7 @@ export default Vue.extend({
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.text
-{
+.text {
   position: absolute;
   top: 85%;
   left: 50%;

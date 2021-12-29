@@ -20,28 +20,28 @@
       elevation="4"
       justify="center"
       align="center"
-      style="
-        padding: 16px;
-        overflow: auto;
-        min-height: 34rem;
-        max-height: 100rem;
-      "
-      class="fill-height"
+      style="min-height: 34rem; height:34rem;"
       id="twitter"
     >
-      <a
-        class="twitter-timeline"
-        data-width="650"
-        data-height="500"
-        data-theme="dark"
-        href="https://twitter.com/AdmiralBulldog?ref_src=twsrc%5Etfw"
-        >Tweets by AdmiralBulldog</a
-      >
-      <script
-        async
-        src="https://platform.twitter.com/widgets.js"
-        charset="utf-8"
-      ></script>
+      <v-row>
+        <v-col cols=""></v-col>
+        <v-col cols="auto">
+        <a
+          class="twitter-timeline"
+          data-width="650"
+          data-height="500"
+          data-theme="dark"
+          href="https://twitter.com/AdmiralBulldog"
+          >Tweets by AdmiralBulldog</a
+        >
+        <script
+          async
+          src="https://platform.twitter.com/widgets.js"
+          charset="utf-8"
+        ></script>
+        </v-col>
+        <v-col></v-col>
+      </v-row>
     </v-card>
   </v-col>
 </template>
