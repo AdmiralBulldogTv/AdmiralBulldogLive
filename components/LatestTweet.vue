@@ -45,3 +45,11 @@
     </v-card>
   </v-col>
 </template>
+
+<style lang="scss" scoped>
+#twitter
+{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+</style>

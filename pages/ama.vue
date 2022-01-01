@@ -1,19 +1,30 @@
 <template>
 <v-container fluid>
   <v-row>
+    <v-col>
     <v-card>
-        AMAs in here
-      </v-card>    
+     <div id="app">
+    <textarea rows="10" v-model="text"></textarea>
+    <br>
+    <text-reader @load="text = $event"></text-reader>
+  </div>
+      </v-card>  
+    </v-col>  
   </v-row>
 </v-container>
+
+
 </template>
 
 <script>
 export default {
-  
-}
+  name: "app",
+  data: () => ({ text: "" }),
+  components: {
+    FileReader
+  }
+};
 </script>
-
 
 <style lang="scss" scoped>
 /* width */
