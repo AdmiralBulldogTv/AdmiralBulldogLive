@@ -47,11 +47,11 @@
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
+     <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon color="#0b6636"
           >mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon
         >
-      </v-btn>
+      </v-btn> -->
 
       <v-row
         style="width: 100vw"
@@ -133,6 +133,11 @@ export default {
           to: "/faq",
         },
         {
+          icon: "mdi-frequently-asked-questions",
+          title: "AMAs",
+          to: "/ama",
+        },
+        {
           icon: "mdi-file-document",
           title: "Spreadsheets",
           to: "/spreadsheet",
@@ -143,7 +148,7 @@ export default {
           to: "/bible",
         },
       ],
-      miniVariant: true,
+      miniVariant: false,
       right: false,
       rightDrawer: false,
       title: "AdmiralBulldog's Kappa Club",
@@ -218,7 +223,7 @@ export default {
   height: 0px;
 }
 
-body {
-  overflow: hidden; /* Hide scrollbars */
+#title{
+  white-space: nowrap;
 }
 </style>

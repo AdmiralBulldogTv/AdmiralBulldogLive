@@ -12,28 +12,8 @@
     >
     <v-row>
       <!-- falls auflösung > 1920p, dann 6-->
-          <span v-if="this.$vuetify.breakpoint.width < '1490'">
-          <span style="">
-            <iframe
-              v-for="(item, i) in 3"
-              v-if="i >= 1"
-              :key="i"
-              :to="4"
-              width="300"
-              height="200"
-              allowfullscreen
-              frameborder="0"
-              :src="
-                'https://www.youtube-nocookie.com/embed/watch?autoplay=1&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
-                i
-              "
-              class="videobox"
-            >
-            </iframe>
-          </span>
-        </span>
         <!-- latest four videos -->
-        <span v-else-if="this.$vuetify.breakpoint.width <= '1920'">
+        <span v-if="this.$vuetify.breakpoint.width <= '1920'">
           <span style="">
             <iframe
               v-for="(item, i) in 5"
@@ -44,8 +24,9 @@
               height="200"
               allowfullscreen
               frameborder="0"
+              autoplay="0"
               :src="
-                'https://www.youtube-nocookie.com/embed/watch?autoplay=1&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
+                'https://www.youtube-nocookie.com/embed/watch?autoplay=0&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
                 i
               "
               class="videobox"
@@ -64,8 +45,9 @@
             height="200"
             allowfullscreen
             frameborder="0"
+            autoplay="0"
             :src="
-              'https://www.youtube-nocookie.com/embed/watch?autoplay=1&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
+              'https://www.youtube-nocookie.com/embed/watch?autoplay=0&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
               i
             "
             class="videobox"
@@ -88,6 +70,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+
 .videobox {
   margin: 2%;
   min-width: 300;
