@@ -1,19 +1,17 @@
 <template>
-<v-container fluid>
-  <v-row>
-    <v-col>
-    <v-card>
-     <div id="app">
-    <textarea rows="10" v-model="text"></textarea>
-    <br>
-    <text-reader @load="text = $event"></text-reader>
-  </div>
-      </v-card>  
-    </v-col>  
-  </v-row>
-</v-container>
-
-
+  <v-container fluid>
+    <v-row>
+      <v-col>
+        <v-card>
+          <div id="app">
+            <textarea rows="10" v-model="text"></textarea>
+            <br />
+            <text-reader @load="text = $event"></text-reader>
+          </div>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -21,8 +19,8 @@ export default {
   name: "app",
   data: () => ({ text: "" }),
   components: {
-    FileReader
-  }
+    FileReader,
+  },
 };
 </script>
 
@@ -43,5 +41,4 @@ export default {
   background: #0b6636;
   border-radius: 10px;
 }
-
 </style>

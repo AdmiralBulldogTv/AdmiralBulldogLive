@@ -1,6 +1,6 @@
 <template>
   <label class="text-reader">
-    <input type="file" @change="loadTextFromFile">
+    <input type="file" @change="loadTextFromFile" />
   </label>
 </template>
 
@@ -11,9 +11,9 @@ export default {
       const file = ev.target.files[0];
       const reader = new FileReader();
 
-      reader.onload = e => this.$emit("load", e.target.result);
+      reader.onload = (e) => this.$emit("load", e.target.result);
       reader.readAsText(file);
-    }
-  }
+    },
+  },
 };
 </script>

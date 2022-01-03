@@ -8,10 +8,10 @@
       justify="center"
       align="center"
       id="youtube"
-      style="min-height: 34rem; height:34rem"
+      style="min-height: 34rem; height: 34rem"
     >
-    <v-row>
-      <!-- falls auflösung > 1920p, dann 6-->
+      <v-row>
+        <!-- falls auflösung > 1920p, dann 6-->
         <!-- latest four videos -->
         <span v-if="this.$vuetify.breakpoint.width <= '1920'">
           <span style="">
@@ -54,7 +54,7 @@
           >
           </iframe>
         </span>
-    </v-row>
+      </v-row>
     </v-card>
   </v-col>
 </template>
@@ -70,7 +70,6 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-
 .videobox {
   margin: 2%;
   min-width: 300;
@@ -85,7 +84,7 @@ a {
   text-decoration: none;
 }
 
-#youtube{
+#youtube {
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -106,5 +105,4 @@ a {
   background: #0b6636;
   border-radius: 10px;
 }
-
 </style>

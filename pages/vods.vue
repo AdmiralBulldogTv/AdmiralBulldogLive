@@ -1,20 +1,22 @@
 <template>
-  <v-container fluid>
-    <v-card class="py-4 d-flex justify-center">
+  <v-container-fluid >
       <v-row
-        align="center"
-        class="full-height d-flex"
+        class="fill-height align-stretch"
         justify="center"
-        style="width: 100%"
+        style="margin:2px;"
       >
+      <v-col>
+       <v-card class="fill-height align-stretch">
         <iframe
-          style="width: 98%; height: 85vh"
+          style="height:100%; width:100%"
           frameBorder="0"
           src="https://admiralbulldog.streamervods.live/"
         >
           <p>UHM</p>
         </iframe>
+          </v-card>
+      </v-col>
       </v-row>
-    </v-card>
-  </v-container>
+  
+  </v-container-fluid>
 </template>

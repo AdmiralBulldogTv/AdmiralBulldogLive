@@ -1,7 +1,9 @@
 <template>
-  <v-row>
+  <v-row 
+  class="d-flex align-end mb-6"
+        style="margin:2px;"> 
     <v-col v-for="(items, i) in socials" :key="i" :to="5">
-      <v-card style="height: 8rem">
+      <v-card style="height: 8rem"  >
         <div class="icons">
           <div>
             <a :href="items.url" target="_blank">

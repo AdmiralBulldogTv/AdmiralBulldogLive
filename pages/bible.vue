@@ -1,10 +1,10 @@
 <template>
-  <client-only placeholder="Eleg">
+<client-only>
     <v-container fluid>
       <v-row>
         <v-col></v-col>
         <v-col>
-          <div class="custom" @click="setWidth()">
+          <div class="custom">
             <span class="book" id="book">
               <div class="cover" id="cover">
                 <Flipbook
@@ -15,12 +15,18 @@
                   :ambient="0.2"
                   :nPolygons="8"
                   :clickToZoom="false"
+                  centering
                   v-slot="flipbook"
                   ref="flipbook"
                 >
+                <v-row>
+                  <v-col>
                   <button @click="flipbook.flipLeft">Previous Page</button>
+                  </v-col>
+                  <v-col>
                   <button @click="flipbook.flipRight">Next Page</button>
-                  <div>| {{ flipbook.nPolygons }} |</div>
+                  </v-col>
+                  </v-row>
                 </Flipbook>
               </div>
 
@@ -31,22 +37,12 @@
         <v-col></v-col>
       </v-row>
     </v-container>
-  </client-only>
+    </client-only>
 </template>
 
 <script>
-import Flipbook from "flipbook-vue";
+
 export default {
-  methods: {
-    setWidth: function (event) {
-      setTimeout(function () {
-        // document.getElementsByClassName("bounding-box").style.boxShadow  = "2px 2px 2px white";
-      }, 999);
-    },
-  },
-  components: {
-    Flipbook,
-  },
   data() {
     return {
       pages: [
@@ -76,15 +72,14 @@ body {
 
 .flipbook {
   width: 50vw;
-  height: calc(85vh - 50px - 40px);
+  height: calc(75vh - 50px - 40px);
 }
 .flipbook .bounding-box {
   box-shadow: 2px 2px 2px 15px red !important;
 }
 
 .book {
-  perspective: 700px !important;
-  height: 100vh;
+  height: 95vh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -109,7 +104,7 @@ body {
   width: 50vw;
   border-radius: 2px 2px 2px 2px;
   position: absolute;
-  transform: rotateX(10deg);
+  transform: rotateX(0);
   transform-origin: center left;
 }
 </style>

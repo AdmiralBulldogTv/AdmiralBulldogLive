@@ -39,12 +39,6 @@ export default Vue.extend({
           icon: "mdi-text-to-speech",
           desc: "Stream",
         },
-        {
-          name: "Unban",
-          url: "https://www.twitch.tv/popout/moderator/admiralbulldog/unban-requests",
-          icon: "mdi-hammer",
-          desc: "Requests",
-        },
       ],
     };
   },

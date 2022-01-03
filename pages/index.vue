@@ -1,12 +1,19 @@
 <template>
-  <v-container fluid>
+  <v-container-fluid >
     <Banner />
-    <v-row justify="center" align="center">
+    <v-row 
+      class="d-flex align-stretch fill-height"
+        justify="center"
+        style="margin:1px"
+       >
       <LatestTweet />
-      <YouTube />
+      <YouTube />   
+      <Socials />
     </v-row>
-    <Socials />
-  </v-container>
+    <v-spacer></v-spacer>
+    
+     
+  </v-container-fluid>
 </template>
 
 <style lang="scss" scoped>

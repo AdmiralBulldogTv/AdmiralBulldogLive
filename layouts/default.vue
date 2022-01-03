@@ -47,7 +47,7 @@
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-     <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
+      <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon color="#0b6636"
           >mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon
         >
@@ -223,7 +223,7 @@ export default {
   height: 0px;
 }
 
-#title{
+#title {
   white-space: nowrap;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <v-container-fluid>
     <div d-flex flex-row style="height: 100%">
-      <v-card class="d-flex justify-end mb-6" style="height: 50.5rem" tile>
+      <v-card class="d-flex justify-end mb-6" style="height: 100%" tile>
         <v-row>
           <v-col>
             <iframe
