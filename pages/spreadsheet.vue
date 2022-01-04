@@ -1,20 +1,24 @@
 <template>
-  <v-container fluid>
-    <v-card class="py-4 d-flex justify-center">
-      <v-row
-        align="center"
-        class="full-height d-flex"
+  <v-container-fluid>
+    <v-row
+        class="fill-height align-stretch"
         justify="center"
-        style="width: 100%"
+        style="margin:2px;"
       >
+      <v-col>
+    <v-card class="fill-height align-stretch">
         <iframe
-          style="width: 98%; height: 85vh"
           frameBorder="0"
-          src="https://docs.google.com/spreadsheets/d/1OqM-PLEX3_rxZF_r67ecc0kUIbo5xcrXsCur_ELIWYM/edit#gid=1049341315"
+          style="width: 100%; height: 100%"
+         src="https://docs.google.com/spreadsheets/d/1OqM-PLEX3_rxZF_r67ecc0kUIbo5xcrXsCur_ELIWYM/edit#gid=1049341315"
         >
-          <p>UHM</p>
+          <p>Your browser does not support iframes.</p>
         </iframe>
-      </v-row>
     </v-card>
-  </v-container>
+    </v-col>
+      </v-row>
+  </v-container-fluid>
 </template>
+
+
+  

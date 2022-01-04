@@ -5,25 +5,27 @@
       :key="bdog.broadcaster_id"
       style="width: 100%"
     >
-      <span v-if="getStreamerStatus === true">
+      <span class="mt-3" v-if="getStreamerStatus === true">
         <v-avatar tile> </v-avatar>
       </span>
       <v-card
         v-else-if="getStreamerStatus === null && timeLeft.split(':')[0] < 22"
         style="background-color: #0b6636"
-        elevation="4"
+        elevation="16"
         justify="center"
         align="center"
+        class="mt-3"
       >
-        <v-avatar tile> </v-avatar> Next {{ bdog.segments[0].title }} in
-        {{ timeLeft }} <v-avatar tile> </v-avatar>
+       <v-avatar tile> </v-avatar> Next {{ bdog.segments[0].title }} in
+        {{ timeLeft }} <v-avatar tile> </v-avatar> 
       </v-card>
       <v-card
         v-else-if="getStreamerStatus === null && timeLeft.split(':')[0] > 22"
         style="background-color: #0b6636"
-        elevation="4"
+        elevation="16"
         justify="center"
         align="center"
+        class="mt-3"
       >
         <v-avatar tile> </v-avatar>
         Bulldog should be live any moment now
@@ -34,9 +36,10 @@
       <v-card
         v-else-if="getStreamerStatus === false"
         style="background-color: #c81208"
-        elevation="4"
+        elevation="16"
         justify="center"
         align="center"
+        class="mt-3"
       >
         <v-avatar tile> </v-avatar>
         No Stream Today.

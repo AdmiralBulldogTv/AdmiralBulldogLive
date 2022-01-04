@@ -2,7 +2,7 @@
   <v-container-fluid >
     <Banner />
     <v-row 
-      class="d-flex align-stretch fill-height"
+      class="d-flex fill-height"
         justify="center"
         style="margin:1px"
        >
