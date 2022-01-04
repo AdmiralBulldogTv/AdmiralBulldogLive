@@ -8,6 +8,7 @@
   display: none;
 }
 
-html {
-  overflow-y: auto;
+#index{
+  min-width:fit-content;
+  overflow-x: hidden;
 }

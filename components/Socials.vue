@@ -1,6 +1,6 @@
 <template>
   <v-row 
-  class="d-flex align-end mb-10">
+  class="d-flex align-end">
     <v-col v-for="(items, i) in socials" :key="i" :to="5">
       <v-card style="height: 8rem;" >
         <div class="icons">
