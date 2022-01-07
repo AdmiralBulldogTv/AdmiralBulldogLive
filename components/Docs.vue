@@ -39,6 +39,18 @@ export default Vue.extend({
           icon: "mdi-text-to-speech",
           desc: "Stream",
         },
+        {
+          name: "Spreadsheets",
+          url: "https://docs.google.com/spreadsheets/d/1OqM-PLEX3_rxZF_r67ecc0kUIbo5xcrXsCur_ELIWYM/edit#gid=1049341315",
+          icon: "mdi-text-to-speech",
+          desc: "",
+        },
+        {
+          name: "Ask me Anything!",
+          url: "",
+          icon: "mdi-text-to-speech",
+          desc: "",
+        },
       ],
     };
   },

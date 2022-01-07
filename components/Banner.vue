@@ -63,7 +63,7 @@ export default Vue.extend({
       bulldogStream: [],
       bulldogTwitch: [],
       streamStatus: null,
-      timeLeft: "@Admiralbulldog so bad LUL",
+      timeLeft: "live",
       nextStreamVac: null,
       currentTime: null,
       nextStream: null,
@@ -158,6 +158,7 @@ export default Vue.extend({
           .utc(this.nextStreamAfterVac.diff(this.currentTime))
           .format("HH:mm:ss");
       }
+      this.getStreamerStatus;
     }, 1000);
   },
   computed: {

@@ -59,11 +59,11 @@
         :key="bdog.streamID"
         id="title"
       >
-        <v-col align-self="center" style="white-space: nowrap"
+        <v-col cols="2" align-self="center" style="white-space: nowrap;"
           >{{ bdog.display_name }}
           <v-avatar tile> </v-avatar>
         </v-col>
-        <v-col v-if="isStreamerLive" style="text-align: end; white-space: auto"
+        <v-col v-if="isStreamerLive" style="text-align: end; white-space: nowrap;"
           >Currently
           <a href="https://www.twitch.tv/admiralbulldog" target="_blank"
             >live</a
@@ -197,6 +197,9 @@ export default {
   },
   mounted() {
     this.getBulldogStream();
+    setInterval(() => {
+    this.getBulldogStream();
+    }, 10000);
     this.onResize();
 
     window.addEventListener("resize", this.onResize, { passive: true });

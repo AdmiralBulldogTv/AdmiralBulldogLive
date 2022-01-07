@@ -5,15 +5,15 @@
         <v-card-text>
       <div class="mb-4" align="left">
         <v-row>
-        <v-avatar class="mr-4"><img  src="https://cdn.discordapp.com/emojis/814619869017407538.png?size=96" alt="admiralC"> </v-avatar>
+        <v-avatar class="mr-4"><img  src="../static/emotes/admiralO.png" alt="admiralC"> </v-avatar>
         <strong class="text-h3">Frequently asked questions</strong> 
         </v-row>
         <v-spacer></v-spacer>
       </div>
     </v-card-text>
-  <v-card flat style="max-height: 36rem;overflow:auto;">
+  <v-card flat style="max-height: 36rem;overflow-y:scroll">
   
-    <v-card-text>
+    <v-card-text style="overflow-y:visible">
       <p>
           AdmiralBulldog a Swedish professional DotA 2 player, and one of the most popular streamers.
       </p>
@@ -76,19 +76,19 @@
 <style lang="scss" scoped>
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 100px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2px grey;
-  border-radius: 10px;
+  box-shadow: inset 1 2 2px grey;
+  border-radius: 100px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #0b6636;
-  border-radius: 10px;
+  border-radius: 100px;
 }
 
 </style>
