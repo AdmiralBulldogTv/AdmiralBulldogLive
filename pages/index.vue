@@ -1,16 +1,13 @@
 <template>
   <v-container id="index" fluid>
-    <Banner/>
-    <v-row 
-      class="d-flex fill-height"
-        justify="center"
-       >
+    <Banner />
+    <v-row class="d-flex fill-height" justify="center">
       <LatestTweet />
-      <YouTube />   
-        </v-row>
-      <Socials />  
+      <YouTube />
+    </v-row>
+    <Socials />
     <v-spacer></v-spacer>
-  </v-container >
+  </v-container>
 </template>
 
 <style lang="scss" scoped>

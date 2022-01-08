@@ -1,5 +1,5 @@
 <template>
-<client-only>
+  <client-only>
     <v-container fluid>
       <v-row>
         <v-col></v-col>
@@ -19,13 +19,13 @@
                   v-slot="flipbook"
                   ref="flipbook"
                 >
-                <v-row>
-                  <v-col>
-                  <button @click="flipbook.flipLeft">Previous Page</button>
-                  </v-col>
-                  <v-col>
-                  <button @click="flipbook.flipRight">Next Page</button>
-                  </v-col>
+                  <v-row>
+                    <v-col>
+                      <button @click="flipbook.flipLeft">Previous Page</button>
+                    </v-col>
+                    <v-col>
+                      <button @click="flipbook.flipRight">Next Page</button>
+                    </v-col>
                   </v-row>
                 </Flipbook>
               </div>
@@ -37,11 +37,10 @@
         <v-col></v-col>
       </v-row>
     </v-container>
-    </client-only>
+  </client-only>
 </template>
-
+g
 <script>
-
 export default {
   data() {
     return {

@@ -23,25 +23,27 @@
       style="min-height: 34rem; height: 34rem"
       id="twitter"
     >
-      <v-row>
-        <v-col cols=""></v-col>
-        <v-col cols="auto">
-          <a
-            class="twitter-timeline"
-            data-width="650"
-            data-height="500"
-            data-theme="dark"
-            href="https://twitter.com/AdmiralBulldog"
-            >Tweets by AdmiralBulldog</a
-          >
-          <script
-            async
-            src="https://platform.twitter.com/widgets.js"
-            charset="utf-8"
-          ></script>
-        </v-col>
-        <v-col></v-col>
-      </v-row>
+      <div class="mt-10" style="">
+        <v-row>
+          <v-col cols=""></v-col>
+          <v-col cols="auto">
+            <a
+              class="twitter-timeline"
+              data-width="650"
+              data-height="450"
+              data-theme="dark"
+              href="https://twitter.com/AdmiralBulldog"
+              >Tweets by AdmiralBulldog</a
+            >
+            <script
+              async
+              src="https://platform.twitter.com/widgets.js"
+              charset="utf-8"
+            ></script>
+          </v-col>
+          <v-col></v-col>
+        </v-row>
+      </div>
     </v-card>
   </v-col>
 </template>

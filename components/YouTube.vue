@@ -14,7 +14,7 @@
         <!-- falls auflösung > 1920p, dann 6-->
         <!-- latest four videos -->
         <span v-if="this.$vuetify.breakpoint.width <= '1920'">
-          <span style="">
+          <div class="mt-10" style="">
             <iframe
               v-for="(item, i) in 5"
               v-if="i >= 1"
@@ -32,27 +32,29 @@
               class="videobox"
             >
             </iframe>
-          </span>
+          </div>
         </span>
 
         <span v-else>
-          <iframe
-            v-for="(item, i) in 7"
-            v-if="i >= 1"
-            :key="i"
-            :to="4"
-            width="300"
-            height="200"
-            allowfullscreen
-            frameborder="0"
-            autoplay="0"
-            :src="
-              'https://www.youtube-nocookie.com/embed/watch?autoplay=0&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
-              i
-            "
-            class="videobox"
-          >
-          </iframe>
+          <div class="mt-10" style="">
+            <iframe
+              v-for="(item, i) in 7"
+              v-if="i >= 1"
+              :key="i"
+              :to="4"
+              width="300"
+              height="200"
+              allowfullscreen
+              frameborder="0"
+              autoplay="0"
+              :src="
+                'https://www.youtube-nocookie.com/embed/watch?autoplay=0&v=jgZeFDq_d6s&list=UUk8ZIMJxSO9-pUg7xyrnaFQ&index=' +
+                i
+              "
+              class="videobox"
+            >
+            </iframe>
+          </div>
         </span>
       </v-row>
     </v-card>
