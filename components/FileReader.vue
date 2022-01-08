@@ -43,14 +43,12 @@ export default {
   },
   methods: {
     getAma(ama) {
-      console.log(ama);
       let ama_text = this.formatAma(ama.default);
       document.getElementById("id_ama").innerHTML = ama_text;
     },
 
     formatAma(amaStr) {
       let returnString = "";
-      console.log(amaStr);
       for (let i = 0; i < amaStr.split("\r\n").length; i++) {
         returnString += "<p>" + amaStr.split("\r\n")[i] + "</p>";
       }
