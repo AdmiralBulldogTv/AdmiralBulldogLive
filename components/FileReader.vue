@@ -49,6 +49,7 @@ export default {
 
     formatAma(amaStr) {
       let returnString = "";
+      console.log(amaStr.split("\r\n").length);
       for (let i = 0; i < amaStr.split("\r\n").length; i++) {
         returnString += "<p>" + amaStr.split("\r\n")[i] + "</p>";
       }
