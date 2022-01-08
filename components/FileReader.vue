@@ -1,13 +1,12 @@
 <template>
  <v-container>
-    <v-row>
+    <v-row style="height:5rem; width:30%;"> 
       <v-col>
           <v-select
           :items="amas"
           label="Choose discord AMAs for regulars and megacucks"
           outlined
           rounded
-          counter
           item-text="title"
           item-value="file"
           @change="getAma" 
@@ -43,13 +42,14 @@ export default {
   },
   methods: {
     getAma(ama) {
+      console.log("ama: " + ama);
       let ama_text = this.formatAma(ama.default);
       document.getElementById("id_ama").innerHTML = ama_text;
     },
 
     formatAma(amaStr) {
       let returnString = "";
-      console.log(amaStr.split("\r\n").length);
+      console.log(amaStr.split("\r\n"));
       for (let i = 0; i < amaStr.split("\r\n").length; i++) {
         returnString += "<p>" + amaStr.split("\r\n")[i] + "</p>";
       }
