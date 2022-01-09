@@ -42,7 +42,6 @@ export default {
   },
   methods: {
     getAma(ama) {
-      console.log("ama: " + ama);
       let ama_text = this.formatAma(ama.default);
       document.getElementById("id_ama").innerHTML = ama_text;
     },
