@@ -1,5 +1,5 @@
 <template>
- <v-container>
+ <v-container fluid>
     <v-row style="height:5rem; width:30rem;"> 
       <v-col>
           <v-select
