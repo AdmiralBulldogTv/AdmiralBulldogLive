@@ -1,6 +1,6 @@
 <template>
-<v-container fluid>
-  <v-row>
+<v-container-fluid>
+  <v-row >
     <v-col>
         <v-card-text>
       <div class="mb-4" align="left">
@@ -69,7 +69,7 @@
     
   </v-row>
   <Docs />
-</v-container>
+</v-container-fluid>
 </template>
 
 

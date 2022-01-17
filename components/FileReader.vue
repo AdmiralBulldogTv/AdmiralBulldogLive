@@ -1,5 +1,5 @@
 <template>
- <v-container fluid>
+ <v-container-fluid>
     <v-row style="height:5rem; width:30rem;"> 
       <v-col>
           <v-select
@@ -20,15 +20,19 @@
         </v-card>
       </v-col>
     </v-row>
-  </v-container>
+  </v-container-fluid>
   
 </template>
 
-<script>
+<script lang="ts">
 // AMA text files
-const ama_211222 = require("raw-loader!../assets/amas/ama_211222.txt");
-const ama_210907 = require("raw-loader!../assets/amas/ama_210907.txt");
-const ama_210808 = require("raw-loader!../assets/amas/ama_210808.txt");
+const ama_211222:object = require("raw-loader!../assets/amas/ama_211222.txt");
+const ama_210907:object = require("raw-loader!../assets/amas/ama_210907.txt");
+const ama_210808:object = require("raw-loader!../assets/amas/ama_210808.txt");
+
+interface ama {
+  default:string
+}
 
 export default {
   data() {
@@ -41,12 +45,12 @@ export default {
     };
   },
   methods: {
-    getAma(ama) {
-      let ama_text = this.formatAma(ama.default);
-      document.getElementById("id_ama").innerHTML = ama_text;
+    getAma(ama:any) {
+        let ama_text:string = this.formatAma(ama.default);
+        document.getElementById("id_ama").innerHTML = ama_text;
     },
 
-    formatAma(amaStr) {
+    formatAma(amaStr:string) {
       let returnString = "";
       console.log(amaStr.split("\n"));
       for (let i = 0; i < amaStr.split("\n").length; i++) {

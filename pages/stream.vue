@@ -1,9 +1,14 @@
 <template>
-  <v-container-fluid>
-    <div d-flex flex-row style="height: 100%">
-      <v-card class="d-flex justify-end mb-6" style="height: 100%" tile>
-        <v-row>
-          <v-col>
+<v-container-fluid>
+  <span>
+    <v-row
+      class="fill-height align-stretch"
+      justify="center"
+      style="margin: 2px"
+    >
+    
+      <v-col cols="9">
+        <v-card class="fill-height">
             <iframe
               class="pa-2"
               frameborder="0"
@@ -13,8 +18,10 @@
               allowfullscreen="true"
             >
             </iframe>
+            </v-card>
           </v-col>
-          <v-col style="max-width: 400px">
+          <v-col cols="3">
+             <v-card class="fill-height">
             <iframe
               frameborder="0"
               src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost"
@@ -22,10 +29,10 @@
               width="100%"
             >
             </iframe>
+             </v-card>
           </v-col>
-        </v-row>
-      </v-card>
-    </div>
+    </v-row>
+  </span>
   </v-container-fluid>
 </template>
 
@@ -33,7 +40,9 @@
 import Vue from "vue";
 export default Vue.extend({
   data: function () {
-    return { bulldogTwitch: [] };
+    return { bulldogTwitch: [],
+             isMobile: false 
+           };
   },
   methods: {
     fetchStream: function () {
@@ -67,10 +76,21 @@ export default Vue.extend({
           this.bulldogTwitch = bulldogStream;
         });
     },
+    onResize () {
+        this.isMobile = window.innerWidth < 1100
+      }
+  },
+   beforeDestroy () {
+    if (typeof window === 'undefined') return
+
+    window.removeEventListener('resize', this.onResize, { passive: true })
   },
   mounted() {
-    this.fetchStream();
+    //this.fetchStream();
+    this.onResize()
+    window.addEventListener('resize', this.onResize, { passive: true })
   },
+
 });
 </script>
 
