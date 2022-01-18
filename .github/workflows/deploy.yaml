@@ -2,7 +2,7 @@ name: Build & Deploy (Production)
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
   workflow_dispatch:
 
