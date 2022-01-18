@@ -209,7 +209,6 @@ export default {
   computed: {
     isStreamerLive() {
       // wait for twitch api to respond
-      console.log(this.bulldogTwitch[0]);
       if (this.bulldogTwitch[0] !== undefined) {
         if (this.bulldogTwitch[0].is_live === true) {
           return true;

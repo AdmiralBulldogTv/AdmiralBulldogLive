@@ -85,7 +85,6 @@ export default Vue.extend({
           return response.json();
         })
         .then((data) => {
-          console.log(data);
           let bulldogSchedule = [];
           bulldogSchedule.push({
             broadcaster_id: data.data.broadcaster_id,
