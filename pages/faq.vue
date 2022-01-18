@@ -1,5 +1,5 @@
 <template>
-<v-container-fluid>
+<v-container fluid>
   <v-row >
     <v-col>
         <v-card-text>
@@ -11,7 +11,7 @@
         <v-spacer></v-spacer>
       </div>
     </v-card-text>
-  <v-card flat style="max-height: 36rem;overflow-y:scroll">
+  <v-card flat style="max-height: 34.5rem;overflow-y:scroll">
   
     <v-card-text style="overflow-y:visible">
       <p>
@@ -69,26 +69,26 @@
     
   </v-row>
   <Docs />
-</v-container-fluid>
+</v-container>
 </template>
 
 
 <style lang="scss" scoped>
 /* width */
 ::-webkit-scrollbar {
-  width: 100px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 1 2 2px grey;
-  border-radius: 100px;
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 10px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #0b6636;
-  border-radius: 100px;
+  border-radius: 10px;
 }
 
 </style>

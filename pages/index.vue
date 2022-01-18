@@ -1,7 +1,7 @@
 <template>
-  <v-container id="index" fluid>
-    <Banner />
-    <v-row class="d-flex fill-height" justify="center">
+  <v-container id="index">
+    <v-row class="fill-height"
+      justify="center">
       <LatestTweet />
       <YouTube />
     </v-row>

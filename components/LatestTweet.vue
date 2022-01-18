@@ -21,6 +21,7 @@
       justify="center"
       align="center"
       style="min-height: 34rem; height: 34rem"
+      
       id="twitter"
     >
       <div class="mt-10" style="">

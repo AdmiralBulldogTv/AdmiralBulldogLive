@@ -83,7 +83,9 @@
       </v-row>
       <v-spacer />
     </v-app-bar>
+    
     <v-main fluid>
+      <span> <Banner />   </span>
       <Nuxt />
     </v-main>
     <v-navigation-drawer
@@ -94,7 +96,7 @@
     >
     </v-navigation-drawer>
     <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>&copy; {{ new Date().getFullYear() }} by Wintersun#2348</span>
     </v-footer>
   </v-app>
 </template>

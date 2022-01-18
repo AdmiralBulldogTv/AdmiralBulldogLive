@@ -4,7 +4,7 @@ module.exports = {
     service: {
       name: 'vods',
       // URL to the GraphQL API
-      url: 'https://rickandmortyapi.com/graphql',
+      url: 'https://vods.admiralbulldog.live/api/gql',
     },
     // Files processed by the extension
     includes: [

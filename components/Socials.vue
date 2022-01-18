@@ -1,5 +1,7 @@
 <template>
-  <v-row class="d-flex align-end">
+  <v-row class="fill-height"  justify="center"
+    
+>
     <v-col v-for="(items, i) in socials" :key="i" :to="5">
       <v-card style="height: 8rem">
         <div class="icons">

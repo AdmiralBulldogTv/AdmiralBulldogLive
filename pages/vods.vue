@@ -1,38 +1,27 @@
 <template>
   <v-container-fluid>
     <v-row
-      class="fill-height align-stretch"
+      class="fill-height"
       justify="center"
-      style="margin: 2px"
+      style="margin: 2px;"
     >
       <v-col>
-      <h1> Latest Vods    </h1>  <input type="text" placeholder="Search Input ..."/>      
-        <div class="fill-height align-stretch">
-           <v-row>
-          <v-col v-for="vod in user.vods" :key="vod.id">
-          <v-card >
-            <v-row>
-              <v-col>
-          <video style="border:1px red inset;"  width="300" height="200"/>
-              </v-col>
-          </v-row>
-          <v-row>
-            <v-col>
-             {{vod.title}}
-            </v-col>
-          </v-row>
-        </v-card> 
-          </v-col> 
-        </v-row>
-     
-        </div>
+        <v-card class="" style="height:94%; margin-top: 8px;">
+          <iframe
+            frameBorder="0"
+            style="width: 100%; height: 100%"
+            src="https://vods.admiralbulldog.live/"
+          >
+            <p>Your browser does not support iframes.</p>
+          </iframe>
+        </v-card>
       </v-col>
     </v-row>
   </v-container-fluid>
 </template>
 
 <script>
-import Vue from 'vue'
+/*import Vue from 'vue'
 import gql from 'graphql-tag'
 
 const ALL_VODS_QUERY = gql`
@@ -68,5 +57,5 @@ export default Vue.extend({
   },
   mounted() {
   },  
-})
+})*/
 </script>

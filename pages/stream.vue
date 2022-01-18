@@ -2,12 +2,12 @@
   <v-container-fluid>
     <span>
       <v-row
-        class="fill-height align-stretch"
+        class="fill-height"
         justify="center"
-        style="margin: 2px"
+        style="margin: 2px;"
       >
         <v-col cols="9">
-          <v-card class="fill-height">
+          <v-card class="" style="height:94%; margin-top:8px;">
             <iframe
               class="pa-2"
               frameborder="0"
@@ -20,7 +20,7 @@
           </v-card>
         </v-col>
         <v-col cols="3">
-          <v-card class="fill-height">
+          <v-card style="height:94%; margin-top:8px;">
             <iframe
               frameborder="0"
               src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost"

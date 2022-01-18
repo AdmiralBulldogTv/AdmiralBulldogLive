@@ -9,6 +9,15 @@
 }
 
 #index {
-  min-width: fit-content;
-  overflow-x: hidden;
+ // min-width: fit-content;
+  width:100vw;
+  max-width:100%;
+  overflow-x: hidden;  
+}
+
+body {
+  border: 1px red solid;
+  width:100vw;
+  max-width:100%;
+  overflow-x: hidden;  
 }

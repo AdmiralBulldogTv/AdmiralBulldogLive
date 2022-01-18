@@ -3,7 +3,7 @@
     <span
       v-for="bdog in bulldogStream"
       :key="bdog.broadcaster_id"
-      style="width: 100%"
+      style="width: 100%; margin-top:11px"
     >
       <span v-if="getStreamerStatus === true">
         <v-avatar tile> </v-avatar>
