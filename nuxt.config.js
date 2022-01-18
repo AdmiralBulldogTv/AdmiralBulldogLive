@@ -39,6 +39,8 @@ export default {
     "@nuxtjs/pwa",
     // https://go.nuxtjs.dev/content
     "@nuxt/content",
+    // https://go.nuxtjs.dev/axios
+    '@nuxtjs/apollo',    
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -73,6 +75,14 @@ export default {
     },
   },
 
+   // Apollo configuration
+   apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://vods.admiralbulldog.live/api/gql',
+      },
+    },
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 };
