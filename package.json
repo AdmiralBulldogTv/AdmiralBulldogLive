@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nuxt",
     "generate": "nuxt generate",
+    "build": "nuxt build",
     "test": "yarn test:unit && yarn test:e2e",
     "test:unit": "cross-env TEST=unit ava ./test/specs/**/*",
     "test:e2e": "cross-env TEST=e2e ava ./test/e2e/**/*"
@@ -39,6 +40,7 @@
     "material-design-icons-iconfont": "^6.1.1",
     "require-extension-hooks": "^0.3.3",
     "require-extension-hooks-babel": "^1.0.0",
-    "require-extension-hooks-vue": "^3.0.0"
+    "require-extension-hooks-vue": "^3.0.0",
+    "vue-template-compiler": "^2.6.14"
   }
 }
