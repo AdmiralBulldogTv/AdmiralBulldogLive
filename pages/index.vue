@@ -10,6 +10,7 @@
   </v-container>
 </template>
 
+
 <style lang="scss" scoped>
 @import "@/assets/variables.scss";
 </style>
