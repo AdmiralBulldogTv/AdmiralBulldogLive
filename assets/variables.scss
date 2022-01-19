@@ -15,4 +15,11 @@
   overflow-x: hidden;  
 }
 
+#stream {
+  // min-width: fit-content;
+   width:100vw;
+   max-width:100%;
+   overflow-x: hidden;  
+ }
+
 html, body {margin: 0; padding: 0; overflow-x:hidden;}

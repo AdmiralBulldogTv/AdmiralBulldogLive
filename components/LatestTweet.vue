@@ -15,7 +15,6 @@
         charset="utf-8"
       ></script>
     </v-card-title>
-
     <v-card
       elevation="4"
       justify="center"

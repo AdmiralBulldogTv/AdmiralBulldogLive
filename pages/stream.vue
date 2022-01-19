@@ -1,17 +1,19 @@
 <template>
-  <v-container-fluid>
-    <span>
+  <v-container fluid id="stream">
       <v-row
-        class="fill-height"
         justify="center"
-        style="margin: 2px;"
+        style="margin: 2px;height:82vh;max-height:100%"
       >
-        <v-col cols="9">
-          <v-card class="" style="height:94%; margin-top:8px;">
+        <v-col class="flex-grow-1 flex-shrink-0">
+          <v-card  elevation="4"
+      justify="end"
+      align="left"
+      class="fill-height"
+      
+      >
             <iframe
-              class="pa-2"
               frameborder="0"
-              src="https://player.twitch.tv/?channel=admiralbulldog&parent=wintersuntestv1.vercel.app&parent=localhost&muted=true"
+              src="https://player.twitch.tv/?channel=admiralbulldog&parent=wintersuntestv1.vercel.app&parent=localhost&parent=admiralbulldog.live&muted=true"
               height="100%"
               width="100%"
               allowfullscreen="true"
@@ -19,20 +21,24 @@
             </iframe>
           </v-card>
         </v-col>
-        <v-col cols="3">
-          <v-card style="height:94%; margin-top:8px;">
+        <v-col class="flex-grow-0 flex-shrink-0">
+          <v-card elevation="4"
+      justify="center"
+      align="center"
+      id="chat"
+      class="fill-height" >
             <iframe
               frameborder="0"
-              src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost"
+              src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost&parent=admiralbulldog.live"
               height="100%"
-              width="100%"
+              max-width="400px"
+              
             >
             </iframe>
           </v-card>
         </v-col>
       </v-row>
-    </span>
-  </v-container-fluid>
+  </v-container>
 </template>
 
 <script>
@@ -90,7 +96,5 @@ export default Vue.extend({
 
 <
 <style lang="scss" scoped>
-body {
-  height: 100%;
-}
+  @import "@/assets/variables.scss";
 </style>
