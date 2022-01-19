@@ -77,7 +77,7 @@
         <v-col v-else style="text-align: end"
           >Currently offline
           <v-avatar tile>
-            <img src="../static/emotes/NotOkayChamp.png" />
+            <img src="../static/emotes/BNotOkayChamp.png" />
           </v-avatar>
         </v-col>
       </v-row>

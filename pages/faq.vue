@@ -5,7 +5,7 @@
         <v-card-text>
       <div class="mb-4" align="left">
         <v-row>
-        <v-avatar class="mr-4"><img  src="../static/emotes/admiralO.png" alt="admiralC"> </v-avatar>
+        <v-avatar class="mr-4"></v-avatar>
         <strong class="text-h3">Frequently asked questions</strong> 
         </v-row>
         <v-spacer></v-spacer>
