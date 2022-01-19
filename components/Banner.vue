@@ -30,7 +30,7 @@
         <v-avatar tile> </v-avatar>
         Bulldog should be live any moment now
         <v-avatar tile>
-          <img src="../static/emotes/Prayge.png" />
+          <!-- <img src="../static/emotes/Prayge.png" /> -->
         </v-avatar>
       </v-card>
       <v-card
