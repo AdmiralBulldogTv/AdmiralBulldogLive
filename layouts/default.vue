@@ -218,7 +218,10 @@ export default {
           {
               setTimeout(() => {
                 s.opacity-=.1 < 0 ? s.display="none" : setTimeout(fade,10)   
-                   document.querySelector('.spinner-wrapper').remove()
+                
+                if (document.querySelector('.spinner-wrapper')){
+                  document.querySelector('.spinner-wrapper').remove()
+                }
               }, 2000);
           
           };

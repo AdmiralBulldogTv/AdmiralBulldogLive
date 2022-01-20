@@ -2,14 +2,13 @@
   <v-container fluid id="stream">
       <v-row
         justify="center"
-        style="margin: 2px;height:82vh;max-height:100%"
+        style="margin: 2px;height:82vh;max-height:100%; flex-grow:1"
       >
-        <v-col class="flex-grow-1 flex-shrink-0">
+        <v-col class="flex-grow-1 flex-shrink-1">
           <v-card  elevation="4"
-      justify="end"
-      align="left"
-      class="fill-height"
-      
+                  align="left"
+                 class="fill-height"
+                
       >
             <iframe
               frameborder="0"
@@ -23,16 +22,16 @@
         </v-col>
         <v-col class="flex-grow-0 flex-shrink-0">
           <v-card elevation="4"
-      justify="center"
-      align="center"
+      align="left"
       id="chat"
-      class="fill-height" >
+      class="fill-height" 
+       style="width:400px"
+       >
             <iframe
               frameborder="0"
               src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost&parent=admiralbulldog.live"
               height="100%"
-              max-width="400px"
-              
+              width="100%"
             >
             </iframe>
           </v-card>
