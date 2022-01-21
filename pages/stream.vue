@@ -1,14 +1,14 @@
 <template>
-  <v-container fluid id="stream">
+  <v-container-fluid id="stream">
       <v-row
-        justify="center"
-        style="margin: 2px;height:82vh;max-height:100%; flex-grow:1"
+          class="fill-height"
+          justify="center"
+          style="margin: 2px;"
       >
         <v-col class="flex-grow-1 flex-shrink-1">
           <v-card  elevation="4"
                   align="left"
-                 class="fill-height"
-                
+                style="height:94%; margin-top: 8px; min-width:400px"
       >
             <iframe
               frameborder="0"
@@ -20,12 +20,14 @@
             </iframe>
           </v-card>
         </v-col>
-        <v-col class="flex-grow-0 flex-shrink-0">
-          <v-card elevation="4"
-      align="left"
+        <v-col class="flex-grow-0 flex-shrink-1">
+          <span  v-if="this.$vuetify.breakpoint.width > '853'">
+
+            <v-card 
+            elevation="4"
+            align="left"
       id="chat"
-      class="fill-height" 
-       style="width:400px"
+       style="min-width:22rem; width:400px; max-width:100vw;  height:94%; margin-top: 8px;"
        >
             <iframe
               frameborder="0"
@@ -35,9 +37,26 @@
             >
             </iframe>
           </v-card>
+          </span>
+          <span v-else>
+               <v-card 
+            elevation="4"
+            align="left"
+      id="chat"
+       style="width:100vw; height:94%; margin-top: 8px;"
+       >
+            <iframe
+              frameborder="0"
+              src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost&parent=admiralbulldog.live"
+              height="100%"
+              width="100%"
+            >
+            </iframe>
+          </v-card>
+          </span>
         </v-col>
       </v-row>
-  </v-container>
+  </v-container-fluid>
 </template>
 
 <script>
