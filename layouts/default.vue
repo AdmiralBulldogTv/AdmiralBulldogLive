@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
        <!-- Preloader -->
-	<div class="spinner-wrapper">
+	<div id="spinner" class="spinner-wrapper">
         <div class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2">
@@ -212,23 +212,22 @@ export default {
       this.isMobile = window.innerWidth < 600;
     },
     removeSpinners() {
-      var s = document.querySelector('.spinner-wrapper').style;
-          s.opacity = 1;
-          function fade()
-          {
-              setTimeout(() => {
-                s.opacity-=.1 < 0 ? s.display="none" : setTimeout(fade,10)   
-                
-                if (document.querySelector('.spinner-wrapper')){
-                  document.querySelector('.spinner-wrapper').remove()
-                }
-              }, 2000);
-          
-          };
-          fade();
+     var fadeTarget = document.getElementById("spinner");
+     var fadeEffect = setInterval(function () {
+        if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1.5;
+        }
+        if (fadeTarget.style.opacity > 0) {
+            fadeTarget.style.opacity -= 0.1;
+        } else {
+            clearInterval(fadeEffect);
+            document.querySelector('.spinner-wrapper').remove()
+        }
+    }, 200);
     },
   },
   mounted() {
+     
     this.getBulldogStream();
     setInterval(() => {
       this.getBulldogStream();
@@ -236,9 +235,9 @@ export default {
     this.onResize();
 
     window.addEventListener("resize", this.onResize, { passive: true });
-    
-  // window.addEventListener("load", () => document.querySelector('.spinner-wrapper').style.opacity = '0') 
     this.removeSpinners();
+  // window.addEventListener("load", () => document.querySelector('.spinner-wrapper').style.opacity = '0') 
+   
    // window.addEventListener("transitionend", () => document.querySelector('.spinner-wrapper').remove());
 
   },
