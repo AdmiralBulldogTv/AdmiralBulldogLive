@@ -223,7 +223,7 @@ export default {
             clearInterval(fadeEffect);
             document.querySelector('.spinner-wrapper').remove()
         }
-    }, 200);
+    }, 100);
     },
   },
   mounted() {
