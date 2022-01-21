@@ -1,8 +1,27 @@
 <template>
-  <v-row class="fill-height"  justify="center"
-    
+  <v-row class="fill-height"  justify="center" v-if="this.$vuetify.breakpoint.width > '500'"
+
 >
-    <v-col v-for="(items, i) in socials" :key="i" :to="5">
+    <v-col cols="3" xs="5" sm="3" md="3" lg="3" xl="3" v-for="(items, i) in socials" :key="i" :to="5" >
+      <v-card style="height: 8rem">
+        <div class="icons">
+          <div>
+            <a :href="items.url" target="_blank">
+              <v-icon size="100" color="#0b6636" class="icon">{{
+                items.icon
+              }}</v-icon>
+            </a>
+          </div>
+
+          <div class="text">
+            {{ items.name }}
+          </div>
+        </div>
+      </v-card>
+    </v-col>
+  </v-row>
+  <v-row class="fill-height"  justify="center" v-else>
+    <v-col cols="6" xs="5" sm="3" md="3" lg="3" xl="3" v-for="(items, i) in socials" :key="i" :to="5" >
       <v-card style="height: 8rem">
         <div class="icons">
           <div>
@@ -85,4 +104,5 @@ a {
   color: #ffffff;
   text-decoration: none;
 }
+
 </style>

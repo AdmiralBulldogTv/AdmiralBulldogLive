@@ -11,6 +11,7 @@
             frameBorder="0"
             style="width: 100%; height: 100%"
             src="https://vods.admiralbulldog.live/"
+            allowfullscreen="true"
           >
             <p>Your browser does not support iframes.</p>
           </iframe>
