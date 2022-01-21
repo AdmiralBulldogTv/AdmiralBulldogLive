@@ -1,6 +1,8 @@
 <template>
-  <v-row>
-    <v-col v-for="(items, i) in docs" :key="i" :to="5">
+  <v-row class="fill-height"  justify="center" v-if="this.$vuetify.breakpoint.width > '550'"
+
+>
+ <v-col cols="12" xs="12" sm="6" md="6" lg="6" xl="6" v-for="(items, i) in docs" :key="i" :to="5" >
       <v-card style="height: 8rem">
         <div class="icons">
           <div>
@@ -12,7 +14,26 @@
           </div>
 
           <div class="text">
-            {{ items.name + " " + items.desc }}
+            {{ items.name }}
+          </div>
+        </div>
+      </v-card>
+    </v-col>
+  </v-row>
+  <v-row class="fill-height"  justify="center" v-else>
+    <v-col cols="6" xs="6" sm="6" md="6" lg="6" xl="6" v-for="(items, i) in docs" :key="i" :to="5" >
+      <v-card style="height: 8rem">
+        <div class="icons">
+          <div>
+            <a :href="items.url" target="_blank">
+              <v-icon size="100" color="#0b6636" class="icon">{{
+                items.icon
+              }}</v-icon>
+            </a>
+          </div>
+
+          <div class="text">
+            {{ items.name }}
           </div>
         </div>
       </v-card>
@@ -34,22 +55,10 @@ export default Vue.extend({
           desc: "Playlist",
         },
         {
-          name: "DongerDragons",
-          url: "https://twitch.tv/thedongerdragons",
-          icon: "mdi-text-to-speech",
-          desc: "Stream",
-        },
-        {
           name: "Spreadsheets",
           url: "https://docs.google.com/spreadsheets/d/1OqM-PLEX3_rxZF_r67ecc0kUIbo5xcrXsCur_ELIWYM/edit#gid=1049341315",
           icon: "mdi-file-document",
-          desc: "",
-        },
-        {
-          name: "Ask me Anything!",
-          url: "",
-          icon: "mdi-comment-question",
-          desc: "",
+          desc: "External Link to ",
         },
       ],
     };
