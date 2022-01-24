@@ -77,7 +77,8 @@ export default Vue.extend({
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
-          Authorization: "Bearer nlkookh5txhogq5bdgs9zshxmhs3ej",
+          // oauth code = shunalufcrsacjoozekt99wbiggyu9
+          Authorization: "Bearer shunalufcrsacjoozekt99wbiggyu9",
           "Client-ID": "pe8j3m8aepe7wa1n4qvba6jvvatfzi",
         }),
       })
@@ -102,7 +103,7 @@ export default Vue.extend({
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
-          Authorization: "Bearer nlkookh5txhogq5bdgs9zshxmhs3ej",
+          Authorization: "Bearer shunalufcrsacjoozekt99wbiggyu9",
           "Client-ID": "pe8j3m8aepe7wa1n4qvba6jvvatfzi",
         }),
       })
