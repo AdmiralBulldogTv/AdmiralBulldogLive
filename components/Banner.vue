@@ -53,9 +53,16 @@
   </v-row>
 </template>
 
+
 <script>
 import Vue from "vue";
 import moment from "moment";
+
+import config from "@/config.js"
+
+const token = config.config.OAUTH_TOKEN;
+const clientID = config.config.CLIENT_ID;
+
 export default Vue.extend({
   props: {},
   data() {
@@ -67,6 +74,7 @@ export default Vue.extend({
       nextStreamVac: null,
       currentTime: null,
       nextStream: null,
+      token1: token,
     };
   },
   methods: {
@@ -77,9 +85,8 @@ export default Vue.extend({
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
-          // oauth code = shunalufcrsacjoozekt99wbiggyu9
-          Authorization: "Bearer shunalufcrsacjoozekt99wbiggyu9",
-          "Client-ID": "pe8j3m8aepe7wa1n4qvba6jvvatfzi",
+          Authorization: "Bearer " + token,
+          "Client-ID": clientID,
         }),
       })
         .then(function (response) {
@@ -103,8 +110,8 @@ export default Vue.extend({
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
-          Authorization: "Bearer shunalufcrsacjoozekt99wbiggyu9",
-          "Client-ID": "pe8j3m8aepe7wa1n4qvba6jvvatfzi",
+          Authorization: "Bearer " + token,
+          "Client-ID": clientID,
         }),
       })
         .then(function (response) {

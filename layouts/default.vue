@@ -115,6 +115,10 @@
 </template>
 
 <script>
+import config from "@/config.js"
+
+const token = config.config.OAUTH_TOKEN;
+const clientID = config.config.CLIENT_ID;
 export default {
   data() {
     return {
@@ -184,8 +188,8 @@ export default {
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
-          Authorization: "Bearer shunalufcrsacjoozekt99wbiggyu9",
-          "Client-ID": "pe8j3m8aepe7wa1n4qvba6jvvatfzi",
+          Authorization: "Bearer "+ token,
+          "Client-ID": clientID,
         }),
       })
         .then(function (response) {
@@ -236,10 +240,6 @@ export default {
 
     window.addEventListener("resize", this.onResize, { passive: true });
     this.removeSpinners();
-  // window.addEventListener("load", () => document.querySelector('.spinner-wrapper').style.opacity = '0') 
-   
-   // window.addEventListener("transitionend", () => document.querySelector('.spinner-wrapper').remove());
-
   },
   computed: {
     isStreamerLive() {
