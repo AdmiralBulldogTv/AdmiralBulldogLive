@@ -16,6 +16,8 @@
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.15.1",
     "flipbook-vue": "^0.10.4",
+    "git-secret": "^1.0.5",
+    "gpg": "^0.6.0",
     "moment": "^2.29.1",
     "nuxt": "^2.15.8",
     "prettier": "^2.4.1",

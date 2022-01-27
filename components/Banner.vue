@@ -74,12 +74,11 @@ export default Vue.extend({
       nextStreamVac: null,
       currentTime: null,
       nextStream: null,
-      token1: token,
+      client: clientID,
     };
   },
   methods: {
     fetchSchedule: function () {
-      // 30816637 budok broadcaster_id
       let fetchLink =
         "https://api.twitch.tv/helix/schedule?broadcaster_id=30816637&first=2&utc_offset=120";
       fetch(fetchLink, {
