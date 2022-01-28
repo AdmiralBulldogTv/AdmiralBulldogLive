@@ -3,8 +3,8 @@
     <v-container fluid>
       <v-row>
         <v-col></v-col>
-        <v-col>          
-          <div class="custom" style="height:94%; margin-top: 8px;">
+        <v-col>
+          <div class="custom" style="height: 94%; margin-top: 8px">
             <span class="book" id="book">
               <div class="cover" id="cover">
                 <Flipbook

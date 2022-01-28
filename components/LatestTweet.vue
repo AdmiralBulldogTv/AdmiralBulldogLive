@@ -1,5 +1,5 @@
 <template>
-  <v-col  cols="12" sm="8" md="6" justify-space-between>
+  <v-col cols="12" sm="8" md="6" justify-space-between>
     <v-card-title class="headline" justify="center" align="center">
       Latest News &nbsp;
       <a
@@ -20,7 +20,6 @@
       justify="center"
       align="center"
       style="min-height: 34rem; height: 34rem"
-      
       id="twitter"
     >
       <div class="mt-10" style="">

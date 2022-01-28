@@ -10,7 +10,6 @@
       id="youtube"
       style="min-height: 34rem; height: 34rem"
     >
-    
       <v-row>
         <!-- falls auflösung > 1920p, dann 6-->
         <!-- latest four videos -->

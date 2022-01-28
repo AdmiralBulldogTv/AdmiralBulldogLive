@@ -1,17 +1,16 @@
 <template>
   <v-app dark>
-       <!-- Preloader -->
-	<div id="spinner" class="spinner-wrapper">
-        <div class="spinner">
-            <div class="bounce1"></div>
-            <div class="bounce2">
-              <v-avatar color="" tile>
+    <!-- Preloader -->
+    <div id="spinner" class="spinner-wrapper">
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2">
+          <v-avatar color="" tile>
             <img src="../static/emotes/blabla.gif" />
           </v-avatar>
-            </div>
-            <div class="bounce3">
-</div>
         </div>
+        <div class="bounce3"></div>
+      </div>
     </div>
     <!-- end of preloader -->
     <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" app>
@@ -98,7 +97,7 @@
       <v-spacer />
     </v-app-bar>
     <v-main fluid>
-      <span> <Banner />   </span>
+      <span> <Banner /> </span>
       <Nuxt />
     </v-main>
     <v-navigation-drawer
@@ -115,7 +114,7 @@
 </template>
 
 <script>
-import config from "@/config.js"
+import config from "@/config.js";
 
 const token = config.config.OAUTH_TOKEN;
 const clientID = config.config.CLIENT_ID;
@@ -188,7 +187,7 @@ export default {
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
-          Authorization: "Bearer "+ token,
+          Authorization: "Bearer " + token,
           "Client-ID": clientID,
         }),
       })
@@ -216,22 +215,21 @@ export default {
       this.isMobile = window.innerWidth < 600;
     },
     removeSpinners() {
-     var fadeTarget = document.getElementById("spinner");
-     var fadeEffect = setInterval(function () {
+      var fadeTarget = document.getElementById("spinner");
+      var fadeEffect = setInterval(function () {
         if (!fadeTarget.style.opacity) {
-            fadeTarget.style.opacity = 1.5;
+          fadeTarget.style.opacity = 1.5;
         }
         if (fadeTarget.style.opacity > 0) {
-            fadeTarget.style.opacity -= 0.1;
+          fadeTarget.style.opacity -= 0.1;
         } else {
-            clearInterval(fadeEffect);
-            document.querySelector('.spinner-wrapper').remove()
+          clearInterval(fadeEffect);
+          document.querySelector(".spinner-wrapper").remove();
         }
-    }, 100);
+      }, 100);
     },
   },
   mounted() {
-     
     this.getBulldogStream();
     setInterval(() => {
       this.getBulldogStream();
@@ -267,58 +265,67 @@ export default {
 }
 
 .spinner-wrapper {
-    position: fixed;
-    z-index: 999999;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: #121212;
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #121212;
 }
 
 .spinner {
-    z-index: 5;
-    position: absolute;
-    top: 50%; 
-    left: 50%;
-    width: 6.75rem;
-    height: 1.25rem;
-    margin: -0.625rem 0 0 -1.875rem;
-    text-align: center;
+  z-index: 5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6.75rem;
+  height: 1.25rem;
+  margin: -0.625rem 0 0 -1.875rem;
+  text-align: center;
 }
 
 .spinner > div {
-    display: inline-block;
-    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
 
 .spinner .bounce2 {
-    -webkit-animation-delay: -0.16s;
-    animation-delay: -0.16s;
-    margin-right: 10px;
-    margin-left:10px;
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .spinner .bounce3 {
-    -webkit-animation-delay: -0.08s;
-    animation-delay: -0.08s;
-    margin-left: 10px;
+  -webkit-animation-delay: -0.08s;
+  animation-delay: -0.08s;
+  margin-left: 10px;
 }
 
 @-webkit-keyframes sk-bouncedelay {
-    0%, 80%, 100% { -webkit-transform: scale(1.0); }
-    40% { -webkit-transform: scale(1.0); }
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(1);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
 }
 
 @keyframes sk-bouncedelay {
-    0%, 80%, 100% {
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-    } 40% {
-          -webkit-transform: scale(1.9);
-          -ms-transform: scale(1.9);
-          transform: scale(1.9);
-      }
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  40% {
+    -webkit-transform: scale(1.9);
+    -ms-transform: scale(1.9);
+    transform: scale(1.9);
+  }
 }
 </style>

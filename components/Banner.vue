@@ -3,7 +3,7 @@
     <span
       v-for="bdog in bulldogStream"
       :key="bdog.broadcaster_id"
-      style="width: 100%; margin-top:11px"
+      style="width: 100%; margin-top: 11px"
     >
       <span v-if="getStreamerStatus === true">
         <v-avatar tile> </v-avatar>
@@ -53,12 +53,11 @@
   </v-row>
 </template>
 
-
 <script>
 import Vue from "vue";
 import moment from "moment";
 
-import config from "@/config.js"
+import config from "@/config.js";
 
 const token = config.config.OAUTH_TOKEN;
 const clientID = config.config.CLIENT_ID;

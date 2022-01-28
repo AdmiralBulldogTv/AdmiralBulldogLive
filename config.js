@@ -1,7 +1,7 @@
 export default {
-  config : {
-    OAUTH_TOKEN : 'shunalufcrsacjoozekt99wbiggyu9',
-    CLIENT_ID : 'pe8j3m8aepe7wa1n4qvba6jvvatfzi',
+  config: {
+    OAUTH_TOKEN: "shunalufcrsacjoozekt99wbiggyu9",
+    CLIENT_ID: "pe8j3m8aepe7wa1n4qvba6jvvatfzi",
   },
 };
 

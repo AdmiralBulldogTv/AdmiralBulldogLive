@@ -15,9 +15,7 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-card>
-          <v-card-text id="id_ama"> </v-card-text>
-        </v-card>
+        <v-card-text id="id_ama"> </v-card-text>
       </v-col>
     </v-row>
   </v-container-fluid>
@@ -47,9 +45,22 @@ export default {
 
     formatAma(amaStr: string) {
       let returnString = "";
-      console.log(amaStr.split("\n"));
-      for (let i = 0; i < amaStr.split("\n").length; i++) {
-        returnString += "<p>" + amaStr.split("\n")[i] + "</p>";
+      let firstcard = true;
+      for (let i = 0; i < amaStr.split("\n").length - 1; i++) {
+        if (amaStr.split("\n")[0].indexOf("—") > -1 && firstcard) {
+          returnString +=
+            "<div class='v-card v-sheet theme--dark elevation-4'>";
+          firstcard = false;
+        } else if (amaStr.split("\n")[i + 1].indexOf("—") > -1 && !firstcard) {
+          returnString += "</div>";
+          returnString +=
+            "<div class='v-card v-sheet theme--dark elevation-4'>";
+        }
+        returnString +=
+          "<p style=' text-align: justify; line-height: 1;'>" +
+          amaStr.split("\n")[i] +
+          "</p>";
+        firstcard = false;
       }
       return returnString;
     },
@@ -59,3 +70,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+p {
+  text-align: justify;
+  color: blue;
+}
+</style>

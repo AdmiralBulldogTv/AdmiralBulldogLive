@@ -1,12 +1,8 @@
 <template>
   <v-container-fluid>
-    <v-row
-      class="fill-height"
-      justify="center"
-      style="margin: 2px;"
-    >
+    <v-row class="fill-height" justify="center" style="margin: 2px">
       <v-col>
-        <v-card class="" style="height:94%; margin-top: 8px;">
+        <v-card class="" style="height: 94%; margin-top: 8px">
           <iframe
             frameBorder="0"
             style="width: 100%; height: 100%"
@@ -20,4 +16,3 @@
     </v-row>
   </v-container-fluid>
 </template>
-
