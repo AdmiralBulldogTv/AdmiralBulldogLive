@@ -153,6 +153,11 @@ export default {
           to: "/faq",
         },
         {
+          icon: "mdi-view-list",
+          title: "Tierlists",
+          to: "/tierlists",
+        },
+        {
           icon: "mdi-comment-question",
           title: "AMAs",
           to: "/ama",
