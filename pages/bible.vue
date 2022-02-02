@@ -1,45 +1,42 @@
 <template>
   <client-only>
-    <v-container fluid>
-      <v-row>
-        <v-col></v-col>
-        <v-col>
-          <div class="custom" style="height: 94%; margin-top: 8px">
-            <span class="book" id="book">
-              <div class="cover" id="cover">
-                <Flipbook
-                  id="ID_Flipbook"
-                  class="flipbook"
-                  :gloss="0.001"
-                  :pages="pages"
-                  :ambient="0.2"
-                  :nPolygons="8"
-                  :clickToZoom="false"
-                  centering
-                  v-slot="flipbook"
-                  ref="flipbook"
-                >
-                  <v-row>
-                    <v-col>
-                      <button @click="flipbook.flipLeft">Previous Page</button>
-                    </v-col>
-                    <v-col>
-                      <button @click="flipbook.flipRight">Next Page</button>
-                    </v-col>
-                  </v-row>
-                </Flipbook>
-              </div>
-
-              <div class="back_cover"></div>
-            </span>
-          </div>
+    <v-container-fluid>
+      <v-row class="fill-height" justify="center" style="margin: 2px">
+        <v-col style="flex-grow: 0">
+          <v-img
+            src="https://cdn.discordapp.com/attachments/902130515916783646/938466327956426762/altar.png"
+            style="height: calc(70vh - 50px - 40px); margin-top: 8px"
+            contain
+          >
+            <div class="book">
+              <Flipbook
+                id="ID_Flipbook"
+                class="flipbook"
+                :gloss="0.001"
+                :pages="pages"
+                :ambient="0.2"
+                :nPolygons="8"
+                :clickToZoom="true"
+                centering
+                v-slot="flipbook"
+                ref="flipbook"
+              >
+                <v-row class="buttons">
+                  <v-col>
+                    <button @click="flipbook.flipLeft">Previous Page</button>
+                  </v-col>
+                  <v-col>
+                    <button @click="flipbook.flipRight">Next Page</button>
+                  </v-col>
+                </v-row>
+              </Flipbook>
+            </div>
+          </v-img>
         </v-col>
-        <v-col></v-col>
       </v-row>
-    </v-container>
+    </v-container-fluid>
   </client-only>
 </template>
-g
 <script>
 export default {
   data() {
@@ -59,7 +56,7 @@ export default {
         "https://cdn.discordapp.com/attachments/594922024946892831/938084328351625226/pgX.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/938452103377076224/sword.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/938391759837335642/pgXI.png",
-         "https://cdn.discordapp.com/attachments/594922024946892831/938452102135562330/bull_pg.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938452102135562330/bull_pg.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/938443002676904056/pgXIV.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/936006233624813648/pg9.png",
       ],
@@ -77,23 +74,21 @@ body {
 
 .flipbook {
   width: 50vw;
-  height: calc(75vh - 50px - 40px);
+  height: calc(60vh - 50px - 40px);
 }
 .flipbook .bounding-box {
   box-shadow: 2px 2px 2px 15px red !important;
 }
 
 .book {
-  height: 95vh;
-  width: 100%;
+  margin-top: 8px;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
-.cover {
-  transition: all 1.5s;
-  perspective: 700px;
+.buttons {
+  display: flex;
+  justify-content: center;
 }
 
 .back_cover {
