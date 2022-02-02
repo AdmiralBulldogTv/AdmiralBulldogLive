@@ -59,6 +59,8 @@ export default {
         "https://cdn.discordapp.com/attachments/594922024946892831/938084328351625226/pgX.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/938389600831930388/sword.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/938391759837335642/pgXI.png",
+         "https://cdn.discordapp.com/attachments/594922024946892831/938444509270925362/bullpg.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938443002676904056/pgXIV.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/936006233624813648/pg9.png",
       ],
     };
