@@ -2,12 +2,8 @@
   <client-only>
     <v-container-fluid>
       <v-row class="fill-height" justify="center" style="margin: 2px">
-        <v-col style="flex-grow: 0">
-          <v-img
-            src="https://cdn.discordapp.com/attachments/902130515916783646/938466327956426762/altar.png"
-            style="height: calc(70vh - 50px - 40px); margin-top: 8px"
-            contain
-          >
+        <v-col>
+          <v-card class="table">
             <div class="book">
               <Flipbook
                 id="ID_Flipbook"
@@ -31,7 +27,7 @@
                 </v-row>
               </Flipbook>
             </div>
-          </v-img>
+          </v-card>
         </v-col>
       </v-row>
     </v-container-fluid>
@@ -74,7 +70,7 @@ body {
 
 .flipbook {
   width: 50vw;
-  height: calc(60vh - 50px - 40px);
+  height: calc(75vh - 50px - 40px);
 }
 .flipbook .bounding-box {
   box-shadow: 2px 2px 2px 15px red !important;
@@ -89,6 +85,7 @@ body {
 .buttons {
   display: flex;
   justify-content: center;
+  padding-bottom: 25px;
 }
 
 .back_cover {
@@ -106,5 +103,12 @@ body {
   position: absolute;
   transform: rotateX(0);
   transform-origin: center left;
+}
+
+.table{
+  height: 94%; 
+  margin-top: 8px; 
+  background-image: url('https://cdn.discordapp.com/attachments/902130515916783646/938466327956426762/altar.png'); 
+  background-size: cover;
 }
 </style>
