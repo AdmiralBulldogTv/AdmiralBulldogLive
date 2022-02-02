@@ -41,7 +41,7 @@ export default {
         null,
         "https://cdn.discordapp.com/attachments/594922024946892831/938392348117860442/COVER2.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/936006230974013500/pg2.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/936006231305367602/pg3.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938499384008663091/thygod.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/938389598378262568/angel_4.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/938071099617452052/pg5.png",
         "https://cdn.discordapp.com/attachments/594922024946892831/938452102542405712/bulldogmesiah.png",
