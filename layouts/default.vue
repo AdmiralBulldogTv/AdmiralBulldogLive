@@ -79,7 +79,7 @@
         <v-col
           v-if="isStreamerLive"
           style="text-align: end; white-space: nowrap"
-          >Currently
+          >Stream
           <a href="https://www.twitch.tv/admiralbulldog" target="_blank"
             >live</a
           >
@@ -88,7 +88,10 @@
           </v-avatar>
         </v-col>
         <v-col v-else style="text-align: end"
-          >Currently offline
+          >Stream
+          <a href="https://www.twitch.tv/admiralbulldog" target="_blank"
+            >offline</a
+          >
           <v-avatar tile>
             <img src="../static/emotes/BNotOkayChamp.png" />
           </v-avatar>
@@ -200,8 +203,7 @@ export default {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
-
+          // console.log(data);
           let bulldogStream = [];
           bulldogStream.push({
             streamID: data.data[0].id,

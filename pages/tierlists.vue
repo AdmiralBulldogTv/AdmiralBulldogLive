@@ -1,55 +1,85 @@
 <template>
-  <v-container class="mt-5" fluid>
-    <v-row>
+  <v-container fluid class="mt-5"  >
+    <v-row  justify="center" >
       <v-col>
         <v-select
-          :items="tierlists"
-          label="Choose Tierlists"
+          :items="tierLists"
+          label="Choose Tierlists theme"
           outlined
           rounded
-          item-text="title"
+          item-text="theme"
+          item-value="theme"
+          @change="returnTierlist"
+          style="width:250px;"
         ></v-select>
       </v-col>
     </v-row>
-    <v-card elevation="4" justify="center" align="center">
-      <v-carousel hide-delimiters max-height="800">
+
+    <v-card elevation="4" style="height: 90vh;max-height:660px">
+      <v-carousel  hide-delimiters>
         <v-carousel-item
-          v-for="(item, i) in tierlists"
+          v-for="(item, i) in returnedList"
           :key="i"
           :src="item.src"
           contain
-          max-width="600"
-          :aspect-ratio="16 / 9"
         >
-          {{ item.title }} Tierlist
+           <div>{{item.title}} Tierlist </div>
         </v-carousel-item>
       </v-carousel>
-    </v-card>
+</v-card>
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
+
 import Vue from "vue";
 export default Vue.extend({
   data() {
     return {
       isTop: false,
       showNavBar: false,
-      tierlists: [
-        { title: "Gachi", src: require("../static/tierlists/gachi.png") },
-        { title: "Actors ", src: require("../static/tierlists/actors.png") },
+      carouselHeight: '',
+      returnedList: [],
+      tierLists: [
+        {
+          title: "Gachi",
+          src: require("../static/tierlists/gachi.png"),
+          theme: "memes",
+        },
+        {
+          title: "Actors ",
+          src: require("../static/tierlists/actors.png"),
+          theme: "movies",
+        },
         {
           title: "Disney ",
           src: require("../static/tierlists/disneymovies.png"),
+          theme: "movies",
         },
-        { title: "Nuts ", src: require("../static/tierlists/nuts.png") },
+        {
+          title: "Nuts ",
+          src: require("../static/tierlists/nuts.png"),
+          theme: "food",
+        },
       ],
     };
   },
-  mounted() {},
-
+  mounted() {
+  },
   beforeDestroy() {},
 
-  methods: {},
+  methods: {
+     returnTierlist(theme: String) {
+       var tempTierlists: Array<String | any> = [];
+       for(let i=0;i<this.tierLists.length;i++)
+       {
+          if (this.tierLists[i].theme == theme)
+          {
+              tempTierlists.push(this.tierLists[i]);
+          }
+       }
+       this.returnedList = tempTierlists;
+    },
+   },
 });
 </script>

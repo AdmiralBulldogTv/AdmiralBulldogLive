@@ -105,10 +105,10 @@ body {
   transform-origin: center left;
 }
 
-.table{
-  height: 94%; 
-  margin-top: 8px; 
-  background-image: url('https://cdn.discordapp.com/attachments/902130515916783646/938466327956426762/altar.png'); 
+.table {
+  height: 94%;
+  margin-top: 8px;
+  background-image: url("https://cdn.discordapp.com/attachments/902130515916783646/938466327956426762/altar.png");
   background-size: cover;
 }
 </style>

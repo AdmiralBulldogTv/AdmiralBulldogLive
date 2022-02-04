@@ -1,6 +1,6 @@
 <template>
   <v-container-fluid>
-    <v-row style="height: 5rem; width: 30rem">
+    <v-row>
       <v-col>
         <v-select
           :items="amas"
@@ -10,6 +10,7 @@
           item-text="title"
           item-value="file"
           @change="getAma"
+          style="width:450px"
         ></v-select>
       </v-col>
     </v-row>
