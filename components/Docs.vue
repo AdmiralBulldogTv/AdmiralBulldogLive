@@ -44,7 +44,7 @@
       :key="i"
       :to="5"
     >
-      <v-card class="card" style="height: 8rem">
+      <v-card class="card">
         <div class="icons">
           <div>
             <a :href="items.url" target="_blank">
@@ -105,6 +105,7 @@ export default Vue.extend({
 
 .card {
   z-index: 0;
+  height: 8rem;
 }
 
 .text {

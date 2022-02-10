@@ -68,7 +68,6 @@ export default Vue.extend({
     return {
       bulldogStream: [],
       bulldogTwitch: [],
-      streamStatus: null,
       timeLeft: "live",
       nextStreamVac: null,
       currentTime: null,
@@ -140,6 +139,7 @@ export default Vue.extend({
     // get stream infos
     this.fetchStream();
     this.fetchSchedule();
+
     // update timer
     setInterval(() => {
       this.currentTime = this.currentDateTime();
@@ -163,13 +163,13 @@ export default Vue.extend({
           .utc(this.nextStreamAfterVac.diff(this.currentTime))
           .format("HH:mm:ss");
       }
-      this.getStreamerStatus;
     }, 1000);
   },
   computed: {
     getStreamerStatus() {
       // wait for twitch api to respond
       if (this.bulldogTwitch[0] !== undefined) {
+        console.log(this.bulldogTwitch[0].is_live);
         if (this.bulldogTwitch[0].is_live === true) {
           return true;
         } else if (

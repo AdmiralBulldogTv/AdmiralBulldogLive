@@ -10,13 +10,15 @@
           item-text="title"
           item-value="file"
           @change="getAma"
-          style="width:450px"
+          style="width: 450px"
         ></v-select>
       </v-col>
     </v-row>
     <v-row>
       <v-col>
-        <v-card-text id="id_ama"> </v-card-text>
+        <v-card tile>
+          <v-card-text id="id_ama"> </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
   </v-container-fluid>
@@ -50,12 +52,12 @@ export default {
       for (let i = 0; i < amaStr.split("\n").length - 1; i++) {
         if (amaStr.split("\n")[0].indexOf("—") > -1 && firstcard) {
           returnString +=
-            "<div class='v-card v-sheet theme--dark elevation-4'>";
+            "<div class='v-card v-sheet theme--light elevation-24' v-sheet--outlined v-sheet--shaped style='padding:5px; margin:8px;'>";
           firstcard = false;
         } else if (amaStr.split("\n")[i + 1].indexOf("—") > -1 && !firstcard) {
           returnString += "</div>";
           returnString +=
-            "<div class='v-card v-sheet theme--dark elevation-4'>";
+            "<div class='v-card v-sheet theme--light elevation-24' style='padding:5px; margin:8px;'>";
         }
         returnString +=
           "<p style=' text-align: justify; line-height: 1;'>" +

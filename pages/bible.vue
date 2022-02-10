@@ -19,10 +19,10 @@
               >
                 <v-row class="buttons">
                   <v-col>
-                    <button @click="flipbook.flipLeft">Previous Page</button>
+                    <button @click="flipbook.flipLeft"></button>
                   </v-col>
                   <v-col>
-                    <button @click="flipbook.flipRight">Next Page</button>
+                    <button @click="flipbook.flipRight"></button>
                   </v-col>
                 </v-row>
               </Flipbook>
