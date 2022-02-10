@@ -69,7 +69,9 @@ export default Vue.extend({
       ],
     };
   },
-  mounted() {},
+  mounted() {
+    this.returnTierlist("memes");
+  },
   beforeDestroy() {},
   computed: {
     returnTitle() {},
