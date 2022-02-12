@@ -169,7 +169,6 @@ export default Vue.extend({
     getStreamerStatus() {
       // wait for twitch api to respond
       if (this.bulldogTwitch[0] !== undefined) {
-        console.log(this.bulldogTwitch[0].is_live);
         if (this.bulldogTwitch[0].is_live === true) {
           return true;
         } else if (

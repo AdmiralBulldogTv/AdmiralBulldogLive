@@ -14,23 +14,28 @@
         ></v-select>
       </v-col>
     </v-row>
-
-    <v-card elevation="4">      
-      <v-carousel show-arrows-on-hover hide-delimiters id="caro"  height="60vh">
+    <v-row>
+      <v-col></v-col>
+      <v-col>
+        <div class="headline" justify="center" align="center" v-if="curr">
+          {{ currentTitle }}
+        </div>
+      </v-col>
+      <v-col></v-col>
+    </v-row>
+    <v-card elevation="4">
+      <v-system-bar lights-out style="margin-top: -5px; text-align: justify">
+      </v-system-bar>
+      <v-carousel hide-delimiters id="caro" v-model="currentIndex">
         <v-carousel-item
-         id="test"
-          v-for="(item, index) in returnedList"
+          id="test"
+          v-for="item in returnedList"
           :key="item.src"
           :src="item.src"
           contain
-          style="margin-top:70px;overflow-y:inherit"
         >
-          <v-system-bar lights-out style="margin-top:-5px;"> {{ item.title }} Tierlist</v-system-bar>
         </v-carousel-item>
       </v-carousel>
-      <v-list two-line>
-        <v-list-item> </v-list-item>
-      </v-list>
       <v-system-bar lights-out> </v-system-bar>
     </v-card>
   </v-container>
@@ -43,6 +48,7 @@ export default Vue.extend({
     return {
       isTop: false,
       showNavBar: false,
+      currentIndex: 0,
       tierListTitle: "",
       returnedList: [],
       tierLists: [
@@ -67,6 +73,7 @@ export default Vue.extend({
           theme: "food",
         },
       ],
+      tempTheme: "",
     };
   },
   mounted() {
@@ -74,10 +81,21 @@ export default Vue.extend({
   },
   beforeDestroy() {},
   computed: {
-    returnTitle() {},
+    currentTitle: function (): string {
+      if (this.returnedList.length > 0) {    
+        console.log(this.tempTheme, this.returnedList[this.currentIndex].theme)
+          if(this.tempTheme != this.returnedList[this.currentIndex].theme)
+          {
+            this.currentIndex = 0
+          }
+          this.tempTheme = this.returnedList[this.currentIndex].theme
+          return this.returnedList[this.currentIndex].title + " Tierlist";
+      }
+    },
   },
   methods: {
     returnTierlist(theme: String) {
+      this.currentIndex = 0;
       var tempTierlists: Array<String | any> = [];
       for (let i = 0; i < this.tierLists.length; i++) {
         if (this.tierLists[i].theme == theme) {
@@ -85,6 +103,7 @@ export default Vue.extend({
         }
       }
       this.returnedList = tempTierlists;
+      this.currentIndex = 0;
     },
   },
 });

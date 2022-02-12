@@ -16,7 +16,7 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-card class="ama" >
+        <v-card class="ama">
           <v-card-text id="id_ama"> </v-card-text>
         </v-card>
       </v-col>
@@ -37,8 +37,8 @@ const ama_210412: object = require("raw-loader!../assets/amas/ama_210412.txt");
 const ama_210307: object = require("raw-loader!../assets/amas/ama_210307.txt");
 const ama_210214: object = require("raw-loader!../assets/amas/ama_210214.txt");
 const ama_210119: object = require("raw-loader!../assets/amas/ama_210119.txt");
-const ama_210110: object = require("raw-loader!../assets/amas/ama_210110.txt"); 
-const ama_201129: object = require("raw-loader!../assets/amas/ama_201129.txt"); 
+const ama_210110: object = require("raw-loader!../assets/amas/ama_210110.txt");
+const ama_201129: object = require("raw-loader!../assets/amas/ama_201129.txt");
 
 export default {
   data() {
@@ -69,7 +69,7 @@ export default {
     formatAma(amaStr: string) {
       let returnString = "";
       let firstcard = true;
-      for (let i = 0; i < amaStr.split("\n").length -1 ; i++) {
+      for (let i = 0; i < amaStr.split("\n").length - 1; i++) {
         if (amaStr.split("\n")[0].indexOf("—") > -1 && firstcard) {
           returnString +=
             "<div class='v-card v-sheet theme--light elevation-24' v-sheet--outlined v-sheet--shaped style='padding:5px; margin:8px;font-size: large;'>";
@@ -100,10 +100,8 @@ p {
   color: blue;
 }
 
-.ama
-{
-  margin-top:-24px;
-  
+.ama {
+  margin-top: -24px;
 }
 </style>
 g
