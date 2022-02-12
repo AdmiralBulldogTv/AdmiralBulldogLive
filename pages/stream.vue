@@ -1,7 +1,7 @@
 <template>
   <v-container-fluid id="stream">
-    <v-row class="fill-height" justify="center" style="margin: 2px">
-      <v-col class="flex-grow-1 flex-shrink-1">
+    <v-row class="fill-height" justify="center" style="margin-left:14px; margin-right:14px;">
+      <v-col class="flex-grow-1 flex-shrink-1" style="padding:0;">
         <v-card
           elevation="4"
           align="left"
@@ -17,7 +17,7 @@
           </iframe>
         </v-card>
       </v-col>
-      <v-col class="flex-grow-0 flex-shrink-1">
+      <v-col class="flex-grow-0 flex-shrink-1" style="padding:0;">
         <span v-if="this.$vuetify.breakpoint.width > '853'">
           <v-card
             elevation="4"

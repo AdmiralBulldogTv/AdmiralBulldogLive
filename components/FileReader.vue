@@ -16,7 +16,7 @@
     </v-row>
     <v-row>
       <v-col>
-        <v-card class="ama">
+        <v-card tile shaped class="ama" style=" background-color:#1E1E1E;'">
           <v-card-text id="id_ama"> </v-card-text>
         </v-card>
       </v-col>
@@ -72,12 +72,12 @@ export default {
       for (let i = 0; i < amaStr.split("\n").length - 1; i++) {
         if (amaStr.split("\n")[0].indexOf("—") > -1 && firstcard) {
           returnString +=
-            "<div class='v-card v-sheet theme--light elevation-24' v-sheet--outlined v-sheet--shaped style='padding:5px; margin:8px;font-size: large;'>";
+            "<div class='v-card v-sheet theme--dark elevation-24' v-sheet--outlined v-sheet--shaped style='padding:5px; margin:8px;font-size: large;>";
           firstcard = false;
         } else if (amaStr.split("\n")[i + 1].indexOf("—") > -1 && !firstcard) {
-          returnString += "</div>";
+          returnString += "</div><hr>";
           returnString +=
-            "<div class='v-card v-sheet theme--light elevation-24' style='padding:5px; margin:8px;font-size: large;'>";
+            "<div class='v-card v-sheet theme--dark elevation-24' style='padding:5px; margin:8px;font-size: large;'>";
         }
         returnString +=
           "<p style=' text-align: justify; line-height: 1;'>" +

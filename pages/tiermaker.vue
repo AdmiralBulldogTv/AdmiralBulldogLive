@@ -17,7 +17,7 @@
     <v-row>
       <v-col></v-col>
       <v-col>
-        <div class="headline" justify="center" align="center" v-if="curr">
+        <div class="headline" justify="center" align="center" >
           {{ currentTitle }}
         </div>
       </v-col>
@@ -50,7 +50,12 @@ export default Vue.extend({
       showNavBar: false,
       currentIndex: 0,
       tierListTitle: "",
-      returnedList: [],
+      returnedList: [ {
+          title: "",
+          src: '',
+          theme: "memes",
+        },],
+
       tierLists: [
         {
           title: "Gachi",
@@ -73,7 +78,7 @@ export default Vue.extend({
           theme: "food",
         },
       ],
-      tempTheme: "",
+      tempLength: 0,
     };
   },
   mounted() {
@@ -82,15 +87,10 @@ export default Vue.extend({
   beforeDestroy() {},
   computed: {
     currentTitle: function (): string {
-      if (this.returnedList.length > 0) {    
-        console.log(this.tempTheme, this.returnedList[this.currentIndex].theme)
-          if(this.tempTheme != this.returnedList[this.currentIndex].theme)
-          {
-            this.currentIndex = 0
-          }
-          this.tempTheme = this.returnedList[this.currentIndex].theme
+        if(this.returnedList[this.currentIndex] !== undefined)
+        {
           return this.returnedList[this.currentIndex].title + " Tierlist";
-      }
+        }
     },
   },
   methods: {
@@ -102,8 +102,7 @@ export default Vue.extend({
           tempTierlists.push(this.tierLists[i]);
         }
       }
-      this.returnedList = tempTierlists;
-      this.currentIndex = 0;
+      return this.returnedList = tempTierlists;
     },
   },
 });
