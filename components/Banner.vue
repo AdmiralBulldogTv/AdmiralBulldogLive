@@ -3,7 +3,7 @@
     <span
       v-for="bdog in bulldogStream"
       :key="bdog.broadcaster_id"
-      style="width: 100%"
+      style="width: 100%; margin-top: 11px"
     >
       <span v-if="getStreamerStatus === true">
         <v-avatar tile> </v-avatar>
@@ -30,7 +30,7 @@
         <v-avatar tile> </v-avatar>
         Bulldog should be live any moment now
         <v-avatar tile>
-          <img src="../static/emotes/Prayge.png" />
+          <!-- <img src="../static/emotes/Prayge.png" /> -->
         </v-avatar>
       </v-card>
       <v-card
@@ -56,36 +56,40 @@
 <script>
 import Vue from "vue";
 import moment from "moment";
+
+import config from "@/config.js";
+
+const token = config.config.OAUTH_TOKEN;
+const clientID = config.config.CLIENT_ID;
+
 export default Vue.extend({
   props: {},
   data() {
     return {
       bulldogStream: [],
       bulldogTwitch: [],
-      streamStatus: null,
       timeLeft: "live",
       nextStreamVac: null,
       currentTime: null,
       nextStream: null,
+      client: clientID,
     };
   },
   methods: {
     fetchSchedule: function () {
-      // 30816637 budok broadcaster_id
       let fetchLink =
         "https://api.twitch.tv/helix/schedule?broadcaster_id=30816637&first=2&utc_offset=120";
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
-          Authorization: "Bearer nlkookh5txhogq5bdgs9zshxmhs3ej",
-          "Client-ID": "pe8j3m8aepe7wa1n4qvba6jvvatfzi",
+          Authorization: "Bearer " + token,
+          "Client-ID": clientID,
         }),
       })
         .then(function (response) {
           return response.json();
         })
         .then((data) => {
-          console.log(data);
           let bulldogSchedule = [];
           bulldogSchedule.push({
             broadcaster_id: data.data.broadcaster_id,
@@ -103,8 +107,8 @@ export default Vue.extend({
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
-          Authorization: "Bearer nlkookh5txhogq5bdgs9zshxmhs3ej",
-          "Client-ID": "pe8j3m8aepe7wa1n4qvba6jvvatfzi",
+          Authorization: "Bearer " + token,
+          "Client-ID": clientID,
         }),
       })
         .then(function (response) {
@@ -135,6 +139,7 @@ export default Vue.extend({
     // get stream infos
     this.fetchStream();
     this.fetchSchedule();
+
     // update timer
     setInterval(() => {
       this.currentTime = this.currentDateTime();
@@ -158,7 +163,6 @@ export default Vue.extend({
           .utc(this.nextStreamAfterVac.diff(this.currentTime))
           .format("HH:mm:ss");
       }
-      this.getStreamerStatus;
     }, 1000);
   },
   computed: {

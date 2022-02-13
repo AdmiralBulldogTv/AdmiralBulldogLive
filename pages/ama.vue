@@ -1,3 +1,5 @@
 <template>
-  <FileReader /> 
+  <v-container class="mt-5" fluid>
+    <FileReader />
+  </v-container>
 </template>

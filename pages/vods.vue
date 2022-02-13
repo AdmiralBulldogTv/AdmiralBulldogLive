@@ -1,18 +1,15 @@
 <template>
   <v-container-fluid>
-    <v-row
-      class="fill-height align-stretch"
-      justify="center"
-      style="margin: 2px"
-    >
+    <v-row class="fill-height" justify="center" style="margin: 2px">
       <v-col>
-        <v-card class="fill-height align-stretch">
+        <v-card class="" style="height: 94%; margin-top: 8px">
           <iframe
-            style="height: 100%; width: 100%"
             frameBorder="0"
-            src="https://admiralbulldog.streamervods.live/"
+            style="width: 100%; height: 100%"
+            src="https://vods.admiralbulldog.live/"
+            allowfullscreen="true"
           >
-            <p>UHM</p>
+            <p>Your browser does not support iframes.</p>
           </iframe>
         </v-card>
       </v-col>

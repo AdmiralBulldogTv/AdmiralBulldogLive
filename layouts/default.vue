@@ -1,5 +1,18 @@
 <template>
   <v-app dark>
+    <!-- Preloader -->
+    <div id="spinner" class="spinner-wrapper">
+      <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2">
+          <v-avatar color="" tile>
+            <img src="../static/emotes/blabla.gif" />
+          </v-avatar>
+        </div>
+        <div class="bounce3"></div>
+      </div>
+    </div>
+    <!-- end of preloader -->
     <v-navigation-drawer v-model="drawer" :mini-variant="miniVariant" app>
       <v-list>
         <v-list-item
@@ -46,27 +59,36 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-app-bar-nav-icon
+            @click.stop="drawer = !drawer"
+            v-bind="attrs"
+            color="#0b6636"
+            v-on="on"
+          />
+        </template>
+        <span>Theatre Mode</span>
+      </v-tooltip>
       <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon color="#0b6636"
           >mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon
         >
       </v-btn> -->
-
       <v-row
         style="width: 100vw"
         v-for="bdog in bulldogTwitch"
         :key="bdog.streamID"
         id="title"
       >
-        <v-col cols="2" align-self="center" style="white-space: nowrap"
-          >{{ bdog.display_name }}
+        <v-col cols="2" style="white-space: nowrap; margin-top: 2.5px">
+          {{ bdog.display_name }}
           <v-avatar tile> </v-avatar>
         </v-col>
         <v-col
           v-if="isStreamerLive"
-          style="text-align: end; white-space: nowrap"
-          >Currently
+          style="text-align: end; white-space: nowrap; margin-top: 2.5px"
+          >Stream
           <a href="https://www.twitch.tv/admiralbulldog" target="_blank"
             >live</a
           >
@@ -75,15 +97,19 @@
           </v-avatar>
         </v-col>
         <v-col v-else style="text-align: end"
-          >Currently offline
+          >Stream
+          <a href="https://www.twitch.tv/admiralbulldog" target="_blank"
+            >offline</a
+          >
           <v-avatar tile>
-            <img src="../static/emotes/NotOkayChamp.png" />
+            <img src="../static/emotes/BNotOkayChamp.png" />
           </v-avatar>
         </v-col>
       </v-row>
       <v-spacer />
     </v-app-bar>
     <v-main fluid>
+      <span> <Banner /> </span>
       <Nuxt />
     </v-main>
     <v-navigation-drawer
@@ -94,12 +120,15 @@
     >
     </v-navigation-drawer>
     <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>&copy; {{ new Date().getFullYear() }} by Wintersun#2348</span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
+import config from "@/config.js";
+const token = config.config.OAUTH_TOKEN;
+const clientID = config.config.CLIENT_ID;
 export default {
   data() {
     return {
@@ -133,6 +162,11 @@ export default {
           icon: "mdi-frequently-asked-questions",
           title: "FAQ",
           to: "/faq",
+        },
+        {
+          icon: "mdi-view-list",
+          title: "Tiermaker",
+          to: "/Tiermaker",
         },
         {
           icon: "mdi-comment-question",
@@ -169,16 +203,15 @@ export default {
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
-          Authorization: "Bearer nlkookh5txhogq5bdgs9zshxmhs3ej",
-          "Client-ID": "pe8j3m8aepe7wa1n4qvba6jvvatfzi",
+          Authorization: "Bearer " + token,
+          "Client-ID": clientID,
         }),
       })
         .then(function (response) {
           return response.json();
         })
         .then((data) => {
-          //     console.log(data);
-
+          // console.log(data);
           let bulldogStream = [];
           bulldogStream.push({
             streamID: data.data[0].id,
@@ -196,6 +229,20 @@ export default {
     onResize() {
       this.isMobile = window.innerWidth < 600;
     },
+    removeSpinners() {
+      var fadeTarget = document.getElementById("spinner");
+      var fadeEffect = setInterval(function () {
+        if (!fadeTarget.style.opacity) {
+          fadeTarget.style.opacity = 1.5;
+        }
+        if (fadeTarget.style.opacity > 0) {
+          fadeTarget.style.opacity -= 0.1;
+        } else {
+          clearInterval(fadeEffect);
+          document.querySelector(".spinner-wrapper").remove();
+        }
+      }, 100);
+    },
   },
   mounted() {
     this.getBulldogStream();
@@ -205,11 +252,11 @@ export default {
     this.onResize();
 
     window.addEventListener("resize", this.onResize, { passive: true });
+    this.removeSpinners();
   },
   computed: {
     isStreamerLive() {
       // wait for twitch api to respond
-      console.log(this.bulldogTwitch[0]);
       if (this.bulldogTwitch[0] !== undefined) {
         if (this.bulldogTwitch[0].is_live === true) {
           return true;
@@ -230,5 +277,70 @@ export default {
 
 #title {
   white-space: nowrap;
+}
+
+.spinner-wrapper {
+  position: fixed;
+  z-index: 999999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #121212;
+}
+
+.spinner {
+  z-index: 5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6.75rem;
+  height: 1.25rem;
+  margin: -0.625rem 0 0 -1.875rem;
+  text-align: center;
+}
+
+.spinner > div {
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.spinner .bounce3 {
+  -webkit-animation-delay: -0.08s;
+  animation-delay: -0.08s;
+  margin-left: 10px;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(1);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
+  40% {
+    -webkit-transform: scale(1.9);
+    -ms-transform: scale(1.9);
+    transform: scale(1.9);
+  }
 }
 </style>

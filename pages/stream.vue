@@ -1,38 +1,67 @@
 <template>
-<v-container-fluid>
-  <span>
+  <v-container-fluid id="stream">
     <v-row
-      class="fill-height align-stretch"
+      class="fill-height"
       justify="center"
-      style="margin: 2px"
+      style="margin-left: 14px; margin-right: 14px; padding-bottom: 14px"
     >
-    
-      <v-col cols="9">
-        <v-card class="fill-height">
+      <v-col class="flex-grow-1 flex-shrink-1" style="padding: 0">
+        <v-card
+          elevation="4"
+          align="left"
+          style="height: 94%; margin-top: 8px; min-width: 400px"
+        >
+          <iframe
+            frameborder="0"
+            src="https://player.twitch.tv/?channel=admiralbulldog&parent=wintersuntestv1.vercel.app&parent=localhost&parent=admiralbulldog.live&muted=true"
+            height="100%"
+            width="100%"
+            allowfullscreen="true"
+          >
+          </iframe>
+        </v-card>
+      </v-col>
+      <v-col class="flex-grow-0 flex-shrink-1" style="padding: 0">
+        <span v-if="this.$vuetify.breakpoint.width > '853'">
+          <v-card
+            elevation="4"
+            align="left"
+            id="chat"
+            style="
+              min-width: 22rem;
+              width: 400px;
+              max-width: 100vw;
+              height: 94%;
+              margin-top: 8px;
+            "
+          >
             <iframe
-              class="pa-2"
               frameborder="0"
-              src="https://player.twitch.tv/?channel=admiralbulldog&parent=wintersuntestv1.vercel.app&parent=localhost&muted=true"
+              src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost&parent=admiralbulldog.live"
               height="100%"
               width="100%"
-              allowfullscreen="true"
             >
             </iframe>
-            </v-card>
-          </v-col>
-          <v-col cols="3">
-             <v-card class="fill-height">
+          </v-card>
+        </span>
+        <span v-else>
+          <v-card
+            elevation="4"
+            align="left"
+            id="chat"
+            style="width: 100vw; height: 94%; margin-top: 8px"
+          >
             <iframe
               frameborder="0"
-              src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost"
+              src="https://www.twitch.tv/embed/admiralbulldog/chat?darkpopout&parent=wintersuntestv1.vercel.app&parent=localhost&parent=admiralbulldog.live"
               height="100%"
               width="100%"
             >
             </iframe>
-             </v-card>
-          </v-col>
+          </v-card>
+        </span>
+      </v-col>
     </v-row>
-  </span>
   </v-container-fluid>
 </template>
 
@@ -40,63 +69,27 @@
 import Vue from "vue";
 export default Vue.extend({
   data: function () {
-    return { bulldogTwitch: [],
-             isMobile: false 
-           };
+    return { bulldogTwitch: [], isMobile: false };
   },
   methods: {
-    fetchStream: function () {
-      let fetchLink =
-        "https://api.twitch.tv/helix/search/channels?query=admiralbulldog";
-
-      fetch(fetchLink, {
-        method: "get",
-        headers: new Headers({
-          Authorization: "Bearer nlkookh5txhogq5bdgs9zshxmhs3ej",
-          "Client-ID": "pe8j3m8aepe7wa1n4qvba6jvvatfzi",
-        }),
-      })
-        .then(function (response) {
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-
-          let bulldogStream = [];
-          bulldogStream.push({
-            streamID: data.data[0].id,
-            display_name: data.data[0].display_name,
-            is_live: data.data[0].is_live,
-            thumbnail_url: data.data[0].thumbnail_url
-              .replace("{width}", "213")
-              .replace("{height}", "285"),
-            started_at: data.data[0].started_at,
-          });
-
-          this.bulldogTwitch = bulldogStream;
-        });
+    onResize() {
+      this.isMobile = window.innerWidth < 1100;
     },
-    onResize () {
-        this.isMobile = window.innerWidth < 1100
-      }
   },
-   beforeDestroy () {
-    if (typeof window === 'undefined') return
+  beforeDestroy() {
+    if (typeof window === "undefined") return;
 
-    window.removeEventListener('resize', this.onResize, { passive: true })
+    window.removeEventListener("resize", this.onResize, { passive: true });
   },
   mounted() {
     //this.fetchStream();
-    this.onResize()
-    window.addEventListener('resize', this.onResize, { passive: true })
+    this.onResize();
+    window.addEventListener("resize", this.onResize, { passive: true });
   },
-
 });
 </script>
 
 <
 <style lang="scss" scoped>
-body {
-  height: 100%;
-}
+@import "@/assets/variables.scss";
 </style>

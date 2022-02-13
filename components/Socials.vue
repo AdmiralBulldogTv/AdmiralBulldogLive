@@ -1,10 +1,53 @@
 <template>
-  <v-row class="d-flex align-end">
-    <v-col v-for="(items, i) in socials" :key="i" :to="5">
-      <v-card style="height: 8rem">
+  <v-row
+    class="fill-height"
+    justify="center"
+    v-if="this.$vuetify.breakpoint.width > '500'"
+  >
+    <v-col
+      cols="3"
+      xs="5"
+      sm="3"
+      md="3"
+      lg="3"
+      xl="3"
+      v-for="(items, i) in socials"
+      :key="i"
+      :to="5"
+    >
+      <v-card :href="items.url" class="card" style="height: 8rem">
         <div class="icons">
           <div>
-            <a :href="items.url" target="_blank">
+            <a target="_blank">
+              <v-icon size="100" color="#0b6636" class="icon">{{
+                items.icon
+              }}</v-icon>
+            </a>
+          </div>
+
+          <div class="text">
+            {{ items.name }}
+          </div>
+        </div>
+      </v-card>
+    </v-col>
+  </v-row>
+  <v-row class="fill-height" justify="center" v-else>
+    <v-col
+      cols="6"
+      xs="5"
+      sm="3"
+      md="3"
+      lg="3"
+      xl="3"
+      v-for="(items, i) in socials"
+      :key="i"
+      :to="5"
+    >
+      <v-card class="card" :href="items.url" style="height: 8rem">
+        <div class="icons">
+          <div>
+            <a target="_blank">
               <v-icon size="100" color="#0b6636" class="icon">{{
                 items.icon
               }}</v-icon>
@@ -38,12 +81,12 @@ export default Vue.extend({
           icon: "mdi-instagram",
         },
         {
-          name: "Reddit",
+          name: "/r/Admiralbulldog",
           url: "https://www.reddit.com/r/AdmiralBulldog",
           icon: "mdi-reddit",
         },
         {
-          name: "Discord",
+          name: "Discord Invite Link",
           url: "https://discord.com/invite/wnPsCUm",
           icon: "mdi-discord",
         },
@@ -65,22 +108,45 @@ export default Vue.extend({
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-.text {
-  position: absolute;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, -15%);
-  white-space: nowrap;
+  z-index: 2;
 }
 
-.icon:hover {
+.card {
+  z-index: 0;
+}
+
+.text {
+  z-index: 1;
+  width: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 85%;
+  text-align: center;
+}
+
+.card:hover .text {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: fadeInBottom;
+}
+
+.card:hover {
   box-shadow: 0px 0px 15px 5px #0b6636;
-  border-radius: 15px 15px 15px 15px;
 }
 
 a {
   color: #ffffff;
   text-decoration: none;
+}
+
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

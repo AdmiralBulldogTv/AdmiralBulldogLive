@@ -1,61 +1,60 @@
 <template>
   <client-only>
-    <v-container fluid>
-      <v-row>
-        <v-col></v-col>
+    <v-container-fluid>
+      <v-row class="fill-height" justify="center" style="margin: 2px">
         <v-col>
-          <div class="custom">
-            <span class="book" id="book">
-              <div class="cover" id="cover">
-                <Flipbook
-                  id="ID_Flipbook"
-                  class="flipbook"
-                  :gloss="0.001"
-                  :pages="pages"
-                  :ambient="0.2"
-                  :nPolygons="8"
-                  :clickToZoom="false"
-                  centering
-                  v-slot="flipbook"
-                  ref="flipbook"
-                >
-                  <v-row>
-                    <v-col>
-                      <button @click="flipbook.flipLeft">Previous Page</button>
-                    </v-col>
-                    <v-col>
-                      <button @click="flipbook.flipRight">Next Page</button>
-                    </v-col>
-                  </v-row>
-                </Flipbook>
-              </div>
-
-              <div class="back_cover"></div>
-            </span>
-          </div>
+          <v-card class="table">
+            <div class="book">
+              <Flipbook
+                id="ID_Flipbook"
+                class="flipbook"
+                :gloss="0.001"
+                :pages="pages"
+                :ambient="0.2"
+                :nPolygons="8"
+                :clickToZoom="true"
+                centering
+                v-slot="flipbook"
+                ref="flipbook"
+              >
+                <v-row class="buttons">
+                  <v-col>
+                    <button @click="flipbook.flipLeft"></button>
+                  </v-col>
+                  <v-col>
+                    <button @click="flipbook.flipRight"></button>
+                  </v-col>
+                </v-row>
+              </Flipbook>
+            </div>
+          </v-card>
         </v-col>
-        <v-col></v-col>
       </v-row>
-    </v-container>
+    </v-container-fluid>
   </client-only>
 </template>
-g
 <script>
 export default {
   data() {
     return {
       pages: [
         null,
-        "https://cdn.discordapp.com/attachments/594922024946892831/907718173900562472/FRONT_COVER_CHNG.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/911235300498493481/LEFT_PAGE_GOD.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/910626482823503923/PAGE_1.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/907729651047206912/LEFT_PAGE_2.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/910626484782243840/PAGE_2.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/907729654729809920/LEFT_PAGE_3.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/910626488263520276/PAGE_3.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/910617926887936000/LEFT_PAGE_4.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/910626486455779379/PAGE_4.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/907718163091845141/BACK_COVER.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938392348117860442/COVER2.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/936006230974013500/pg2.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938499384008663091/thygod.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938389598378262568/angel_4.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938071099617452052/pg5.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938452102542405712/bulldogmesiah.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938071100389199872/pg7.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938452101720309821/angel1.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938071101047734314/pgviii.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938452102936690748/skull.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938084328351625226/pgX.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938452103377076224/sword.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938391759837335642/pgXI.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938504071772504134/bullpg.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/938443002676904056/pgXIV.png",
+        "https://cdn.discordapp.com/attachments/594922024946892831/936006233624813648/pg9.png",
       ],
     };
   },
@@ -78,16 +77,15 @@ body {
 }
 
 .book {
-  height: 95vh;
-  width: 100%;
+  margin-top: 8px;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
-.cover {
-  transition: all 1.5s;
-  perspective: 700px;
+.buttons {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 25px;
 }
 
 .back_cover {
@@ -105,5 +103,12 @@ body {
   position: absolute;
   transform: rotateX(0);
   transform-origin: center left;
+}
+
+.table {
+  height: 94%;
+  margin-top: 8px;
+  background-image: url("https://cdn.discordapp.com/attachments/902130515916783646/938466327956426762/altar.png");
+  background-size: cover;
 }
 </style>
