@@ -1,12 +1,21 @@
 <template>
   <v-container-fluid>
-    <v-row>
+            <div :class="isTop">
+      <a
+        v-if="!isTop"
+        @click.prevent="scrollTop"
+        class="back-to-top page-scroll"
+        >Back to Top</a
+      >
+    </div>
+    <v-row >
       <v-col>
         <v-select
           :items="amas"
           label="Choose discord AMAs for regulars and megacucks"
           outlined
           rounded
+          color="#0b6636"
           item-text="title"
           item-value="file"
           @change="getAma"
@@ -14,9 +23,14 @@
         ></v-select>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col>
-        <v-card tile shaped class="ama" style=" background-color:#1E1E1E;'">
+    <v-row class="fill-height" justify="center" style="margin: 2px">
+      <v-col v-if="this.$vuetify.breakpoint.width <= '1920'">
+        <v-card tile shaped id="card_id" class="ama" style="height:70vh; margin-top: -16px; background-color:#1E1E1E;overflow-y:scroll">
+          <v-card-text id="id_ama"> </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col v-else>
+        <v-card tile shaped id="card_id" class="ama" style="height:78.5vh; margin-top: -16px; background-color:#1E1E1E;overflow-y:scroll">
           <v-card-text id="id_ama"> </v-card-text>
         </v-card>
       </v-col>
@@ -26,6 +40,7 @@
 
 <script lang="ts">
 // AMA text files
+const ama_220213: object = require("raw-loader!../assets/amas/ama_220213.txt");
 const ama_211222: object = require("raw-loader!../assets/amas/ama_211222.txt");
 const ama_210907: object = require("raw-loader!../assets/amas/ama_210907.txt");
 const ama_210808: object = require("raw-loader!../assets/amas/ama_210808.txt");
@@ -40,10 +55,14 @@ const ama_210119: object = require("raw-loader!../assets/amas/ama_210119.txt");
 const ama_210110: object = require("raw-loader!../assets/amas/ama_210110.txt");
 const ama_201129: object = require("raw-loader!../assets/amas/ama_201129.txt");
 
-export default {
+import Vue from "vue";
+export default Vue.extend({
   data() {
     return {
+      isTop: false,
+      showNavBar: false,
       amas: [
+        { title: "AMA of 13.02.2022", file: ama_220213 },
         { title: "AMA of 22.12.2021", file: ama_211222 },
         { title: "AMA of 09.10.2021", file: ama_211009 },
         { title: "AMA of 07.09.2021", file: ama_210907 },
@@ -64,6 +83,7 @@ export default {
     getAma(ama: any) {
       let ama_text: string = this.formatAma(ama.default);
       document.getElementById("id_ama").innerHTML = ama_text;
+      this.scrollTop();
     },
 
     formatAma(amaStr: string) {
@@ -87,21 +107,52 @@ export default {
       }
       return returnString;
     },
+     onScroll() {
+      this.isTop = self.document.getElementById('card_id').scrollTop < 1000;
+    },
+
+    scrollTop() {
+      self.document.getElementById('card_id').scrollTo({ top: 0, behavior: "smooth" });
+    },
   },
   mounted() {
-    // this.getAma(ama_211222);
+    this.getAma(ama_220213)
+    self.document.getElementById('card_id').addEventListener("scroll", this.onScroll);
+    this.onScroll();
   },
-};
+  beforeDestroy() {
+    self.document.getElementById('card_id').removeEventListener("scroll", this.onScroll);
+  },
+
+});
 </script>
 
 <style lang="scss" scoped>
-p {
-  text-align: justify;
-  color: blue;
+a.back-to-top {
+  position: fixed;
+  z-index: 999;
+  right: 2rem;
+  bottom: 4.5rem;
+  width: 2.625rem;
+  height: 2.625rem;
+  border-radius: 1.875rem;
+  background: #0b6636 url("@/static/emotes/WeCoo.png") no-repeat center 47%;
+  background-size: 2rem 2rem;
+  text-indent: -9999px;
+  opacity: 1;
+  transition: opacity 200ms ease;
 }
 
-.ama {
-  margin-top: -24px;
+a:hover.back-to-top {
+  background: #0b6636 url("@/static/emotes/WeCoo.png") no-repeat center 47%;
+  background-size: 2rem 2rem;
+}
+
+.isTop {
+  .back-to-top {
+    pointer-events: none;
+    opacity: 0;
+  }
 }
 </style>
 g

@@ -59,13 +59,17 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" app>
-       <v-tooltip bottom>
-  <template v-slot:activator="{ on, attrs }">
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"  v-bind="attrs" color="#0b6636"
-          v-on="on"/>    
-      </template>
-      <span>Theatre Mode</span>
-    </v-tooltip>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on, attrs }">
+          <v-app-bar-nav-icon
+            @click.stop="drawer = !drawer"
+            v-bind="attrs"
+            color="#0b6636"
+            v-on="on"
+          />
+        </template>
+        <span>Theatre Mode</span>
+      </v-tooltip>
       <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon color="#0b6636"
           >mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon
@@ -77,14 +81,13 @@
         :key="bdog.streamID"
         id="title"
       >
-        <v-col cols="2" style="white-space: nowrap; margin-top:2.5px;"
-          >
-          {{bdog.display_name }}
+        <v-col cols="2" style="white-space: nowrap; margin-top: 2.5px">
+          {{ bdog.display_name }}
           <v-avatar tile> </v-avatar>
         </v-col>
         <v-col
           v-if="isStreamerLive"
-          style="text-align: end; white-space: nowrap; margin-top:2.5px;"
+          style="text-align: end; white-space: nowrap; margin-top: 2.5px"
           >Stream
           <a href="https://www.twitch.tv/admiralbulldog" target="_blank"
             >live</a
