@@ -99,7 +99,7 @@ export default Vue.extend({
         },
          {
           title: "Top 50 Memes",
-          src: require("../static/bracketfights/top50Memes.png"),
+          src: require("../static/bracketfights/top50memes.png"),
           theme: "Memes",
         },
            {
@@ -119,12 +119,12 @@ export default Vue.extend({
         },
            {
           title: "Movie Franchise",
-          src: require("../static/bracketfights/movie_Franchise.png"),
+          src: require("../static/bracketfights/movie_franchise.png"),
           theme: "Movies",
         },
           {
           title: "Movies That Made Billions",
-          src: require("../static/bracketfights/Movies_that_made_billion.png"),
+          src: require("../static/bracketfights/movies_that_made_billion.png"),
           theme: "Movies",
         },
       ],

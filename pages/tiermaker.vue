@@ -139,12 +139,12 @@ export default Vue.extend({
         },
         {
           title: "Best animated Disney Movies",
-          src: require("../static/tierlists/disneyMovies.png"),
+          src: require("../static/tierlists/disneymovies.png"),
           theme: "Movies",
         },
          {
           title: "Pixar Movies",
-          src: require("../static/tierlists/Movies_pixar.png"),
+          src: require("../static/tierlists/movies_pixar.png"),
           theme: "Movies",
         },
          {
