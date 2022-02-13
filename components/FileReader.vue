@@ -23,14 +23,14 @@
         ></v-select>
       </v-col>
     </v-row>
-    <v-row class="fill-height" justify="center" style="margin: 2px">
+    <v-row class="fill-height" justify="center" >
       <v-col v-if="this.$vuetify.breakpoint.width <= '1920'">
-        <v-card tile shaped id="card_id" class="ama" style="height:70vh; margin-top: -16px; background-color:#1E1E1E;overflow-y:scroll">
+        <v-card  id="card_id" class="ama" style="height:70vh; margin-top: -16px; background-color:#1E1E1E;overflow-y:scroll">
           <v-card-text id="id_ama"> </v-card-text>
         </v-card>
       </v-col>
       <v-col v-else>
-        <v-card tile shaped id="card_id" class="ama" style="height:78.5vh; margin-top: -16px; background-color:#1E1E1E;overflow-y:scroll">
+        <v-card id="card_id" class="ama" style="height:78.5vh; margin-top: -16px; background-color:#1E1E1E;overflow-y:scroll">
           <v-card-text id="id_ama"> </v-card-text>
         </v-card>
       </v-col>

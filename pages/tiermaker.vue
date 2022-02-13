@@ -7,6 +7,7 @@
           label="Choose Tierlists theme"
           outlined
           rounded
+          color="#0b6636"
           item-text="theme"
           item-value="theme"
           @change="returnTierlist"
@@ -24,10 +25,11 @@
       </v-col>
       <v-col></v-col>
     </v-row>
-    <v-card elevation="4"  height="auto">
+    <span v-if="this.$vuetify.breakpoint.width <= '1920'">
+    <v-card elevation="4"  height="auto" >
       <v-system-bar lights-out style="margin-top: -5px; text-align: justify">
       </v-system-bar>
-      <v-carousel hide-delimiters id="caro" v-model="currentIndex">
+      <v-carousel hide-delimiters id="caro" v-model="currentIndex" height="590" > 
         <v-carousel-item
           id="test"
           v-for="item in returnedList"
@@ -40,6 +42,24 @@
       </v-carousel>
       <v-system-bar lights-out> </v-system-bar>
     </v-card>
+    </span>
+    <span v-else>
+       <v-card elevation="4"  height="auto" >
+      <v-system-bar lights-out style="margin-top: -5px; text-align: justify">
+      </v-system-bar>
+      <v-carousel hide-delimiters id="caro" v-model="currentIndex" height="950" > 
+        <v-carousel-item
+          id="test"
+          v-for="item in returnedList"
+          :key="item.src"
+          :src="item.src"        
+          contain
+        >
+        </v-carousel-item>
+      </v-carousel>
+      <v-system-bar lights-out> </v-system-bar>
+    </v-card>
+    </span>
     </div>
   </v-container>
 </template>
@@ -57,7 +77,7 @@ export default Vue.extend({
         {
           title: "",
           src: "",
-          theme: "memes",
+          theme: "Memes",
         },
       ],
 
@@ -65,72 +85,72 @@ export default Vue.extend({
         {
           title: "Gachi",
           src: require("../static/tierlists/gachi.png"),
-          theme: "memes",
+          theme: "Memes",
         },
         {
           title: "Dictator",
           src: require("../static/tierlists/dictator.png"),
-          theme: "memes",
+          theme: "Memes",
         },
         {
           title: "Worst Ways to Die",
           src: require("../static/tierlists/worstwaystodie.png"),
-          theme: "memes",
+          theme: "Memes",
         },
         {
           title: "Best Actors",
           src: require("../static/tierlists/actors.png"),
-          theme: "movies",
+          theme: "Movies",
         },
          {
           title: "Marvel movie",
           src: require("../static/tierlists/marvel.png"),
-          theme: "movies",
+          theme: "Movies",
         },
          {
           title: "Star Wars",
           src: require("../static/tierlists/starwars.png"),
-          theme: "movies",
+          theme: "Movies",
         },
          {
           title: "Lord of the Rings",
           src: require("../static/tierlists/lotr.png"),
-          theme: "movies",
+          theme: "Movies",
         },
          {
           title: "Spiderman movie",
           src: require("../static/tierlists/spidermanmovie.png"),
-          theme: "movies",
+          theme: "Movies",
         },
          {
           title: "Avenger Power List",
           src: require("../static/tierlists/avengerpower.png"),
-          theme: "movies",
+          theme: "Movies",
         },
          {
           title: "Game of Thrones",
           src: require("../static/tierlists/got.png"),
-          theme: "movies",
+          theme: "Movies",
         },
          {
           title: "Horror Movie Villains",
           src: require("../static/tierlists/horrormovie_villains.png"),
-          theme: "movies",
+          theme: "Movies",
         },
         {
-          title: "Best animated Disney movies",
-          src: require("../static/tierlists/disneymovies.png"),
-          theme: "movies",
+          title: "Best animated Disney Movies",
+          src: require("../static/tierlists/disneyMovies.png"),
+          theme: "Movies",
         },
          {
           title: "Pixar Movies",
-          src: require("../static/tierlists/movies_pixar.png"),
-          theme: "movies",
+          src: require("../static/tierlists/Movies_pixar.png"),
+          theme: "Movies",
         },
          {
           title: "IMDB Top 100",
           src: require("../static/tierlists/imdb.png"),
-          theme: "movies",
+          theme: "Movies",
         },
          {
           title: "Dota 2 Waifus",
@@ -145,37 +165,37 @@ export default Vue.extend({
         {
           title: "Nuts",
           src: require("../static/tierlists/nuts.png"),
-          theme: "food",
+          theme: "Food",
         },
          {
           title: "Breakfast",
           src: require("../static/tierlists/breakfast.png"),
-          theme: "food",
+          theme: "Food",
         },
          {
           title: "Dessert",
           src: require("../static/tierlists/dessert.png"),
-          theme: "food",
+          theme: "Food",
         },
          {
           title: "Pizza Toppings",
           src: require("../static/tierlists/pizzatopping.png"),
-          theme: "food",
+          theme: "Food",
         },
          {
           title: "Vegetables",
           src: require("../static/tierlists/vegetables.png"),
-          theme: "food",
+          theme: "Food",
         },
          {
           title: "Fruit",
           src: require("../static/tierlists/fruit.png"),
-          theme: "food",
+          theme: "Food",
         },
          {
           title: "Animals I could fight",
           src: require("../static/tierlists/animals_fight.png"),
-          theme: "memes",
+          theme: "Memes",
         },
          {
           title: "Season 5 Contenstants",
@@ -208,7 +228,7 @@ export default Vue.extend({
     };
   },
   mounted() {
-    this.returnTierlist("memes");
+    this.returnTierlist("Memes");
   },
   beforeDestroy() {},
   computed: {

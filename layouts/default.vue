@@ -166,7 +166,12 @@ export default {
         {
           icon: "mdi-view-list",
           title: "Tiermaker",
-          to: "/Tiermaker",
+          to: "/tiermaker",
+        },
+         {
+          icon: "mdi-view-list",
+          title: "Bracket Fights",
+          to: "/bracketfights",
         },
         {
           icon: "mdi-comment-question",
