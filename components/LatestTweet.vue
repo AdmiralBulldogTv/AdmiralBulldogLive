@@ -1,5 +1,11 @@
 <template>
-  <v-col cols="12" sm="8" md="6" justify-space-between v-if="this.$vuetify.breakpoint.width <= '1920'">
+  <v-col
+    cols="12"
+    sm="8"
+    md="6"
+    justify-space-between
+    v-if="this.$vuetify.breakpoint.width <= '1920'"
+  >
     <v-card-title class="headline" justify="center" align="center">
       Latest News &nbsp;
       <a
@@ -46,7 +52,7 @@
     </v-card>
   </v-col>
   <v-col cols="12" sm="8" md="6" v-else>
-     <v-card-title class="headline" justify="center" align="center">
+    <v-card-title class="headline" justify="center" align="center">
       Latest News &nbsp;
       <a
         href="https://twitter.com/AdmiralBulldog?ref_src=twsrc%5Etfw"

@@ -1,6 +1,6 @@
 <template>
   <v-container-fluid>
-            <div :class="isTop">
+    <div :class="isTop">
       <a
         v-if="!isTop"
         @click.prevent="scrollTop"
@@ -8,7 +8,7 @@
         >Back to Top</a
       >
     </div>
-    <v-row >
+    <v-row>
       <v-col>
         <v-select
           :items="amas"
@@ -23,14 +23,32 @@
         ></v-select>
       </v-col>
     </v-row>
-    <v-row class="fill-height" justify="center" >
+    <v-row class="fill-height" justify="center">
       <v-col v-if="this.$vuetify.breakpoint.width <= '1920'">
-        <v-card  id="card_id" class="ama" style="height:70vh; margin-top: -16px; background-color:#1E1E1E;overflow-y:scroll">
+        <v-card
+          id="card_id"
+          class="ama"
+          style="
+            height: 70vh;
+            margin-top: -16px;
+            background-color: #1e1e1e;
+            overflow-y: scroll;
+          "
+        >
           <v-card-text id="id_ama"> </v-card-text>
         </v-card>
       </v-col>
       <v-col v-else>
-        <v-card id="card_id" class="ama" style="height:78.5vh; margin-top: -16px; background-color:#1E1E1E;overflow-y:scroll">
+        <v-card
+          id="card_id"
+          class="ama"
+          style="
+            height: 78.5vh;
+            margin-top: -16px;
+            background-color: #1e1e1e;
+            overflow-y: scroll;
+          "
+        >
           <v-card-text id="id_ama"> </v-card-text>
         </v-card>
       </v-col>
@@ -107,23 +125,28 @@ export default Vue.extend({
       }
       return returnString;
     },
-     onScroll() {
-      this.isTop = self.document.getElementById('card_id').scrollTop < 1000;
+    onScroll() {
+      this.isTop = self.document.getElementById("card_id").scrollTop < 1000;
     },
 
     scrollTop() {
-      self.document.getElementById('card_id').scrollTo({ top: 0, behavior: "smooth" });
+      self.document
+        .getElementById("card_id")
+        .scrollTo({ top: 0, behavior: "smooth" });
     },
   },
   mounted() {
-    this.getAma(ama_220213)
-    self.document.getElementById('card_id').addEventListener("scroll", this.onScroll);
+    this.getAma(ama_220213);
+    self.document
+      .getElementById("card_id")
+      .addEventListener("scroll", this.onScroll);
     this.onScroll();
   },
   beforeDestroy() {
-    self.document.getElementById('card_id').removeEventListener("scroll", this.onScroll);
+    self.document
+      .getElementById("card_id")
+      .removeEventListener("scroll", this.onScroll);
   },
-
 });
 </script>
 

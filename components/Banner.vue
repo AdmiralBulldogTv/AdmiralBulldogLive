@@ -41,13 +41,11 @@
         align="center"
         tile
       >
-        <v-avatar tile> </v-avatar>
         No Stream Today.
         <p>
-          Bulldog will stream again in {{ timeLeft }}. Watch the latest
+          Bulldog will stream again in {{ timeLeftVac }} hours. Watch the latest
           <NuxtLink to="/vods">VOD</NuxtLink> here
         </p>
-        <v-avatar tile> </v-avatar>
       </v-card>
     </span>
   </v-row>
@@ -56,7 +54,6 @@
 <script>
 import Vue from "vue";
 import moment from "moment";
-
 import config from "@/config.js";
 
 const token = config.config.OAUTH_TOKEN;
@@ -69,7 +66,8 @@ export default Vue.extend({
       bulldogStream: [],
       bulldogTwitch: [],
       timeLeft: "live",
-      nextStreamVac: null,
+      timeLeftVac: "vacation",
+      nextStreamAfterVac: null,
       currentTime: null,
       nextStream: null,
       client: clientID,
@@ -78,7 +76,7 @@ export default Vue.extend({
   methods: {
     fetchSchedule: function () {
       let fetchLink =
-        "https://api.twitch.tv/helix/schedule?broadcaster_id=30816637&first=2&utc_offset=120";
+        "https://api.twitch.tv/helix/schedule?broadcaster_id=30816637&first=10&utc_offset=120";
       fetch(fetchLink, {
         method: "get",
         headers: new Headers({
@@ -115,6 +113,7 @@ export default Vue.extend({
           return response.json();
         })
         .then((data) => {
+          console.log(data);
           let bulldogStream = [];
           bulldogStream.push({
             streamID: data.data[0].id,
@@ -131,9 +130,6 @@ export default Vue.extend({
     currentDateTime() {
       return moment();
     },
-    streamStartTime() {
-      return moment("2021-12-10T08:00:00Z").format("DD.MM.YYYY HH:mm:ss");
-    },
   },
   mounted() {
     // get stream infos
@@ -144,24 +140,48 @@ export default Vue.extend({
     setInterval(() => {
       this.currentTime = this.currentDateTime();
       this.nextStream = moment(this.bulldogStream[0].segments[0].start_time);
+
       this.vacation_start = moment(this.bulldogStream[0].vacation_start);
       this.vacation_end = moment(this.bulldogStream[0].vacation_end);
 
-      if (
-        this.getStreamerStatus === null &&
-        this.nextStream !== "" &&
-        this.currentTime !== ""
-      ) {
+      for (let i = 0; i < this.bulldogStream[0].segments.length; i++) {
+        if (
+          this.bulldogStream[0].segments[i].start_time <
+          this.bulldogStream[0].vacation_end
+        ) {
+          this.nextStreamAfterVac =
+            this.bulldogStream[0].segments[i].start_time;
+        } else {
+          this.nextStreamAfterVac = "";
+        }
+      }
+
+      if (this.getStreamerStatus === null) {
         this.timeLeft = moment
-          .utc(moment(this.nextStream).diff(moment(this.currentTime)))
+          .utc(moment(this.nextStream._d).diff(moment(this.currentTime._d)))
           .format("HH:mm:ss");
       } else if (this.getStreamerStatus === false) {
-        this.nextStreamAfterVac = moment(
-          this.bulldogStream[0].segments[1].start_time
-        );
-        this.timeLeft = moment
-          .utc(this.nextStreamAfterVac.diff(this.currentTime))
-          .format("HH:mm:ss");
+        let hours = moment
+          .utc(this.nextStreamAfterVac._d)
+          .diff(this.currentTime, "hours");
+        if (hours < 10) {
+          hours = "0" + hours;
+        }
+        let minutes =
+          moment
+            .utc(this.nextStreamAfterVac._d)
+            .diff(this.currentTime, "minutes") % 60;
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+        let seconds =
+          moment
+            .utc(this.nextStreamAfterVac._d)
+            .diff(this.currentTime, "seconds") % 60;
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+        this.timeLeftVac = hours + ":" + minutes + ":" + seconds;
       }
     }, 1000);
   },

@@ -1,7 +1,15 @@
 <template>
   <client-only>
     <v-container-fluid>
-      <v-row class="fill-height" justify="center" style="margin: 2px">
+      <v-row
+        class="fill-height"
+        justify="center"
+        style="
+        margin-left: 2px;
+        margin-right: 2px; 
+        padding-top:10px 
+        padding-bottom:8px;"
+      >
         <v-col>
           <v-card class="table">
             <div class="book">

@@ -42,7 +42,6 @@ export default {
     "@nuxtjs/proxy",
   ],
 
-
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 

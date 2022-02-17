@@ -1,5 +1,5 @@
 steps:
-- name: execute settings.yml
-  env:
-    CLIENT_ID: ${{ secrets.CLIENT_ID }}
-    OAUTH_KEY: ${{ secrets.OAUTH_KEY_TWITCH }}
+  - name: execute settings.yml
+    env:
+      CLIENT_ID: ${{ secrets.CLIENT_ID }}
+      OAUTH_KEY: ${{ secrets.OAUTH_KEY_TWITCH }}

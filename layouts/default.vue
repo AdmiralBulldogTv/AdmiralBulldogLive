@@ -158,17 +158,17 @@ export default {
           title: "Chat Bot",
           to: "/chatbot",
         },
-        {
+        /* {
           icon: "mdi-frequently-asked-questions",
           title: "FAQ",
           to: "/faq",
-        },
+        },*/
         {
           icon: "mdi-view-list",
           title: "Tiermaker",
           to: "/tiermaker",
         },
-         {
+        {
           icon: "mdi-view-list",
           title: "Bracket Fights",
           to: "/bracketfights",

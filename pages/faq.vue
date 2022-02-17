@@ -13,7 +13,11 @@
             <v-spacer></v-spacer>
           </div>
         </v-card-text>
-        <v-card v-if="this.$vuetify.breakpoint.width <= '1920'" flat style="height: 34.5rem; overflow-y: scroll">
+        <v-card
+          v-if="this.$vuetify.breakpoint.width <= '1920'"
+          flat
+          style="height: 34.5rem; overflow-y: scroll"
+        >
           <v-card-text style="overflow-y: visible">
             <p>
               AdmiralBulldog a Swedish professional DotA 2 player, and one of
@@ -84,7 +88,7 @@
           </v-card-text>
         </v-card>
         <v-card v-else flat style="height: 54rem; overflow-y: scroll">
-           <v-card-text style="overflow-y: visible">
+          <v-card-text style="overflow-y: visible">
             <p>
               AdmiralBulldog a Swedish professional DotA 2 player, and one of
               the most popular streamers.

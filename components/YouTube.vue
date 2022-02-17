@@ -1,5 +1,11 @@
 <template>
-  <v-col cols="12" sm="8" md="6" justify-space-between v-if="this.$vuetify.breakpoint.width <= '1920'">
+  <v-col
+    cols="12"
+    sm="8"
+    md="6"
+    justify-space-between
+    v-if="this.$vuetify.breakpoint.width <= '1920'"
+  >
     <v-card-title class="headline" justify="center" align="center">
       Latest YouTube Videos &nbsp;
     </v-card-title>
@@ -13,7 +19,7 @@
       <v-row>
         <!-- falls auflösung > 1920p, dann 6-->
         <!-- latest four videos -->
-        <span >
+        <span>
           <div class="mt-10" style="">
             <iframe
               v-for="(item, i) in 5"
@@ -38,7 +44,7 @@
     </v-card>
   </v-col>
   <v-col cols="12" sm="8" md="6" justify-space-between v-else>
-      <v-card-title class="headline" justify="center" align="center">
+    <v-card-title class="headline" justify="center" align="center">
       Latest YouTube Videos &nbsp;
     </v-card-title>
     <v-card
@@ -51,7 +57,7 @@
       <v-row>
         <!-- falls auflösung > 1920p, dann 6-->
         <!-- latest four videos -->
-        <span >
+        <span>
           <div class="mt-10" style="">
             <iframe
               v-for="(item, i) in 7"
