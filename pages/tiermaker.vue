@@ -45,6 +45,29 @@
               :src="item.src"
               contain
             >
+              <v-dialog
+               v-model="dialog"
+               scrollable
+               transition="dialog-bottom-transition"
+              >
+             <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    dark
+                    v-bind="attrs"
+                    v-on="on"
+                    id="btn_img"
+                    @click="zoom" ref="myBtn"
+                    style="display:none;"
+                  > 
+                Open Dialog
+              </v-btn>
+              </template>
+              <v-card>
+                 <v-card-title>{{currentTitle}}</v-card-title>
+                <v-divider></v-divider> 
+                <v-img v-model="dialogm1" :src="item.src"> </v-img>
+              </v-card>
+            </v-dialog>
             </v-carousel-item>
           </v-carousel>
           <v-system-bar lights-out> </v-system-bar>
@@ -70,6 +93,28 @@
               :src="item.src"
               contain
             >
+              <v-dialog
+               v-model="dialog"
+               scrollable
+              >
+             <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                    dark
+                    v-bind="attrs"
+                    v-on="on"
+                    id="btn_img"
+                    @click="zoom" ref="myBtn"
+                    style="display:none;"
+                  > 
+                Open Dialog
+              </v-btn>
+              </template>
+              <v-card>
+                 <v-card-title>{{currentTitle}}</v-card-title>
+                <v-divider></v-divider> 
+                <v-img v-model="dialogm1" :src="item.src"> </v-img>
+              </v-card>
+            </v-dialog>
             </v-carousel-item>
           </v-carousel>
           <v-system-bar lights-out> </v-system-bar>
@@ -88,6 +133,8 @@ export default Vue.extend({
       showNavBar: false,
       currentIndex: 0,
       tierListTitle: "",
+      dialogm1: '',
+      dialog: false,
       returnedList: [
         {
           title: "",
@@ -243,6 +290,7 @@ export default Vue.extend({
   },
   mounted() {
     this.returnTierlist("Memes");
+    document.getElementById("caro").addEventListener('click', this.zoom);
   },
   beforeDestroy() {},
   computed: {
@@ -263,6 +311,15 @@ export default Vue.extend({
       }
       return (this.returnedList = tempTierlists);
     },
+    zoom() {
+      document.getElementById("btn_img").click();
+    },
   },
 });
 </script>
+
+<style lang="scss" scoped>
+#caro {
+   cursor: pointer;
+}
+</style>

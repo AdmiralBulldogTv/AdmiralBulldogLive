@@ -250,7 +250,6 @@ export default {
     },
   },
   mounted() {
-     
     this.getBulldogStream();
     setInterval(() => {
       this.getBulldogStream();

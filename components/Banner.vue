@@ -35,15 +35,13 @@
       </v-card>
       <v-card
         v-else-if="getStreamerStatus === false"
-        style="background-color: #c81208;"
+        style="background-color: #c81208"
         elevation="16"
         justify="center"
         align="center"
         tile
       >
-        <div>
-        No Stream Today.        
-        </div>
+        <div>No Stream Today.</div>
         <div>
           Bulldog will stream again in {{ timeLeftVac }} hours. Watch the latest
           <NuxtLink to="/vods">VOD</NuxtLink> here
@@ -153,14 +151,14 @@ export default Vue.extend({
       ) {
         var isVacation = true;
         for (let i = 0; i < this.bulldogStream[0].segments.length; i++) {
-          let checkSchedule = moment(this.bulldogStream[0].segments[i].start_time)
-          if (checkSchedule > this.vacation_end && isVacation === true)
-          {
+          let checkSchedule = moment(
+            this.bulldogStream[0].segments[i].start_time
+          );
+          if (checkSchedule > this.vacation_end && isVacation === true) {
             isVacation = false;
             this.nextStreamAfterVac = moment(
               this.bulldogStream[0].segments[i].start_time
             );
-            
           }
         }
       }
