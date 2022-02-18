@@ -132,8 +132,9 @@ export default Vue.extend({
       showNavBar: false,
       currentIndex: 0,
       tierListTitle: "",
-      dialogm1: '',
+      dialogm1: "",
       dialog: false,
+      isMobile: false,
       returnedList: [
         {
           title: "",
@@ -191,15 +192,23 @@ export default Vue.extend({
       ],
     };
   },
+
+  beforeDestroy() {
+    if (typeof window !== "undefined") {
+      // @ts-ignore
+      window.removeEventListener("resize", this.onResize, { passive: true });
+    }
+  },
   mounted() {
     this.returnTierlist("Food");
+    this.onResize();
 
-  if (this.isMobile)
-  {
-    document.getElementById("caro").addEventListener('click', this.zoom);
-  }
+    window.addEventListener("resize", this.onResize, { passive: true });
+
+    if (!this.isMobile) {
+      document.getElementById("caro").addEventListener("click", this.zoom);
+    }
   },
-  beforeDestroy() {},
   computed: {
     currentTitle: function (): String {
       if (this.returnedList[this.currentIndex] !== undefined) {
@@ -221,15 +230,15 @@ export default Vue.extend({
     zoom() {
       document.getElementById("btn_img").click();
     },
-    isMobile() {
-     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
-     {
-        return true
-      } else
-      {
-        return false
+    onResize() {
+      this.isMobile = window.innerWidth < 600;
+
+      if (!this.isMobile) {
+        document.getElementById("caro").addEventListener("click", this.zoom);
+      } else {
+        document.getElementById("caro").removeEventListener("click", this.zoom);
       }
-    }
+    },
   },
 });
 </script>

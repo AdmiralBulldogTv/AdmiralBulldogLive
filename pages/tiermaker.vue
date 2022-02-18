@@ -134,6 +134,7 @@ export default Vue.extend({
       tierListTitle: "",
       dialogm1: "",
       dialog: false,
+      isMobile: false,
       returnedList: [
         {
           title: "",
@@ -287,11 +288,23 @@ export default Vue.extend({
       tempLength: 0,
     };
   },
+
   mounted() {
+    this.onResize();
+
     this.returnTierlist("Memes");
-    document.getElementById("caro").addEventListener("click", this.zoom);
+    window.addEventListener("resize", this.onResize, { passive: true });
+
+    if (!this.isMobile) {
+      document.getElementById("caro").addEventListener("click", this.zoom);
+    }
   },
-  beforeDestroy() {},
+  beforeDestroy() {
+    if (typeof window !== "undefined") {
+      // @ts-ignore
+      window.removeEventListener("resize", this.onResize, { passive: true });
+    }
+  },
   computed: {
     currentTitle: function (): string {
       if (this.returnedList[this.currentIndex] !== undefined) {
@@ -312,6 +325,15 @@ export default Vue.extend({
     },
     zoom() {
       document.getElementById("btn_img").click();
+    },
+    onResize() {
+      this.isMobile = window.innerWidth < 600;
+
+      if (!this.isMobile) {
+        document.getElementById("caro").addEventListener("click", this.zoom);
+      } else {
+        document.getElementById("caro").removeEventListener("click", this.zoom);
+      }
     },
   },
 });
