@@ -222,7 +222,7 @@ export default Vue.extend({
       document.getElementById("btn_img").click();
     },
     isMobile() {
-     if("/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent") 
+     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
      {
         return true
       } else
