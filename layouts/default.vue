@@ -232,7 +232,7 @@ export default {
         });
     },
     onResize() {
-      this.isMobile = window.innerWidth < 600;
+      this.$forceUpdate();
     },
     removeSpinners() {
       var fadeTarget = document.getElementById("spinner");
@@ -250,6 +250,7 @@ export default {
     },
   },
   mounted() {
+     
     this.getBulldogStream();
     setInterval(() => {
       this.getBulldogStream();

@@ -144,15 +144,24 @@ export default Vue.extend({
       this.vacation_start = moment(this.bulldogStream[0].vacation_start);
       this.vacation_end = moment(this.bulldogStream[0].vacation_end);
 
-      for (let i = 0; i < this.bulldogStream[0].segments.length; i++) {
-        if (
-          this.bulldogStream[0].segments[i].start_time <
-          this.bulldogStream[0].vacation_end
-        ) {
-          this.nextStreamAfterVac =
-            this.bulldogStream[0].segments[i].start_time;
-        } else {
-          this.nextStreamAfterVac = "";
+      this.nextStreamAfterVac = "";
+      if (
+        this.nextStream < this.vacation_end &&
+        this.nextStream > this.vacation_start
+      ) {
+        var boolean = false;
+        for (let i = 0; i < this.bulldogStream[0].segments.length; i++) {
+          let checkSchedule = moment(this.bulldogStream[0].segments[i].start_time)
+          
+          console.log(checkSchedule);
+          if (checkSchedule > this.vacation_end && boolean === false)
+          {
+            boolean = true;
+            this.nextStreamAfterVac = moment(
+              this.bulldogStream[0].segments[i].start_time
+            );
+            
+          }
         }
       }
 
