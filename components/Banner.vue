@@ -149,14 +149,12 @@ export default Vue.extend({
         this.nextStream < this.vacation_end &&
         this.nextStream > this.vacation_start
       ) {
-        var boolean = false;
+        var isVacation = true;
         for (let i = 0; i < this.bulldogStream[0].segments.length; i++) {
           let checkSchedule = moment(this.bulldogStream[0].segments[i].start_time)
-          
-          console.log(checkSchedule);
-          if (checkSchedule > this.vacation_end && boolean === false)
+          if (checkSchedule > this.vacation_end && isVacation === true)
           {
-            boolean = true;
+            isVacation = false;
             this.nextStreamAfterVac = moment(
               this.bulldogStream[0].segments[i].start_time
             );
