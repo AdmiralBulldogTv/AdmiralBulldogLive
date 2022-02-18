@@ -35,17 +35,19 @@
       </v-card>
       <v-card
         v-else-if="getStreamerStatus === false"
-        style="background-color: #c81208"
+        style="background-color: #c81208;"
         elevation="16"
         justify="center"
         align="center"
         tile
       >
-        No Stream Today.
-        <p>
+        <div>
+        No Stream Today.        
+        </div>
+        <div>
           Bulldog will stream again in {{ timeLeftVac }} hours. Watch the latest
           <NuxtLink to="/vods">VOD</NuxtLink> here
-        </p>
+        </div>
       </v-card>
     </span>
   </v-row>
