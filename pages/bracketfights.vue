@@ -18,22 +18,22 @@
     <div style="margin-top: -32px">
       <v-row>
         <v-col></v-col>
-        <v-col  >
+        <v-col>
           <div class="headline" justify="center" align="center">
             {{ currentTitle }}
           </div>
         </v-col>
         <v-col></v-col>
       </v-row>
-      
+
       <span v-if="this.$vuetify.breakpoint.width <= '1920'">
-        <v-card elevation="4" height="auto" >
+        <v-card elevation="4" height="auto">
           <v-system-bar
             lights-out
             style="margin-top: -5px; text-align: justify"
           >
           </v-system-bar>
-         
+
           <v-carousel
             hide-delimiters
             id="caro"
@@ -47,41 +47,39 @@
               :src="item.src"
               contain
             >
-            <v-dialog
-               v-model="dialog"
-               scrollable
-              >
-             <template v-slot:activator="{ on, attrs }">
-                <v-btn
+              <v-dialog v-model="dialog" scrollable>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
                     dark
                     v-bind="attrs"
                     v-on="on"
                     id="btn_img"
-                    @click="zoom" ref="myBtn"
-                    style="display:none;"
-                  > 
-                Open Dialog
-              </v-btn>
-              </template>
-              <v-card>
-                 <v-card-title>{{currentTitle}}</v-card-title>
-                <v-divider></v-divider> 
-                <v-img v-model="dialogm1" :src="item.src"> </v-img>
-              </v-card>
-            </v-dialog>
+                    @click="zoom"
+                    ref="myBtn"
+                    style="display: none"
+                  >
+                    Open Dialog
+                  </v-btn>
+                </template>
+                <v-card>
+                  <v-card-title>{{ currentTitle }}</v-card-title>
+                  <v-divider></v-divider>
+                  <v-img v-model="dialogm1" :src="item.src"> </v-img>
+                </v-card>
+              </v-dialog>
             </v-carousel-item>
           </v-carousel>
           <v-system-bar lights-out> </v-system-bar>
         </v-card>
       </span>
       <span v-else>
-         <v-card elevation="4" height="auto" >
+        <v-card elevation="4" height="auto">
           <v-system-bar
             lights-out
             style="margin-top: -5px; text-align: justify"
           >
           </v-system-bar>
-         
+
           <v-carousel
             hide-delimiters
             id="caro"
@@ -94,30 +92,27 @@
               :key="item.src"
               :src="item.src"
               contain
-              
             >
-            <v-dialog
-               v-model="dialog"
-               scrollable
-              >
-             <template v-slot:activator="{ on, attrs }">
-                <v-btn
+              <v-dialog v-model="dialog" scrollable>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
                     dark
                     v-bind="attrs"
                     v-on="on"
                     id="btn_img"
-                    @click="zoom" ref="myBtn"
-                    style="display:none;"
-                  > 
-                Open Dialog
-              </v-btn>
-              </template>
-              <v-card>
-                 <v-card-title>{{currentTitle}}</v-card-title>
-                <v-divider></v-divider> 
-                <v-img v-model="dialogm1" :src="item.src" contain> </v-img>
-              </v-card>
-            </v-dialog>
+                    @click="zoom"
+                    ref="myBtn"
+                    style="display: none"
+                  >
+                    Open Dialog
+                  </v-btn>
+                </template>
+                <v-card>
+                  <v-card-title>{{ currentTitle }}</v-card-title>
+                  <v-divider></v-divider>
+                  <v-img v-model="dialogm1" :src="item.src" contain> </v-img>
+                </v-card>
+              </v-dialog>
             </v-carousel-item>
           </v-carousel>
           <v-system-bar lights-out> </v-system-bar>
@@ -199,7 +194,10 @@ export default Vue.extend({
   mounted() {
     this.returnTierlist("Food");
 
-   document.getElementById("caro").addEventListener('click', this.zoom);
+  if (this.isMobile)
+  {
+    document.getElementById("caro").addEventListener('click', this.zoom);
+  }
   },
   beforeDestroy() {},
   computed: {
@@ -223,12 +221,21 @@ export default Vue.extend({
     zoom() {
       document.getElementById("btn_img").click();
     },
+    isMobile() {
+     if("/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent") 
+     {
+        return true
+      } else
+      {
+        return false
+      }
+    }
   },
 });
 </script>
 
 <style lang="scss" scoped>
 #caro {
-   cursor: pointer;
+  cursor: pointer;
 }
 </style>
