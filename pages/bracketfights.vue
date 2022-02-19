@@ -150,8 +150,18 @@ export default Vue.extend({
           theme: "Food",
         },
         {
+          title: "Pizza Toppings",
+          src: require("../static/bracketfights/Pizza_Toppings.png"),
+          theme: "Food",
+        },
+        {
           title: "Animal Battle Royal",
           src: require("../static/bracketfights/animal_battle_royal.png"),
+          theme: "Memes",
+        },
+        {
+          title: "Horror Icons",
+          src: require("../static/bracketfights/Horror_Icons.png"),
           theme: "Memes",
         },
         {
@@ -170,9 +180,9 @@ export default Vue.extend({
           theme: "Memes",
         },
         {
-          title: "Hottest Female Celeb",
-          src: require("../static/bracketfights/hottest_female_celeb.png"),
-          theme: "Movies",
+          title: "Hololive Members",
+          src: require("../static/bracketfights/hololive_Members.png"),
+          theme: "Memes",
         },
         {
           title: "Hottest Female Celeb",
@@ -188,6 +198,21 @@ export default Vue.extend({
           title: "Movies That Made Billions",
           src: require("../static/bracketfights/movies_that_made_billion.png"),
           theme: "Movies",
+        },
+        {
+          title: "Games Played By Admiralbulldog",
+          src: require("../static/bracketfights/Games_Played_By_Admiralbulldog.png"),
+          theme: "Games",
+        },
+        {
+          title: "Games Played By Admiralbulldog 2",
+          src: require("../static/bracketfights/Games_Played_By_Admiralbulldog2.png"),
+          theme: "Games",
+        },
+        {
+          title: "Videogame Companies",
+          src: require("../static/bracketfights/Videogame_Companies.png"),
+          theme: "Games",
         },
       ],
     };

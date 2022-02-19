@@ -201,8 +201,11 @@ export default Vue.extend({
         } else if (
           this.bulldogTwitch[0].is_live === false &&
           this.nextStream > this.vacation_start &&
-          this.nextStream < this.vacation_end
+          this.nextStream < this.vacation_end &&
+          this.currentTime > this.vacation_start &&
+          this.currentTime < this.vacation_end
         ) {
+          console.log(this.vacation_end);
           // no no stream
           return false;
         } else if (this.bulldogTwitch[0].is_live === false) {
