@@ -145,6 +145,11 @@ export default Vue.extend({
 
       tierLists: [
         {
+          title: "",
+          src: "",
+          theme: "All",
+        },
+        {
           title: "McDonalds Menu",
           src: require("../static/bracketfights/mcd_menu.png"),
           theme: "Food",
@@ -225,7 +230,7 @@ export default Vue.extend({
     }
   },
   mounted() {
-    this.returnTierlist("Food");
+    this.returnTierlist("All");
     this.onResize();
 
     window.addEventListener("resize", this.onResize, { passive: true });
@@ -245,9 +250,18 @@ export default Vue.extend({
     returnTierlist(theme: String) {
       this.currentIndex = 0;
       var tempTierlists: Array<String | any> = [];
-      for (let i = 0; i < this.tierLists.length; i++) {
-        if (this.tierLists[i].theme == theme) {
-          tempTierlists.push(this.tierLists[i]);
+      if (theme === "All")
+      {
+         for (let i = 1; i < this.tierLists.length; i++) {
+           tempTierlists.push(this.tierLists[i]);
+         }
+      }
+      else 
+      {
+        for (let i = 0; i < this.tierLists.length; i++) {       
+          if (this.tierLists[i].theme == theme) {
+            tempTierlists.push(this.tierLists[i]);
+          }
         }
       }
       return (this.returnedList = tempTierlists);

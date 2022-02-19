@@ -145,6 +145,11 @@ export default Vue.extend({
 
       tierLists: [
         {
+          title: "",
+          src: "",
+          theme: "All",
+        },
+        {
           title: "Gachi",
           src: require("../static/tierlists/gachi.png"),
           theme: "Memes",
@@ -292,7 +297,7 @@ export default Vue.extend({
   mounted() {
     this.onResize();
 
-    this.returnTierlist("Memes");
+    // this.returnTierlist("All");
     window.addEventListener("resize", this.onResize, { passive: true });
 
     if (!this.isMobile) {
@@ -313,12 +318,21 @@ export default Vue.extend({
     },
   },
   methods: {
-    returnTierlist(theme: String) {
+   returnTierlist(theme: String) {
       this.currentIndex = 0;
       var tempTierlists: Array<String | any> = [];
-      for (let i = 0; i < this.tierLists.length; i++) {
-        if (this.tierLists[i].theme == theme) {
-          tempTierlists.push(this.tierLists[i]);
+      if (theme === "All")
+      {
+         for (let i = 1; i < this.tierLists.length; i++) {
+           tempTierlists.push(this.tierLists[i]);
+         }
+      }
+      else 
+      {
+        for (let i = 0; i < this.tierLists.length; i++) {       
+          if (this.tierLists[i].theme == theme) {
+            tempTierlists.push(this.tierLists[i]);
+          }
         }
       }
       return (this.returnedList = tempTierlists);
