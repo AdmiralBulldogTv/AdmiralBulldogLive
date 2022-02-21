@@ -20,7 +20,6 @@
                 :pages="pages"
                 :ambient="0.2"
                 :nPolygons="8"
-                :clickToZoom="true"
                 centering
                 v-slot="flipbook"
                 ref="flipbook"
@@ -47,22 +46,22 @@ export default {
     return {
       pages: [
         null,
-        "https://cdn.discordapp.com/attachments/594922024946892831/938392348117860442/COVER2.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/936006230974013500/pg2.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938499384008663091/thygod.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938389598378262568/angel_4.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938071099617452052/pg5.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938452102542405712/bulldogmesiah.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938071100389199872/pg7.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938452101720309821/angel1.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938071101047734314/pgviii.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938452102936690748/skull.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938084328351625226/pgX.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938452103377076224/sword.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938391759837335642/pgXI.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938504071772504134/bullpg.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/938443002676904056/pgXIV.png",
-        "https://cdn.discordapp.com/attachments/594922024946892831/936006233624813648/pg9.png",
+        "../bible/COVER2.png",
+        "../bible/pg2.png",
+        "../bible/thygod.png",
+        "../bible/angel_4.png",
+        "../bible/pg5.png",
+        "../bible/bulldogmesiah.png",
+        "../bible/pg7.png",
+        "../bible/angel1.png",
+        "../bible/pgviii.png",
+        "../bible/skull.png",
+        "../bible/pgX.png",
+        "../bible/sword.png",
+        "../bible/pgXI.png",
+        "../bible/bullpg.png",
+        "../bible/pgXIV.png",
+        "../bible/pg9.png",
       ],
     };
   },
