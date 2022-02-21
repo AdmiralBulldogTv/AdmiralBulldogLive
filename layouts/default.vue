@@ -172,7 +172,7 @@ export default {
           to: "/tiermaker",
         },
         {
-          icon: "mdi-view-list",
+          icon: "mdi-tournament",
           title: "Bracket Fights",
           to: "/bracketfights",
         },
