@@ -23,6 +23,15 @@ jobs:
         with:
           node-version: "14"
 
+      - name: Setup yarn
+        run: npm install -g yarn
+
+      - name: Setup Nodejs with yarn caching
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          cache: yarn
+
       - name: Install dependencies
         run: yarn
 
