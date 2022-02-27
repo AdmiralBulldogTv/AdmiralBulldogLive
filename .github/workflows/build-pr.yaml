@@ -1,0 +1,47 @@
+name: Compile App (PR)
+
+on:
+  pull_request:
+  push:
+    branches: [dev]
+
+jobs:
+  pack:
+    name: Compile
+    runs-on: self-hosted
+    # Cannot contain staged label
+    if: ${{ !contains(github.event.pull_request.labels.*.name, 'staged') }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Install Node Env
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.yarn
+          key: yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: yarn-
+
+      - name: Compile
+        run: |
+          yarn build
+          apt-get update && apt-get install -y zip
+          cd dist/ && zip -r build.zip .
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: compile-output.zip
+          path: dist/build.zip
+          retention-days: 14
