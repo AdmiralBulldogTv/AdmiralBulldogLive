@@ -34,7 +34,7 @@
     "yarn": "^1.22.17"
   },
   "devDependencies": {
-    "@ava/babel": "^1.0.1",
+    "@ava/babel": "^2.0.0",
     "@nuxt/types": "^2.15.7",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/vuetify": "^1.12.1",
