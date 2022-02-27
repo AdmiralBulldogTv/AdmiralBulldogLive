@@ -3,7 +3,12 @@
     <v-row
       class="fill-height"
       justify="center"
-      style="margin-left: 14px; margin-right: 14px; padding-bottom: 14px"
+      style="
+        margin-left: 14px;
+        margin-right: 14px;
+        padding-top: 14px;
+        padding-bottom: 10px;
+      "
     >
       <v-col class="flex-grow-1 flex-shrink-1" style="padding: 0">
         <v-card

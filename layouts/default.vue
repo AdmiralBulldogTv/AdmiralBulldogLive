@@ -39,8 +39,10 @@
             <v-icon color="#0b6636">mdi-cart</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title /> <span style="color: #839041">Store</span>
+            <v-list-item-title /> <span style="color: #839041">Shop</span>
+         
           </v-list-item-content>
+            <v-icon color="#839041"> mdi-open-in-new</v-icon>
         </v-list-item>
 
         <v-list-item
@@ -55,6 +57,7 @@
           <v-list-item-content>
             <v-list-item-title /><span style="color: #839041">Subscribe</span>
           </v-list-item-content>
+            <v-icon color="#839041"> mdi-open-in-new</v-icon>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -158,15 +161,20 @@ export default {
           title: "Chat Bot",
           to: "/chatbot",
         },
-        {
+        /* {
           icon: "mdi-frequently-asked-questions",
           title: "FAQ",
           to: "/faq",
-        },
+        },*/
         {
           icon: "mdi-view-list",
           title: "Tiermaker",
-          to: "/Tiermaker",
+          to: "/tiermaker",
+        },
+        {
+          icon: "mdi-tournament",
+          title: "Bracket Fights",
+          to: "/bracketfights",
         },
         {
           icon: "mdi-comment-question",
@@ -227,13 +235,13 @@ export default {
         });
     },
     onResize() {
-      this.isMobile = window.innerWidth < 600;
+      this.$forceUpdate();
     },
     removeSpinners() {
       var fadeTarget = document.getElementById("spinner");
       var fadeEffect = setInterval(function () {
         if (!fadeTarget.style.opacity) {
-          fadeTarget.style.opacity = 1.5;
+          fadeTarget.style.opacity = 2.5;
         }
         if (fadeTarget.style.opacity > 0) {
           fadeTarget.style.opacity -= 0.1;

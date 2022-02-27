@@ -1,12 +1,16 @@
 <template>
   <v-container-fluid>
     <v-row
-      class="fill-height align-stretch"
+      class="fill-height"
       justify="center"
-      style="margin: 2px"
+      style="
+        margin-left: 2px;
+        margin-right: 2px; 
+        padding-top:10px 
+        padding-bottom:8px;"
     >
       <v-col>
-        <v-card class="" style="height: 94%; margin-top: 8px">
+        <v-card class="" style="height: 95%">
           <iframe
             frameBorder="0"
             style="width: 100%; height: 100%"

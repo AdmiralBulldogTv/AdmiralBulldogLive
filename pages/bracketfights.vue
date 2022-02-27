@@ -25,6 +25,7 @@
         </v-col>
         <v-col></v-col>
       </v-row>
+
       <span v-if="this.$vuetify.breakpoint.width <= '1920'">
         <v-card elevation="4" height="auto">
           <v-system-bar
@@ -32,60 +33,12 @@
             style="margin-top: -5px; text-align: justify"
           >
           </v-system-bar>
+
           <v-carousel
             hide-delimiters
             id="caro"
             v-model="currentIndex"
             height="590"
-          >
-            <v-carousel-item
-              id="test"
-              v-for="item in returnedList"
-              :key="item.src"
-              :src="item.src"
-              contain
-            >
-              <v-dialog
-                v-model="dialog"
-                scrollable
-                transition="dialog-bottom-transition"
-              >
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
-                    dark
-                    v-bind="attrs"
-                    v-on="on"
-                    id="btn_img"
-                    @click="zoom"
-                    ref="myBtn"
-                    style="display: none"
-                  >
-                    Open Dialog
-                  </v-btn>
-                </template>
-                <v-card>
-                  <v-card-title>{{ currentTitle }}</v-card-title>
-                  <v-divider></v-divider>
-                  <v-img v-model="dialogm1" :src="item.src"> </v-img>
-                </v-card>
-              </v-dialog>
-            </v-carousel-item>
-          </v-carousel>
-          <v-system-bar lights-out> </v-system-bar>
-        </v-card>
-      </span>
-      <span v-else>
-        <v-card elevation="4" height="auto">
-          <v-system-bar
-            lights-out
-            style="margin-top: -5px; text-align: justify"
-          >
-          </v-system-bar>
-          <v-carousel
-            hide-delimiters
-            id="caro"
-            v-model="currentIndex"
-            height="950"
           >
             <v-carousel-item
               id="test"
@@ -119,6 +72,52 @@
           <v-system-bar lights-out> </v-system-bar>
         </v-card>
       </span>
+      <span v-else>
+        <v-card elevation="4" height="auto">
+          <v-system-bar
+            lights-out
+            style="margin-top: -5px; text-align: justify"
+          >
+          </v-system-bar>
+
+          <v-carousel
+            hide-delimiters
+            id="caro"
+            v-model="currentIndex"
+            height="950"
+          >
+            <v-carousel-item
+              id="test"
+              v-for="item in returnedList"
+              :key="item.src"
+              :src="item.src"
+              contain
+            >
+              <v-dialog v-model="dialog" scrollable>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn
+                    dark
+                    v-bind="attrs"
+                    v-on="on"
+                    id="btn_img"
+                    @click="zoom"
+                    ref="myBtn"
+                    style="display: none"
+                  >
+                    Open Dialog
+                  </v-btn>
+                </template>
+                <v-card>
+                  <v-card-title>{{ currentTitle }}</v-card-title>
+                  <v-divider></v-divider>
+                  <v-img v-model="dialogm1" :src="item.src" contain> </v-img>
+                </v-card>
+              </v-dialog>
+            </v-carousel-item>
+          </v-carousel>
+          <v-system-bar lights-out> </v-system-bar>
+        </v-card>
+      </span>
     </div>
   </v-container>
 </template>
@@ -128,6 +127,7 @@ import Vue from "vue";
 export default Vue.extend({
   data() {
     return {
+      selectedImage: null,
       isTop: false,
       showNavBar: false,
       currentIndex: 0,
@@ -150,175 +150,104 @@ export default Vue.extend({
           theme: "All",
         },
         {
-          title: "Gachi",
-          src: require("../static/tierlists/gachi.png"),
-          theme: "Memes",
-        },
-        {
-          title: "Dictator",
-          src: require("../static/tierlists/dictator.png"),
-          theme: "Memes",
-        },
-        {
-          title: "Worst Ways to Die",
-          src: require("../static/tierlists/worstwaystodie.png"),
-          theme: "Memes",
-        },
-        {
-          title: "Best Actors",
-          src: require("../static/tierlists/actors.png"),
-          theme: "Movies",
-        },
-        {
-          title: "Marvel movie",
-          src: require("../static/tierlists/marvel.png"),
-          theme: "Movies",
-        },
-        {
-          title: "Star Wars",
-          src: require("../static/tierlists/starwars.png"),
-          theme: "Movies",
-        },
-        {
-          title: "Lord of the Rings",
-          src: require("../static/tierlists/lotr.png"),
-          theme: "Movies",
-        },
-        {
-          title: "Spiderman movie",
-          src: require("../static/tierlists/spidermanmovie.png"),
-          theme: "Movies",
-        },
-        {
-          title: "Avenger Power List",
-          src: require("../static/tierlists/avengerpower.png"),
-          theme: "Movies",
-        },
-        {
-          title: "Game of Thrones",
-          src: require("../static/tierlists/got.png"),
-          theme: "Movies",
-        },
-        {
-          title: "Horror Movie Villains",
-          src: require("../static/tierlists/horrormovie_villains.png"),
-          theme: "Movies",
-        },
-        {
-          title: "Best animated Disney Movies",
-          src: require("../static/tierlists/disneymovies.png"),
-          theme: "Movies",
-        },
-        {
-          title: "Pixar Movies",
-          src: require("../static/tierlists/movies_pixar.png"),
-          theme: "Movies",
-        },
-        {
-          title: "IMDB Top 100",
-          src: require("../static/tierlists/imdb.png"),
-          theme: "Movies",
-        },
-        {
-          title: "Dota 2 Waifus",
-          src: require("../static/tierlists/dotawaifu.png"),
-          theme: "Dota",
-        },
-        {
-          title: "TI Finals",
-          src: require("../static/tierlists/TI_final.png"),
-          theme: "Dota",
-        },
-        {
-          title: "Nuts",
-          src: require("../static/tierlists/nuts.png"),
-          theme: "Food",
-        },
-        {
-          title: "Breakfast",
-          src: require("../static/tierlists/breakfast.png"),
-          theme: "Food",
-        },
-        {
-          title: "Dessert",
-          src: require("../static/tierlists/dessert.png"),
+          title: "McDonalds Menu",
+          src: require("../static/bracketfights/mcd_menu.png"),
           theme: "Food",
         },
         {
           title: "Pizza Toppings",
-          src: require("../static/tierlists/pizzatopping.png"),
+          src: require("../static/bracketfights/Pizza_Toppings.png"),
           theme: "Food",
         },
         {
-          title: "Vegetables",
-          src: require("../static/tierlists/vegetables.png"),
-          theme: "Food",
-        },
-        {
-          title: "Fruit",
-          src: require("../static/tierlists/fruit.png"),
-          theme: "Food",
-        },
-        {
-          title: "Animals I could fight",
-          src: require("../static/tierlists/animals_fight.png"),
+          title: "Animal Battle Royal",
+          src: require("../static/bracketfights/animal_battle_royal.png"),
           theme: "Memes",
         },
         {
-          title: "Season 5 Contenstants",
-          src: require("../static/tierlists/masterchef_s5.png"),
-          theme: "Masterchef",
+          title: "Horror Icons",
+          src: require("../static/bracketfights/Horror_Icons.png"),
+          theme: "Memes",
         },
         {
-          title: "Season 6 Contenstants",
-          src: require("../static/tierlists/masterchef_s6.png"),
-          theme: "Masterchef",
+          title: "Best South Park Character",
+          src: require("../static/bracketfights/Best South Park Character.png"),
+          theme: "Movies",
         },
         {
-          title: "Season 7 Contenstants",
-          src: require("../static/tierlists/masterchef_s7.png"),
-          theme: "Masterchef",
+          title: "Top 50 Memes",
+          src: require("../static/bracketfights/top50memes.png"),
+          theme: "Memes",
         },
         {
-          title: "Megacucks",
-          src: require("../static/tierlists/megacucks.png"),
-          theme: "Stream Content",
+          title: "Best Historical Dinner Guests",
+          src: require("../static/bracketfights/Best_Historical_Dinner_Guests.png"),
+          theme: "Memes",
         },
         {
-          title: "Free Content",
-          src: require("../static/tierlists/free_content.png"),
-          theme: "Stream Content",
+          title: "Hololive Members",
+          src: require("../static/bracketfights/hololive_Members.png"),
+          theme: "Memes",
+        },
+        {
+          title: "Hottest Female Celeb",
+          src: require("../static/bracketfights/hottest_female_celeb.png"),
+          theme: "Movies",
+        },
+        {
+          title: "Movie Franchise",
+          src: require("../static/bracketfights/movie_franchise.png"),
+          theme: "Movies",
+        },
+        {
+          title: "Movies That Made Billions",
+          src: require("../static/bracketfights/movies_that_made_billion.png"),
+          theme: "Movies",
+        },
+        {
+          title: "Games Played By Admiralbulldog",
+          src: require("../static/bracketfights/Games_Played_By_Admiralbulldog.png"),
+          theme: "Games",
+        },
+        {
+          title: "Games Played By Admiralbulldog 2",
+          src: require("../static/bracketfights/Games_Played_By_Admiralbulldog2.png"),
+          theme: "Games",
+        },
+        {
+          title: "Videogame Companies",
+          src: require("../static/bracketfights/Videogame_Companies.png"),
+          theme: "Games",
         },
       ],
-      tempLength: 0,
     };
   },
 
-  mounted() {
-    this.onResize();
-
-    // this.returnTierlist("All");
-    window.addEventListener("resize", this.onResize, { passive: true });
-
-    if (!this.isMobile) {
-      document.getElementById("caro").addEventListener("click", this.zoom);
-    }
-  },
   beforeDestroy() {
     if (typeof window !== "undefined") {
       // @ts-ignore
       window.removeEventListener("resize", this.onResize, { passive: true });
     }
   },
+  mounted() {
+    this.returnTierlist("All");
+    this.onResize();
+
+    window.addEventListener("resize", this.onResize, { passive: true });
+
+    if (!this.isMobile) {
+      document.getElementById("caro").addEventListener("click", this.zoom);
+    }
+  },
   computed: {
-    currentTitle: function (): string {
+    currentTitle: function (): String {
       if (this.returnedList[this.currentIndex] !== undefined) {
-        return this.returnedList[this.currentIndex].title + " Tierlist";
+        return this.returnedList[this.currentIndex].title + " ";
       }
     },
   },
   methods: {
-   returnTierlist(theme: String) {
+    returnTierlist(theme: String) {
       this.currentIndex = 0;
       var tempTierlists: Array<String | any> = [];
       if (theme === "All")
