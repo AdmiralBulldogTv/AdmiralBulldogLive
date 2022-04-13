@@ -38,7 +38,7 @@
     "@nuxt/types": "^2.15.7",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/vuetify": "^1.12.1",
-    "@vue/test-utils": "^2.0.0-rc.17",
+    "@vue/test-utils": "^2.0.0-rc.20",
     "ava": "^4.1.0",
     "babel-plugin-module-resolver": "^4.1.0",
     "cross-env": "^7.0.3",
