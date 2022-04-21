@@ -297,7 +297,7 @@ export default Vue.extend({
   mounted() {
     this.onResize();
 
-    // this.returnTierlist("All");
+    this.returnTierlist("All");
     window.addEventListener("resize", this.onResize, { passive: true });
 
     if (!this.isMobile) {

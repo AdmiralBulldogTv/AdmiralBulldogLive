@@ -15,6 +15,7 @@
           elevation="4"
           align="left"
           style="height: 94%; margin-top: 8px; min-width: 400px"
+          tile
         >
           <iframe
             frameborder="0"
@@ -32,6 +33,7 @@
             elevation="4"
             align="left"
             id="chat"
+            tile
             style="
               min-width: 22rem;
               width: 400px;

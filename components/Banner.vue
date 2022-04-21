@@ -113,7 +113,6 @@ export default Vue.extend({
           return response.json();
         })
         .then((data) => {
-          console.log(data);
           let bulldogStream = [];
           bulldogStream.push({
             streamID: data.data[0].id,
@@ -205,7 +204,6 @@ export default Vue.extend({
           this.currentTime > this.vacation_start &&
           this.currentTime < this.vacation_end
         ) {
-          console.log(this.vacation_end);
           // no no stream
           return false;
         } else if (this.bulldogTwitch[0].is_live === false) {

@@ -219,7 +219,6 @@ export default {
           return response.json();
         })
         .then((data) => {
-          // console.log(data);
           let bulldogStream = [];
           bulldogStream.push({
             streamID: data.data[0].id,
