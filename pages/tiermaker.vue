@@ -289,6 +289,26 @@ export default Vue.extend({
           src: require("../static/tierlists/free_content.png"),
           theme: "Stream Content",
         },
+        {
+          title: "Animals I could fight with a gun",
+          src: require("../static/tierlists/animals_fight_gun.png"),
+          theme: "Memes",
+        },
+        {
+          title: "Animals I could fight with a knife",
+          src: require("../static/tierlists/animals_fight_knife.png"),
+          theme: "Memes",
+        },
+        {
+          title: "King of Nerds Season 2",
+          src: require("../static/tierlists/king_of_nerds_s2.png"),
+          theme: "King of Nerds",
+        },
+        {
+          title: "King of Nerds Season 2 & 3",
+          src: require("../static/tierlists/king_of_nerds_s2&s3.png"),
+          theme: "King of Nerds",
+        },
       ],
       tempLength: 0,
     };
