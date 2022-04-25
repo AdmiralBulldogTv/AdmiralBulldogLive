@@ -306,7 +306,7 @@ export default Vue.extend({
         },
         {
           title: "King of Nerds Season 2 & 3",
-          src: require("../static/tierlists/king_of_nerds_s2&s3.png"),
+          src: require("../static/tierlists/king_of_nerds_s2_s3.png"),
           theme: "King of Nerds",
         },
       ],
