@@ -22,7 +22,7 @@
     "fs": "^0.0.1-security",
     "git-secret": "^1.0.5",
     "gpg": "^0.6.0",
-    "moment": "^2.29.1",
+    "moment": "^2.29.3",
     "nuxt": "^2.15.8",
     "prettier": "^2.4.1",
     "raw-loader": "^4.0.2",
