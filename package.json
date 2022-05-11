@@ -17,7 +17,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/separate-env": "^0.0.1",
     "core-js": "^3.22.3",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.1",
     "flipbook-vue": "^0.10.4",
     "fs": "^0.0.1-security",
     "git-secret": "^1.0.5",
