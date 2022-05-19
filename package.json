@@ -27,7 +27,7 @@
     "prettier": "^2.6.2",
     "raw-loader": "^4.0.2",
     "twitter-widgets": "^2.0.0",
-    "vue-lazytube": "^1.0.2",
+    "vue-lazytube": "^1.1.0",
     "vue-moment": "^4.1.0",
     "vue-youtube-embed": "^2.2.2",
     "vuetify": "^2.6.4",
