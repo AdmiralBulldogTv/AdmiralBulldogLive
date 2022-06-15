@@ -73,6 +73,7 @@ const ama_210119: object = require("raw-loader!../assets/amas/ama_210119.txt");
 const ama_210110: object = require("raw-loader!../assets/amas/ama_210110.txt");
 const ama_201129: object = require("raw-loader!../assets/amas/ama_201129.txt");
 const ama_220411: object = require("raw-loader!../assets/amas/ama_220411.txt");
+const ama_220606: object = require("raw-loader!../assets/amas/ama_220606.txt");
 
 import Vue from "vue";
 export default Vue.extend({
@@ -81,6 +82,7 @@ export default Vue.extend({
       isTop: false,
       showNavBar: false,
       amas: [
+        { title: "AMA of 06.06.2022", file: ama_220606 },
         { title: "AMA of 11.04.2022", file: ama_220411 },
         { title: "AMA of 13.02.2022", file: ama_220213 },
         { title: "AMA of 22.12.2021", file: ama_211222 },

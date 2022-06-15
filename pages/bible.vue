@@ -20,6 +20,7 @@
                 :pages="pages"
                 :ambient="0.2"
                 :nPolygons="8"
+                :clickToZoom="0"
                 centering
                 v-slot="flipbook"
                 ref="flipbook"
