@@ -24,7 +24,7 @@
     "gpg": "^0.6.0",
     "moment": "^2.29.3",
     "nuxt": "^2.15.8",
-    "prettier": "^2.6.2",
+    "prettier": "^2.7.1",
     "raw-loader": "^4.0.2",
     "twitter-widgets": "^2.0.0",
     "vue-lazytube": "^1.0.2",
