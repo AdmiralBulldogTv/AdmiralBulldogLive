@@ -255,6 +255,11 @@ export default Vue.extend({
           theme: "Food",
         },
         {
+          title: "Meat",
+          src: require("../static/tierlists/meat.png"),
+          theme: "Food",
+        },
+        {
           title: "Fruit",
           src: require("../static/tierlists/fruit.png"),
           theme: "Food",

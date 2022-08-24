@@ -138,7 +138,7 @@ export default {
       bulldogTwitch: [],
       isMobile: false,
       clipped: false,
-      drawer: false,
+      drawer: true,
       fixed: false,
       items: [
         {
