@@ -12,16 +12,15 @@
       <v-col>
         <v-card class="" style="height: 95%; overflow-y: none">
           <v-alert
-        border="bottom"
-  color="orange"
-  dense
-  
-  type="info"
-  style="text-align: center;"
->
-Bulldogs OBS plugin that recoded the VODs broke :-( 
-There wont be any <b>new</b> VODs for a bit...
-</v-alert>
+            border="bottom"
+            color="orange"
+            dense
+            type="info"
+            style="text-align: center"
+          >
+            Bulldogs OBS plugin that recoded the VODs broke :-( There wont be
+            any <b>new</b> VODs for a bit...
+          </v-alert>
           <iframe
             frameBorder="0"
             style="width: 100%; height: 93%"

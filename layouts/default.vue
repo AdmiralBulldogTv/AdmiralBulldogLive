@@ -40,9 +40,8 @@
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title /> <span style="color: #839041">Shop</span>
-         
           </v-list-item-content>
-            <v-icon color="#839041"> mdi-open-in-new</v-icon>
+          <v-icon color="#839041"> mdi-open-in-new</v-icon>
         </v-list-item>
 
         <v-list-item
@@ -57,7 +56,7 @@
           <v-list-item-content>
             <v-list-item-title /><span style="color: #839041">Subscribe</span>
           </v-list-item-content>
-            <v-icon color="#839041"> mdi-open-in-new</v-icon>
+          <v-icon color="#839041"> mdi-open-in-new</v-icon>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>

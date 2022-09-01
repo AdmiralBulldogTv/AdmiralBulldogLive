@@ -76,7 +76,6 @@ const ama_220411: object = require("raw-loader!../assets/amas/ama_220411.txt");
 const ama_220606: object = require("raw-loader!../assets/amas/ama_220606.txt");
 const ama_220812: object = require("raw-loader!../assets/amas/ama_220812.txt");
 
-
 import Vue from "vue";
 export default Vue.extend({
   data() {

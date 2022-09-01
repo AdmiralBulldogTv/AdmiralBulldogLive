@@ -4,4 +4,3 @@ export default {
     OAUTH_TOKEN: "qjt6vcpplo1k8nqmjunbz1uiptc9qx",
   },
 };
-

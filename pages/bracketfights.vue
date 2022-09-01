@@ -250,15 +250,12 @@ export default Vue.extend({
     returnTierlist(theme: String) {
       this.currentIndex = 0;
       var tempTierlists: Array<String | any> = [];
-      if (theme === "All")
-      {
-         for (let i = 1; i < this.tierLists.length; i++) {
-           tempTierlists.push(this.tierLists[i]);
-         }
-      }
-      else 
-      {
-        for (let i = 0; i < this.tierLists.length; i++) {       
+      if (theme === "All") {
+        for (let i = 1; i < this.tierLists.length; i++) {
+          tempTierlists.push(this.tierLists[i]);
+        }
+      } else {
+        for (let i = 0; i < this.tierLists.length; i++) {
           if (this.tierLists[i].theme == theme) {
             tempTierlists.push(this.tierLists[i]);
           }
