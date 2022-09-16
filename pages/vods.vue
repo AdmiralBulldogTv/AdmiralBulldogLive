@@ -13,7 +13,7 @@
         <v-card class="" style="height: 95%; overflow-y: none">
           <iframe
             frameBorder="0"
-            style="width: 100%; height: 93%"
+            style="width: 100%; height: 100%"
             src="https://vods.admiralbulldog.live/"
             allowfullscreen="true"
           >
