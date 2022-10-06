@@ -75,6 +75,7 @@ const ama_201129: object = require("raw-loader!../assets/amas/ama_201129.txt");
 const ama_220411: object = require("raw-loader!../assets/amas/ama_220411.txt");
 const ama_220606: object = require("raw-loader!../assets/amas/ama_220606.txt");
 const ama_220812: object = require("raw-loader!../assets/amas/ama_220812.txt");
+const ama_221005: object = require("raw-loader!../assets/amas/ama_221005.txt");
 
 import Vue from "vue";
 export default Vue.extend({
@@ -83,6 +84,7 @@ export default Vue.extend({
       isTop: false,
       showNavBar: false,
       amas: [
+        { title: "AMA of 05.10.2022", file: ama_221005 },
         { title: "AMA of 12.08.2022", file: ama_220812 },
         { title: "AMA of 06.06.2022", file: ama_220606 },
         { title: "AMA of 11.04.2022", file: ama_220411 },
@@ -111,8 +113,8 @@ export default Vue.extend({
     },
 
     formatAma(amaStr: string) {
-      let returnString = "";
-      let firstcard = true;
+      let returnString:string = "";
+      let firstcard:boolean = true;
       for (let i = 0; i < amaStr.split("\n").length - 1; i++) {
         if (amaStr.split("\n")[0].indexOf("—") > -1 && firstcard) {
           returnString +=
